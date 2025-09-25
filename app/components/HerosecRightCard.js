@@ -53,7 +53,7 @@ export default function HerosecRightCard() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="px-3 bg-main-bg py-2 rounded-full outline-none w-52 shadow-md text-sm"
+              className="px-3 bg-main-bg py-2 rounded-full outline-none xl:w-[18rem] shadow-md text-sm"
             />
           </div>
           <Button btnBg={btnBg} textColor={textColor}>
@@ -61,15 +61,18 @@ export default function HerosecRightCard() {
           </Button>
         </div>
 
-        <div className="absolute top-1/3 left-6 bg-yellow-400 p-4 rounded-xl max-w-xs shadow-md">
+        <div className="absolute top-[7rem] left-6 bg-yellow p-4 rounded-xl xl:max-w-[16rem] shadow-md">
           <div className="flex items-center gap-3">
-            <Image
-              width={65}
-              height={70}
-              src={current.image}
-              alt={current.name}
-              className=" object-cover"
-            />
+            <div className="xl:w-[24rem] xl:h-28 rounded-md overflow-hidden border-yellow">
+              <Image
+                width={100}
+                height={100}
+                src={current.image}
+                alt={current.name}
+                className="w-full h-full"
+              />
+            </div>
+
             <div className="flex flex-col">
               <div className="flex text-dark-green">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -83,7 +86,7 @@ export default function HerosecRightCard() {
                   />
                 ))}
               </div>
-              <p className="text-xs text-black mt-1">{current.text}</p>
+              <p className="text-xs text-dark-green mt-1">{current.text}</p>
             </div>
           </div>
         </div>
@@ -112,9 +115,9 @@ export default function HerosecRightCard() {
           {/* <ChevronRight className="w-5 h-5" /> */}
         </div>
         <div className="absolute bg-white p-3 pl-9 text-center right-0 bottom-0  rounded-tl-[4rem] clip-slant ">
-          <p className="text-gray-700 max-w-[18rem] text-left text-sm">
-            We’re not experts in suits, we’re students, storytellers, builders,
-            and friends who decided to do something.
+          <p className="text-gray-700 font-satoshi font-light italic  xl:max-w-[22rem] text-left text-sm">
+            &quot; We’re not experts in suits, we’re students, storytellers,
+            builders, and friends who decided to do something. &quot;
           </p>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Wrapper from "./Wrapper";
 import Button from "./Button";
+import CardCounter from "./CardCounter";
 
 function Container({ children }) {
   <div
@@ -24,12 +25,10 @@ export default function WhatWeDoSection() {
   return (
     <Wrapper>
       <div className="mt-[7rem] mb-[8rem] xl:px-[3.5rem] py-0">
-        <div className=" text-center flex flex-col">
-          <span className="font-medium text-2xl">What We Do</span>
-          <p className="font-bold text-[2.2rem] font-satoshi">
-            We do three main things
-          </p>
-          <div className="font-light text-[2.2rem] flex flex-col ">
+        <div className="font-satoshi text-center flex flex-col">
+          <span className="font-normal text-2xl">What We Do</span>
+          <p className="font-bold text-[2.2rem] ">We do three main things</p>
+          <div className="font-medium text-[2.2rem] flex flex-col ">
             <span>(all rooted in what we’ve</span>
             <span>actually lived through)</span>
           </div>
@@ -40,7 +39,7 @@ export default function WhatWeDoSection() {
             <div
               className="xl:w-[39.6rem] xl:h-[17rem] relative"
               style={{
-                backgroundImage: "url('/whatwedo.jpg')",
+                backgroundImage: "url('/whatwedo01.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -48,28 +47,20 @@ export default function WhatWeDoSection() {
               }}
             >
               <div className="absolute left-[2rem] top-[45%] bg-main-bg/80 xl:w-[25rem] rounded-md">
-                <p className="font-montserrat font-extra-light text-sm p-4 ">
-                  <span className="font-bold">We build tech projects </span>
-                  with young people to tackle problems like flooding, waste, and
-                  dirty energy because we’ve seen the damage firsthand.
+                <p className="font-satoshi font-normal text-sm p-4 ">
+                  <span className="font-bold">
+                    We use technology to educate and innovate,{" "}
+                  </span>
+                  guiding young people to apply existing tools in protecting and
+                  connecting to the environment, while building solutions
+                  ourselves.
                 </p>
               </div>
             </div>
             <div className="flex flex-wrap gap-x-4 xl:w-[29rem] h-[20rem] justify-center ">
               {cardArr.map((card, i) => {
-                return (
-                  <div
-                    key={i}
-                    className=" bg-main-bg mt-4 shadow-sm rounded-lg p-2 h-[8rem] w-[13rem] flex flex-col items-center justify-center"
-                  >
-                    <span className="font-satoshi font-extra-bold text-4xl text-dark-green">
-                      {card.numb}+
-                    </span>
-                    <p className="font-montserrat font-light text-base text-center">
-                      {card.text}
-                    </p>
-                  </div>
-                );
+                const { numb, text } = card;
+                return <CardCounter key={i} numb={numb} text={text} />;
               })}
             </div>
           </div>
@@ -87,10 +78,11 @@ export default function WhatWeDoSection() {
               }}
             >
               <div className="absolute left-[2rem] top-[45%] bg-main-bg/80 xl:w-[70%] rounded-md">
-                <p className="font-montserrat font-extra-light text-sm p-4 ">
-                  <span className="font-bold">We tell stories </span>
-                  in a way our friends, parents, and classmates can understand
-                  in English, Yoruba, Hausa, and Igbo
+                <p className="font-normal text-sm p-4 ">
+                  <span className="font-bold">
+                    We tell stories of climate and environmental resilience,{" "}
+                  </span>
+                  drawn from real cases to amplify voices.
                 </p>
               </div>
             </div>
@@ -99,7 +91,7 @@ export default function WhatWeDoSection() {
             <div
               className="xl:w-[21rem] xl:h-[17rem] relative"
               style={{
-                backgroundImage: "url('/whatwedo.jpg')",
+                backgroundImage: "url('/whatwedo3.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -107,7 +99,7 @@ export default function WhatWeDoSection() {
               }}
             >
               <div className="absolute left-[2rem] top-[45%] bg-main-bg/80 xl:w-[70%] rounded-md">
-                <p className="font-montserrat font-extra-light text-sm p-4 ">
+                <p className=" font-normal text-sm p-4 ">
                   <span className="font-bold">We run digital campaigns </span>
                   where we team up with creators to get young people fired up
                   about protecting their communities.

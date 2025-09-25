@@ -30,14 +30,31 @@ function Navbody({ bg, textColor }) {
 
   return (
     <div
-      className="w-[104%] left-1/2 transform -translate-x-1/2 h-screen py-6 absolute top-[20px] md:top-[18px] z-30 lg:hidden"
+      className="w-[104%] left-1/2 transform -translate-x-1/2 h-screen  px-6 absolute top-[20px] md:top-[18px] z-30 lg:hidden"
       style={{ backgroundColor: bg, color: textColor }}
     >
       <ul className="flex h-auto flex-col gap-0 items-center justify-start">
-        <li className="flex items-center pl-6 font-medium w-full h-[48px] border-t-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
+        <li className="flex justify-between items-center pl-6 pr-3 font-medium w-full h-[48px] border-t-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/home">
             HOME
           </CurrentNav>
+          <div onClick={closeHandler}>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6L6 18M6 6L18 18"
+                stroke="#333437"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
         </li>
 
         <li className="flex items-center pl-6 font-medium w-full h-[48px] border-t-2 border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
