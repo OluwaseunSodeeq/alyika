@@ -6,7 +6,7 @@ export default function TestimonialSection() {
     {
       rating: "5",
       text: "“Before this, I didn’t even know climate tech was a thing. Now I’m designing my own project.”",
-      name: "Oluwasegun",
+      name: "Oluwaseun",
       image: "/person.png",
       age: 17,
     },
@@ -20,8 +20,8 @@ export default function TestimonialSection() {
     {
       rating: "5",
       text: "“Before this, I didn’t even know climate tech was a thing. Now I’m designing my own project.”",
-      name: "Oluwaseun",
-      image: "/person.png",
+      name: "Oluwasegun",
+      image: "/hafsat2.jpg",
       age: 17,
     },
   ];

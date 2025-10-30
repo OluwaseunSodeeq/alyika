@@ -7,15 +7,15 @@ export default function HowWeWorkSection() {
   const howWeWorkArray = [
     {
       heading: "GDFT",
-      text: "Building tech with students sensors, solar tools, and even AI (yup, we’re working on an app).",
+      text: "Building digital skills and solutions that help young people use and create tech for climate action.",
     },
     {
       heading: "GDS",
-      text: "Stories from our neighbourhoods the hard stuff, the hopeful stuff, all told our way.",
+      text: "Building awareness through stories of climate resilience, told in ways everyone can understand.",
     },
     {
       heading: "GDC",
-      text: "Our digital campaign that got thousands of people talking about youth and climate.",
+      text: "Building digital campaigns and community actions that spread awareness and inspire change.",
     },
   ];
   return (
@@ -25,12 +25,12 @@ export default function HowWeWorkSection() {
           <h4 className="font-satoshi font-bold text-4xl ">
             Wanna see how we work?
           </h4>
-          <span className="font-light block ">These are our favourite</span>
-          <span className="font-light">projects:</span>
+          <span className="font-light block ">Our projects are sectioned </span>
+          <span className="font-light">into the following:</span>
         </div>
         <div className="flex gap-x-6 items-center mt-[5.4rem] mb-[5.6rem] ">
           <Button btnBg="#ffffff" textColor="#012f25">
-            See Our Project
+            See Our Projects
           </Button>
           <span className="italic underline cursor-pointer font-montserrat text-[11px] font-medium text-main-bg mt-3.5">
             Support Us
@@ -43,7 +43,7 @@ export default function HowWeWorkSection() {
         })}
       </div>
       <div
-        className="absolute opacity-100 w-[30rem] h-[32rem] top-[6rem] right-[-2rem] "
+        className="absolute opacity-100 w-[34rem] h-[32rem] top-[6rem] right-[-6rem]"
         // style={{ transform: "rotate(21.84deg)" }}
       >
         <Image src="/logo-bg.png" alt="logo" fill className="object-contain" />

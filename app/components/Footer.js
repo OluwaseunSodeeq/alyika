@@ -17,12 +17,11 @@ export default function Footer() {
             />
           </div>
           <p className="text-center md:text-left text-xl md:text-base xl:w-[22.2rem]">
-            We’re one message away. Let’s talk ideas, partnerships, or how you
-            can support.
+            We’re only one call away. Literally! And just a few emails away too.
           </p>
         </div>
         <Button btnBg="#fdcd31" textColor="#012f25">
-          Get started
+          Contact Us
         </Button>
       </div>
 
@@ -69,13 +68,12 @@ export default function Footer() {
         </div>
       </div>
 
-
       {/* Bottom section */}
       <div className="mt-30 flex flex-col md:flex-row justify-between items-center text-sm text-white/70 gap-6">
         <p>Privacy Policy</p>
         <div className="flex gap-12">
-          <p>+234 800 CLEMESET</p>
-          <p> hello@climset.ng</p>
+          <p>+234 810 5810 398 CLEMESET</p>
+          <p> projectclimeset@gmail.com</p>
           <div className="flex space-x-4">
             <Facebook className="w-5 h-5 cursor-pointer text-white" />
             <Twitter className="w-5 h-5 cursor-pointer text-white" />

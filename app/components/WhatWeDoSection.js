@@ -107,7 +107,8 @@ export default function WhatWeDoSection() {
               </div>
             </div>
           </div>
-          <div className="xl:w-[17.8rem] xl:h-[12.8rem] shadow-sm mt-4 pl-4 pt-2 rounded-sm relative bg-main-bg">
+          {/* <div className="xl:w-[17.8rem] xl:h-[12.8rem] shadow-sm mt-4 pl-4 pt-2 rounded-sm relative bg-main-bg"> */}
+          <div className="xl:w-[17.8rem] xl:h-[12.8rem] shadow-sm mt-4 pl-4 pt-2 rounded-sm relative ">
             <p className="font-satoshi font-medium text-4xl text-dark-green">
               Want to know where it all started?
             </p>
