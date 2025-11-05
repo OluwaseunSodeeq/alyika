@@ -26,7 +26,7 @@ export default function TestimonialSection() {
     },
   ];
   return (
-    <div className="flex justify-between items-center gap-3 xl:px-[3.5rem] xl:pb-[5.6rem] ">
+    <div className="relative xl:h-auto  pb-[4rem] flex justify-between items-center gap-3 xl:px-[3.5rem] ">
       {testimonialArray.map((testimonial, i) => {
         return <TestimonialCard key={i} testimonial={testimonial} />;
       })}

@@ -1,5 +1,5 @@
 "use client";
-import { createContext } from "react";
+import { createContext, memo, } from "react";
 // Create a Context for Theme (Light/Dark mode)
 const ThemeContext = createContext();
 
@@ -22,5 +22,6 @@ function ToggleButton() {
     </button>
   );
 }
+
 
 export { ThemeContext, ThemeContextProvider, ToggleButton };

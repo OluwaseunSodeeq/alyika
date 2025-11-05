@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 export default function CardCounter({ numb, text }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const hasAnimated = useRef(false); 
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -12,7 +12,7 @@ export default function CardCounter({ numb, text }) {
         if (entries[0].isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
           let start = 1;
-          const duration = 1500; 
+          const duration = 1500;
           const increment = Math.ceil(numb / (duration / 16));
 
           const updateCounter = () => {

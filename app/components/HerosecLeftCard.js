@@ -8,13 +8,13 @@ export default function HerosecLeftCard() {
   const textColor = "#012f25";
 
   return (
-    <div className="2xl:w-[36rem] xl:w-[33rem] sm:w-[20rem]  bg-dark-green text-main-bg px-2 sm:px-3 xl:pt-[7rem] xl:px-[3.5rem] xl:pb-[2rem] rounded-[1.2rem] border-2">
+    <div className="2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] sm:w-[20rem]  bg-dark-green text-main-bg px-2 sm:px-3 xl:pt-[7rem] xl:px-[3.5rem] xl:pb-[2rem] rounded-[1.2rem] border-2">
       <h1 className=" font-satoshi text-[40px] text-nowrap text-main-bg mb-4 ">
         Building Green Dreams
       </h1>
       <div className="text-4xl text-main-bg font-light mb-4">
         <div className=" flex items-center gap-x-1">
-          <div className="border-b pb-1 ">
+          <div className="border-b-2 pb-1 ">
             <Image
               src="/white-arrows.png"
               alt="arrow"
@@ -42,9 +42,9 @@ export default function HerosecLeftCard() {
         </p>
       </div>
 
-      <div className="font-montserrat flex gap-3 items-center xl:mt-[3rem] ">
+      <div className="font-montserrat flex gap-3 items-center xl:mt-[1.2rem] ">
         <Button btnBg={btnBg} textColor={textColor}>
-          Join Our Dreamers
+          Get Involved
         </Button>
         <Link
           href="/"

@@ -8,7 +8,7 @@ export default function Nav({ nav }) {
 
   return (
     <div>
-      <ul className="hidden xl:flex gap-[1.5rem]">
+      <ul className="hidden xl:flex xl:gap-[3.5rem] ">
         {nav?.map((item, i) => {
           const active = activePage === item.href;
 

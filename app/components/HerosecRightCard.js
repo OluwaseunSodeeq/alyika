@@ -53,7 +53,7 @@ export default function HerosecRightCard() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="px-3 bg-main-bg py-2 rounded-full outline-none xl:w-[18rem] shadow-md text-sm"
+              className="px-3 bg-light-green py-2 rounded-full outline-none xl:w-[18rem] shadow-md text-sm"
             />
           </div>
           <Button btnBg={btnBg} textColor={textColor}>

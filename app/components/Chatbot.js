@@ -33,7 +33,7 @@ export default function Chatbot() {
   }, [messages]);
 
   return (
-//    <div className=" w-full flex justify-center items-center border">
+    //    <div className=" w-full flex justify-center items-center border">
     <div className="fixed bottom-4   bg-white w-[90%] md:w-[40%] mx-auto h-[87%] shadow-xl rounded-lg flex flex-col border-2">
       <div className="bg-blue-600 text-white p-3 font-semibold text-center rounded-t-lg">
         Chatbot
@@ -72,4 +72,3 @@ export default function Chatbot() {
     // </div>
   );
 }
-

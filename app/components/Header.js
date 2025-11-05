@@ -48,11 +48,11 @@ export default function Header() {
               <Logo />
             </div>
             <Nav nav={navs} />
-            <div className="hidden xl:block xl:ml-[5rem]">
+            <div className="hidden xl:block xl:mr-[1.5rem]">
               <Logo />
             </div>
 
-            <div className="hidden  xl:flex gap-[2rem]">
+            <div className="hidden  xl:flex gap-[3rem]">
               <DropDown options={dropDown1} />
               <DropDown options={dropDown2} />
               <Button btnBg={btnBg} textColor={bg}>

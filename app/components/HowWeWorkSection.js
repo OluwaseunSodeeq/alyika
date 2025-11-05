@@ -20,15 +20,13 @@ export default function HowWeWorkSection() {
   ];
   return (
     <div className=" px-[3.5rem] bg-dark-green relative overflow-hidden">
-      <div className="flex justify-between px-4 pb-3 pt-[5rem]">
-        <div className="text-main-bg text-4xl">
-          <h4 className="font-satoshi font-bold text-4xl ">
-            Wanna see how we work?
-          </h4>
+      <div className=" flex justify-between px-4 pb-3 pt-[5rem]">
+        <div className="font-satoshi text-main-bg text-4xl">
+          <h4 className="font-bold text-4xl ">Wanna see how we work?</h4>
           <span className="font-light block ">Our projects are sectioned </span>
           <span className="font-light">into the following:</span>
         </div>
-        <div className="flex gap-x-6 items-center mt-[5.4rem] mb-[5.6rem] ">
+        <div className="flex gap-x-6 items-center mt-[5.4rem]">
           <Button btnBg="#ffffff" textColor="#012f25">
             See Our Projects
           </Button>
@@ -37,7 +35,7 @@ export default function HowWeWorkSection() {
           </span>
         </div>
       </div>
-      <div className="flex justify-between items-center pb-[9rem] gap-6">
+      <div className=" flex justify-between items-center  pt-[5.6rem] pb-[9rem] gap-6">
         {howWeWorkArray.map((item, i) => {
           return <HowWeWorkCard key={i} index={i} item={item} />;
         })}

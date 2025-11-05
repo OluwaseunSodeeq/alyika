@@ -4,7 +4,7 @@ import Button from "./Button";
 export default function HowWeWorkCard({ item, index }) {
   return (
     <div
-      className={` w-[23rem] h-[20rem]  flex flex-col justify-center items-center shadow-md rounded-xl xl:px-18 py-3 font-satoshi ${
+      className={` w-[23rem] h-[20rem]  flex flex-col justify-center items-center shadow-md rounded-xl xl:px-[74px] py-3 font-satoshi ${
         (index + 1) % 2 === 0
           ? "bg-yellow text-dark-green"
           : " bg-card-green text-main-bg"

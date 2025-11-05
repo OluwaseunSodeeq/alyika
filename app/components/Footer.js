@@ -1,4 +1,5 @@
-import { Mail, Facebook, Twitter, Instagram } from "lucide-react";
+// import { Mail, Facebook, Twitter, Instagram } from "lucide-react";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 import Button from "./Button";
 import Image from "next/image";
 
@@ -26,17 +27,18 @@ export default function Footer() {
       </div>
 
       {/* Middle section */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mt-8">
+      {/* <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mt-10"> */}
+      <div className="flex justify-between xl:mr-[4rem] mt-10">
         {/* Newsletter */}
         <div className="md:col-span-2">
           <h3 className="font-semibold text-xl mb-3 w-[10.2rem] ">
             Subscribe to our newsletter
           </h3>
-          <div className="w-[15.6 rem] flex border-b border-t rounded-sm border-white/40 items-center">
+          <div className="w-[25.6rem] flex mt-7 border-b border-t rounded-sm border-white/40 items-center">
             <input
               type="email"
               placeholder="Email address"
-              className="bg-transparent outline-none py-2 text-sm flex-1 placeholder:text-white/60"
+              className="bg-transparent outline-none py-2 pl-2 text-sm flex-1 placeholder:text-white/60"
             />
             <button className="cursor-pointer bg-yellow text-black p-2 rounded-sm hover:bg-yellow">
               →
@@ -46,7 +48,7 @@ export default function Footer() {
 
         {/* Links */}
         <div>
-          <ul className="space-y-3 text-sm">
+          <ul className="space-y-5 text-sm">
             <li>Home</li>
             <li>About</li>
             <li>Projects</li>
@@ -69,15 +71,15 @@ export default function Footer() {
       </div>
 
       {/* Bottom section */}
-      <div className="mt-30 flex flex-col md:flex-row justify-between items-center text-sm text-white/70 gap-6">
+      <div className="mt-30 mb-5 flex flex-col md:flex-row justify-between items-center text-sm text-white/70 gap-6">
         <p>Privacy Policy</p>
         <div className="flex gap-12">
-          <p>+234 810 5810 398 CLEMESET</p>
+          <p>+234 810 5810 398 </p>
           <p> projectclimeset@gmail.com</p>
           <div className="flex space-x-4">
-            <Facebook className="w-5 h-5 cursor-pointer text-white" />
-            <Twitter className="w-5 h-5 cursor-pointer text-white" />
-            <Instagram className="w-5 h-5 cursor-pointer text-white" />
+            <Facebook className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
+            <Twitter className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
+            <Instagram className="w-5 h-5 cursor-pointer text-white stroke-white stroke-[2]" />
           </div>
         </div>
       </div>

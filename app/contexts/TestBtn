@@ -1,0 +1,51 @@
+import { memo } from "react";
+export const PreventReRedenderingButton = memo(({ label }) => {
+  console.log("Button Rendered", label);
+  return <button>{label}</button>;
+});
+
+export function TestBtn({ num }) {
+  const result = useMemo(() => {
+    console.log("Calculating...");
+    return num + 21;
+  }, [num]);
+}
+// Purpose: Improves performance by loading components only when needed.
+import dynamic from "next/dynamic";
+
+const Chart = dynamic(() => import("../components/Chart"), {
+  ssr: false, // disable server-side rendering
+  loading: () => <p>Loading Chart...</p>,
+});
+
+export default function Dashboard() {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <Chart />
+    </div>
+  );
+}
+
+// Purpose: Load content only when visible on screen, improving page speed.
+const Image = React.lazy(() => import("./ImageComponent"));
+// const Image = React.lazy(() => import("./ImageComponent"));
+
+function App() {
+  return (
+    <React.Suspense fallback={<p>Loading image...</p>}>
+      <Image />
+    </React.Suspense>
+  );
+}
+// Test
+export function JsReminder() {
+  const thisYear = new Date.getFullYear();
+
+  const yourAgeCalculator = (birthYear) => {
+    const age = thisYear - birthYear;
+    return `You are ${age} years old.`;
+  };
+  console.log(yourAgeCalculator(1990));
+  
+}

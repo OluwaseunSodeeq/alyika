@@ -25,12 +25,16 @@ export default function WhatWeDoSection() {
   return (
     <Wrapper>
       <div className="mt-[7rem] mb-[8rem] xl:px-[3.5rem] py-0">
-        <div className="font-satoshi text-center flex flex-col">
-          <span className="font-normal text-2xl">What We Do</span>
-          <p className="font-bold text-[2.2rem] ">We do three main things</p>
-          <div className="font-medium text-[2.2rem] flex flex-col ">
-            <span>(all rooted in what we’ve</span>
-            <span>actually lived through)</span>
+        <div className="font-satoshi text-center flex gap-0 flex-col">
+          <span className="font-normal text-[2.3rem] p-0">What We Do</span>
+          <div className="p-0">
+            <span className="font-bold text-[2.2rem] ">
+              We do three main things{" "}
+            </span>
+            <span className="text-[2.2rem] font-normal">(all inspired</span>
+          </div>
+          <div className="font-medium text-[2.2rem] flex flex-col p-0 ">
+            <span>by what we’ve lived through and seen)</span>
           </div>
         </div>
 
