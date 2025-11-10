@@ -43,7 +43,7 @@ export default function HerosecRightCard() {
   const current = testimonials[index];
 
   return (
-    <div className="relative xl:h-[40rem] 2xl:w-[44rem] xl:w-[44rem] sm:w-[24rem] rounded-[1.2rem] overflow-hidden shadow-lg ">
+    <div className="relative xl:h-[40rem] 2xl:w-[44rem] xl:w-[44rem] md:w-[30rem] w-[30rem] rounded-[1.2rem] overflow-hidden shadow-lg ">
       <div
         className="relative w-full h-full bg-cover bg-center bg-no-repeat "
         style={{ backgroundImage: `url(${current.bgImage})` }}

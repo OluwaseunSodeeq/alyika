@@ -33,7 +33,7 @@ function Navbody({ bg, textColor }) {
       className="w-[104%] left-1/2 transform -translate-x-1/2 h-screen  px-6 absolute top-[20px] md:top-[18px] z-30 lg:hidden"
       style={{ backgroundColor: bg, color: textColor }}
     >
-      <ul className="border-2 flex h-auto flex-col xl:gap-1 items-center justify-start">
+      <ul className=" flex h-auto flex-col xl:gap-1 items-center justify-start">
         <li className="flex justify-between items-center pl-6 pr-3 font-medium w-full h-[48px] border-t-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/home">
             HOME

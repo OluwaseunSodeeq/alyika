@@ -1,9 +1,8 @@
-import React from "react";
-
 export default function Wrapper({ children, bg }) {
   return (
     <section
-      className={` p-0 m-0 2xl:max-w-[1400px] mx-auto  box-border bg-${bg}`}
+      className="p-0 m-0 2xl:max-w-[1400px] md:mx-auto box-border overflow-hidden"
+      style={{ backgroundColor: bg }}
     >
       {children}
     </section>

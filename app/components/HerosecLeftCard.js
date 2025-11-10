@@ -8,24 +8,27 @@ export default function HerosecLeftCard() {
   const textColor = "#012f25";
 
   return (
-    <div className="2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] sm:w-[20rem]  bg-dark-green text-main-bg px-2 sm:px-3 xl:pt-[7rem] xl:px-[3.5rem] xl:pb-[2rem] rounded-[1.2rem] border-2">
-      <h1 className=" font-satoshi text-[40px] text-nowrap text-main-bg mb-4 ">
-        Building Green Dreams
+    <div className="w-full relative 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[28rem]  bg-dark-green text-main-bg pt-[2.4rem] md:pt-[3rem] xl:pt-[7rem] px-[1.5rem] xl:px-[3.5rem] pb-[3rem] xl:pb-[2rem] md:rounded-[1.2rem]">
+      <h1 className="font-satoshi text-[48px] md:text-[40px] text-main-bg mb-4 md:font-medium leading-[1]">
+        <span className=""> Building Green </span>
+        <span className="text-[89px] md:text-[48px] xl:[40px] font-bold md:font-medium">
+          Dreams
+        </span>
       </h1>
-      <div className="text-4xl text-main-bg font-light mb-4">
+      <div className="text-[30px] xl:text-4xl text-main-bg font-light mb-4">
         <div className=" flex items-center gap-x-1">
-          <div className="border-b-2 pb-1 ">
+          <div className="border-b-2 pb-1">
             <Image
               src="/white-arrows.png"
               alt="arrow"
               width={40}
               height={40}
-              className="inline-block  mb-2 "
+              className="inline-block mb-2 "
             />
             <span className="mr-1"> From</span>
           </div>
 
-          <p className="pb-3">the Ground Up</p>
+          <p className=" pb-2 md:pb-3">the Ground Up</p>
         </div>
       </div>
       <div className="font-satoshi">
@@ -42,7 +45,7 @@ export default function HerosecLeftCard() {
         </p>
       </div>
 
-      <div className="font-montserrat flex gap-3 items-center xl:mt-[1.2rem] ">
+      <div className="font-montserrat flex font-medium gap-3 items-center mt-[2rem] md:mt-[2.5rem] xl:mt-[1.2rem] ">
         <Button btnBg={btnBg} textColor={textColor}>
           Get Involved
         </Button>

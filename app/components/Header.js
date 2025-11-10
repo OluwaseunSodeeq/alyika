@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Nav from "./Nav";
-import Logo from "./Logo";
+import { MobileLogo, Logo } from "./Logo";
 import Wrapper from "./Wrapper";
 import DropDown from "./DropDown";
 import Button from "./Button";
@@ -11,6 +11,7 @@ import Navbody from "./NavBody";
 
 export default function Header() {
   const { open } = useOpenContext();
+  const { mobile } = useOpenContext();
 
   const navs = [
     { name: "Home", href: "/home", activesStatus: false },
@@ -40,12 +41,12 @@ export default function Header() {
   const btnBg = "#012f25";
 
   return (
-    <div className="w-full shadow-md ">
-      <Wrapper bg={bg}>
+    <div className={`w-full ${mobile ? "shadow-md " : ""}`}>
+      <Wrapper bg={mobile ? bg : "#012F25"}>
         <div>
-          <div className="  flex justify-between items-center px-[1rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
+          <div className="  flex justify-between items-center px-[1rem] md:px-[3rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
             <div className=" block xl:hidden">
-              <Logo />
+              <MobileLogo />
             </div>
             <Nav nav={navs} />
             <div className="hidden xl:block xl:mr-[1.5rem]">
@@ -65,7 +66,8 @@ export default function Header() {
           </div>
 
           <div
-            className={`fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-white shadow-lg z-20 transform duration-500 ease-in-out ${
+            // className={`fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-white shadow-lg z-20 transform duration-500 ease-in-out ${
+            className={`fixed top-0 right-0 h-screen w-[90%]  bg-white shadow-lg z-20 transform duration-500 ease-in-out ${
               open ? "translate-x-0" : "translate-x-[200%] "
             }`}
           >
