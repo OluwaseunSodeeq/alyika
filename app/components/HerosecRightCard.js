@@ -4,8 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Button from "./Button";
+import useOpenContext from "../contexts/useOpenContext";
 
 export default function HerosecRightCard() {
+  const { mobile } = useOpenContext();
   const btnBg = "#fdcd31";
   const textColor = "#012f25";
   const [index, setIndex] = useState(0);
@@ -13,21 +15,20 @@ export default function HerosecRightCard() {
   const testimonials = [
     {
       name: "John Doe",
-      text: "Lorem ipsum dolor sit amet, adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      text: "We’re not experts in suits. We’re youths, students, storytellers, builders, and friends who decided to do something.",
       rating: 4,
       image: "/person.png",
       bgImage: "/bgImage0.png",
     },
     {
       name: "Jane Smith",
-      text: "Another feedback example for the carousel.",
-      rating: 3,
-      image: "/person.png",
+      text: "We’re not experts in suits. We’re youths, students, storytellers, builders, and friends who decided to do something.",
+      image: "/rating2.png",
       bgImage: "/bgImage1.png",
     },
     {
       name: "Oluwaseun Sodeeq",
-      text: "Another feedback example for the carousel.",
+      text: "We’re not experts in suits. We’re youths, students, storytellers, builders, and friends who decided to do something.",
       rating: 5,
       image: "/person.png",
       bgImage: "/bgImage1.png",
@@ -43,12 +44,17 @@ export default function HerosecRightCard() {
   const current = testimonials[index];
 
   return (
-    <div className="relative xl:h-[40rem] 2xl:w-[44rem] xl:w-[44rem] md:w-[30rem] w-[30rem] rounded-[1.2rem] overflow-hidden shadow-lg ">
+    // <div className="relative xl:h-[40rem] 2xl:w-[44rem] xl:w-[44rem] md:w-[30rem] w-[30rem] rounded-[1.2rem] overflow-hidden shadow-lg ">
+    <div className="h-[400px] xl:h-[40rem] w-full 2xl:w-[44rem] xl:w-[44rem] md:w-[30rem] rounded-b-[1.2rem] md:rounded-[1.2rem] shadow-lg ">
       <div
-        className="relative w-full h-full bg-cover bg-center bg-no-repeat "
-        style={{ backgroundImage: `url(${current.bgImage})` }}
+        className="relative pt-12 md:pt-0  w-full h-full md:h-full bg-cover bg-center bg-no-repeat md:border-none border-t-1 border-dashed border-t-yellow"
+        style={
+          mobile
+            ? { backgroundImage: `url(${current.bgImage})` }
+            : { backgroundColor: "#012F25" }
+        }
       >
-        <div className="absolute top-4 flex gap-4 right-[2rem]">
+        <div className="absolute top-80 md:top-4 flex gap-4 right-[2rem]">
           <div>
             <input
               type="email"
@@ -61,9 +67,9 @@ export default function HerosecRightCard() {
           </Button>
         </div>
 
-        <div className="absolute top-[7rem] left-6 bg-yellow p-4 rounded-xl xl:max-w-[16rem] shadow-md">
+        <div className="absolute  top-18 md:top-[7rem] left-4 md:left-6 bg-yellow p-4 rounded-xl w-[22rem] xl:max-w-[16rem] shadow-md">
           <div className="flex items-center gap-3">
-            <div className="xl:w-[24rem] xl:h-28 rounded-md overflow-hidden border-yellow">
+            <div className="w-[40rem] border-yellow xl:w-[24rem] xl:h-28 rounded-md overflow-hidden ">
               <Image
                 width={100}
                 height={100}
@@ -73,8 +79,8 @@ export default function HerosecRightCard() {
               />
             </div>
 
-            <div className="flex flex-col">
-              <div className="flex text-dark-green">
+            <div className="flex flex-col ">
+              <div className="flex gap-x-2 text-dark-green">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
@@ -86,7 +92,9 @@ export default function HerosecRightCard() {
                   />
                 ))}
               </div>
-              <p className="text-xs text-dark-green mt-1">{current.text}</p>
+              <p className="text-[14.5px] xl:text-xs text-dark-green mt-1 pr-3">
+                {current.text}
+              </p>
             </div>
           </div>
         </div>
@@ -114,7 +122,7 @@ export default function HerosecRightCard() {
           />
           {/* <ChevronRight className="w-5 h-5" /> */}
         </div>
-        <div className="absolute bg-white p-3 pl-9 text-center right-0 bottom-0  rounded-tl-[4rem] clip-slant ">
+        <div className=" hidden md:block absolute bg-white p-3 pl-9 text-center right-0 bottom-0  rounded-tl-[4rem] clip-slant ">
           <p className="text-gray-700 font-satoshi font-light italic  xl:max-w-[22rem] text-left text-sm">
             &quot; We’re not experts in suits, we’re students, storytellers,
             builders, and friends who decided to do something. &quot;
