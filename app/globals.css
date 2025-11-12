@@ -22,6 +22,46 @@
   --font-satoshi: "Satoshi", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
 }
+@layer utilities {
+  /* Gradient border only for mobile and tablet */
+  @media (max-width: 1023px) {
+    .gradient-border {
+      position: relative;
+      border-radius: 1.2rem;
+      overflow: hidden; /* ensures rounding applies visually */
+      z-index: 0;
+    }
+
+    .gradient-border::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2.5px;
+      background: linear-gradient(
+        119.25deg,
+        #012f25 9.24%,
+        #fdcd31 35.93%,
+        #012f25 62.26%,
+        #2c4a27 62.32%,
+        #fdcd31 84.27%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 1;
+    }
+  }
+
+  /* Remove gradient border on desktop */
+  @media (min-width: 1024px) {
+    .gradient-border::before {
+      display: none;
+    }
+  }
+}
+
 .clip-slant {
   clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
 }

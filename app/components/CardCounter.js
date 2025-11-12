@@ -41,12 +41,14 @@ export default function CardCounter({ numb, text }) {
   return (
     <div
       ref={ref}
-      className="bg-main-bg mt-4 shadow-sm rounded-lg p-2 h-[8rem] w-[13rem] flex flex-col items-center justify-center"
+      className="bg-main-bg mt-4 shadow-sm rounded-lg px-1 md:p-2 h-[8rem] w-[10rem] md:w-[13rem] flex flex-col items-center justify-center"
     >
       <span className="font-satoshi font-extrabold text-4xl text-dark-green">
         {count}+
       </span>
-      <p className="font-montserrat font-light text-base text-center">{text}</p>
+      <p className="font-montserrat font-light text-[12px] md:text-base text-center">
+        {text}
+      </p>
     </div>
   );
 }

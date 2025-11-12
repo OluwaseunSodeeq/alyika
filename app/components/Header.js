@@ -66,8 +66,7 @@ export default function Header() {
           </div>
 
           <div
-            // className={`fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-white shadow-lg z-20 transform duration-500 ease-in-out ${
-            className={`fixed top-0 right-0 h-screen w-[90%]  bg-white shadow-lg z-20 transform duration-500 ease-in-out ${
+            className={`fixed top-0 right-0 h-screen w-[95%]  bg-white shadow-lg z-20 transform duration-500 ease-in-out ${
               open ? "translate-x-0" : "translate-x-[200%] "
             }`}
           >

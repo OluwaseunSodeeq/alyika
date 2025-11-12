@@ -2,12 +2,12 @@
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import Button from "./Button";
 import useOpenContext from "../contexts/useOpenContext";
 
 export default function HerosecRightCard() {
-  const { mobile } = useOpenContext();
+  const { showBgImage } = useOpenContext();
   const btnBg = "#fdcd31";
   const textColor = "#012f25";
   const [index, setIndex] = useState(0);
@@ -45,11 +45,11 @@ export default function HerosecRightCard() {
 
   return (
     // <div className="relative xl:h-[40rem] 2xl:w-[44rem] xl:w-[44rem] md:w-[30rem] w-[30rem] rounded-[1.2rem] overflow-hidden shadow-lg ">
-    <div className="h-[400px] xl:h-[40rem] w-full 2xl:w-[44rem] xl:w-[44rem] md:w-[30rem] rounded-b-[1.2rem] md:rounded-[1.2rem] shadow-lg ">
+    <div className="h-[400px] md:h-[40rem] xl:h-[40rem] w-full 2xl:w-[44rem] xl:w-[44rem] md:w-[30rem] rounded-b-[1.2rem]">
       <div
-        className="relative pt-12 md:pt-0  w-full h-full md:h-full bg-cover bg-center bg-no-repeat md:border-none border-t-1 border-dashed border-t-yellow"
+        className="relative pt-12 md:pt-0 w-full h-full md:h-full bg-cover bg-center bg-no-repeat md:border-none border-t-1 border-dashed border-t-yellow md:rounded-[1.2rem]"
         style={
-          mobile
+          showBgImage
             ? { backgroundImage: `url(${current.bgImage})` }
             : { backgroundColor: "#012F25" }
         }
@@ -67,7 +67,7 @@ export default function HerosecRightCard() {
           </Button>
         </div>
 
-        <div className="absolute  top-18 md:top-[7rem] left-4 md:left-6 bg-yellow p-4 rounded-xl w-[22rem] xl:max-w-[16rem] shadow-md">
+        <div className="absolute  top-18 md:top-[12rem] xl:top-[7rem] left-4 md:left-12 xl:left-6 bg-yellow p-4 rounded-xl w-[22rem] xl:max-w-[16rem] shadow-md">
           <div className="flex items-center gap-3">
             <div className="w-[40rem] border-yellow xl:w-[24rem] xl:h-28 rounded-md overflow-hidden ">
               <Image
@@ -101,28 +101,29 @@ export default function HerosecRightCard() {
 
         <div
           onClick={leftClick}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-dark-green/50 py-2 px-3 rounded-md shadow"
+          className="absolute left-2 md:left-4 top-[44%] md:top-1/2 -translate-y-1/2 bg-dark-green/50 py-2 px-3 rounded-md shadow"
         >
           <Image
             src="/left-arrow.svg"
             alt="left-arrow"
-            width={26}
-            height={26}
+            width={18}
+            height={18}
+            className="md:w-[26px] md:h-[26px]"
           />
         </div>
         <div
           onClick={rightClick}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-dark-green/50 py-2 px-3  rounded-md shadow"
+          className="absolute right-2 md:right-4 top-[44%] md:top-1/2 -translate-y-1/2 bg-dark-green/50 py-2 px-3  rounded-md shadow"
         >
           <Image
             src="/right-arrow.png"
             alt="right-arrow"
-            width={26}
-            height={26}
+            width={18}
+            height={18}
+            className="md:w-[26px] md:h-[26px]"
           />
-          {/* <ChevronRight className="w-5 h-5" /> */}
         </div>
-        <div className=" hidden md:block absolute bg-white p-3 pl-9 text-center right-0 bottom-0  rounded-tl-[4rem] clip-slant ">
+        <div className=" hidden xl:block absolute bg-white p-3 pl-9 text-center right-0 bottom-0  rounded-tl-[4rem] clip-slant ">
           <p className="text-gray-700 font-satoshi font-light italic  xl:max-w-[22rem] text-left text-sm">
             &quot; We’re not experts in suits, we’re students, storytellers,
             builders, and friends who decided to do something. &quot;

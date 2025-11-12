@@ -8,14 +8,14 @@ export default function HerosecLeftCard() {
   const textColor = "#012f25";
 
   return (
-    <div className="w-full relative 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[28rem]  bg-dark-green text-main-bg pt-[2.4rem] md:pt-[3rem] xl:pt-[7rem] px-[1.5rem] xl:px-[3.5rem] pb-[3rem] xl:pb-[2rem] md:rounded-[1.2rem]">
+    <div className="w-full 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[28rem]  bg-dark-green text-main-bg pt-[2.4rem] md:pt-[3rem] xl:pt-[7rem] px-[1rem] md:px-[1.5rem] xl:px-[3.5rem] pb-[3rem] xl:pb-[2rem] md:rounded-[1.2rem]">
       <h1 className="font-satoshi text-[48px] md:text-[40px] text-main-bg mb-4 md:font-medium leading-[1]">
         <span className=""> Building Green </span>
-        <span className="text-[89px] md:text-[48px] xl:[40px] font-bold md:font-medium">
+        <span className="text-[84px] md:text-[48px] xl:[40px] font-bold md:font-medium">
           Dreams
         </span>
       </h1>
-      <div className="text-[30px] xl:text-4xl text-main-bg font-light mb-4">
+      <div className=" w-[90%] md:w-full text-[28px] xl:text-4xl text-main-bg font-light mb-4 p-0">
         <div className=" flex items-center gap-x-1">
           <div className="border-b-2 pb-1">
             <Image

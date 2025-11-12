@@ -4,7 +4,10 @@ function Hamburger() {
   const { open, hamburgerHandler } = useOpenContext();
 
   return (
-    <div className="block cursor-pointer lg:hidden" onClick={hamburgerHandler}>
+    <div
+      className="block cursor-pointer pr-1 lg:hidden"
+      onClick={hamburgerHandler}
+    >
       {open ? (
         <svg
           width="25"
