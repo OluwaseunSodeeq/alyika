@@ -19,14 +19,14 @@ export default function HowWeWorkSection() {
     },
   ];
   return (
-    <div className=" px-[3.5rem] bg-dark-green relative overflow-hidden">
-      <div className=" flex justify-between px-4 pb-3 pt-[5rem]">
-        <div className="font-satoshi text-main-bg text-4xl">
-          <h4 className="font-bold text-4xl ">Wanna see how we work?</h4>
+    <div className=" px-[1rem] xl:px-[3.5rem] bg-dark-green relative overflow-hidden">
+      <div className=" flex flex-col md:flex-row md:justify-between xl:px-4 pb-3 pt-[3rem] md:pt-[5rem]">
+        <div className="font-satoshi text-main-bg text-[25px] xl:text-4xl">
+          <h4 className="font-bold  ">Wanna see how we work?</h4>
           <span className="font-light block ">Our projects are sectioned </span>
           <span className="font-light">into the following:</span>
         </div>
-        <div className="flex gap-x-6 items-center mt-[5.4rem]">
+        <div className="flex gap-x-6 items-center mt-[3.4rem] md:mt-[5.4rem]">
           <Button btnBg="#ffffff" textColor="#012f25">
             See Our Projects
           </Button>
@@ -35,15 +35,12 @@ export default function HowWeWorkSection() {
           </span>
         </div>
       </div>
-      <div className=" flex justify-between items-center  pt-[5.6rem] pb-[9rem] gap-6">
+      <div className="flex flex-col md:flex-row justify-center md:justify-between items-center  pt-[4.6rem] xl:pt-[5.6rem] pb-[5rem] xl:pb-[9rem] gap-6">
         {howWeWorkArray.map((item, i) => {
           return <HowWeWorkCard key={i} index={i} item={item} />;
         })}
       </div>
-      <div
-        className="absolute opacity-100 w-[34rem] h-[32rem] top-[6rem] right-[-6rem]"
-        // style={{ transform: "rotate(21.84deg)" }}
-      >
+      <div className="absolute opacity-100 w-[24rem] md:w-[34rem] h-[22rem] md:h-[32rem] top-[1rem] xl:top-[6rem] right-[-6rem] rotate-[34deg]">
         <Image src="/logo-bg.png" alt="logo" fill className="object-contain" />
       </div>
     </div>

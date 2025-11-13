@@ -34,7 +34,7 @@ export default function Partners() {
         // reset only when the *first set* has completely moved out of view
         const totalWidth = marquee.scrollWidth / 2;
         if (Math.abs(offset) >= totalWidth) {
-          offset = 0; // restart seamlessly
+          offset = 0;
         }
       }
       requestAnimationFrame(scroll);
@@ -51,7 +51,7 @@ export default function Partners() {
 
       <div
         ref={marqueeRef}
-        className="flex items-center gap-8 lg:gap-16 whitespace-nowrap will-change-transform mt-6 "
+        className="flex items-center gap-4 md:gap-8 lg:gap-16 whitespace-nowrap will-change-transform mt-6 "
       >
         {doubledPartners.map((partner, index) => (
           <div

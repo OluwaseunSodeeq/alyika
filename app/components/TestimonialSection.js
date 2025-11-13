@@ -26,7 +26,7 @@ export default function TestimonialSection() {
     },
   ];
   return (
-    <div className="relative border-2 h-auto  pb-[4rem] flex flex-wrap flex-col md:flex-row justify-center md:justify-between items-center gap-3 xl:px-[3.5rem] ">
+    <div className="relative h-auto pt-[2rem] md:pt-1  pb-[4rem] flex flex-wrap flex-col md:flex-row justify-center xl:justify-between items-center gap-5 md:gap-5 px-[1rem] xl:px-[3.5rem] ">
       {testimonialArray.map((testimonial, i) => {
         return <TestimonialCard key={i} testimonial={testimonial} />;
       })}
