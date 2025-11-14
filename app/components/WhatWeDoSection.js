@@ -105,11 +105,13 @@ export default function WhatWeDoSection() {
             </div>
           </div>
         </div>
-        <div className="block md:hidden xl:block xl:w-[17.8rem] xl:h-[12.8rem] shadow-sm mt-4 pl-4 pt-2 rounded-sm relative ">
+
+        <div className="block md:hidden xl:block  xl:w-[17.8rem] xl:h-[12.8rem] shadow-sm mt-4 px-2 pt-2 rounded-sm relative ">
           <p className="font-satoshi font-medium text-center text-[19px] xl:text-4xl text-dark-green">
             Want to know where it all started?
           </p>
-          <div className="absolute top-14 md:bottom-2 items-center flex gap-x-4 md:gap-x-2">
+
+          <div className="w-[15rem] absolute top-14 left-1/2 -translate-x-1/2  md:bottom-2 xl:top-30 flex items-center justify-center gap-x-4 md:gap-x-2">
             <Button btnBg="#012f25" textColor="#ffffff">
               About Us
             </Button>
