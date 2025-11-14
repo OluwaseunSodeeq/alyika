@@ -69,7 +69,7 @@ export default function HerosecRightCard() {
 
         <div className="absolute  top-18 md:top-[12rem] xl:top-[7rem] left-4 md:left-12 xl:left-6 bg-yellow p-4 rounded-xl w-[22rem] xl:max-w-[16rem] shadow-md">
           <div className="flex items-center gap-3">
-            <div className="w-[40rem] border-yellow xl:w-[24rem] xl:h-28 rounded-md overflow-hidden ">
+            <div className="w-full md:w-[40rem] border-yellow xl:w-[24rem] xl:h-28 rounded-md overflow-hidden ">
               <Image
                 width={100}
                 height={100}
