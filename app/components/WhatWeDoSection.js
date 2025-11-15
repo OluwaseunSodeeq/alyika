@@ -18,9 +18,9 @@ function Container({ children }) {
 export default function WhatWeDoSection() {
   const cardArr = [
     { numb: "100", text: "students trained directly" },
-    { numb: "250", text: "young people engaged in peer-led sessions" },
-    { numb: "5000", text: "reached online through digital campaigns" },
-    { numb: "5", text: "youth volunteers in our network" },
+    { numb: "2000", text: "young people engaged in directly" },
+    { numb: "12000", text: "reached online through digital campaigns" },
+    { numb: "30", text: "youth volunteers in our network" },
   ];
   return (
     // <Wrapper>

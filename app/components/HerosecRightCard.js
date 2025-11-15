@@ -54,7 +54,7 @@ export default function HerosecRightCard() {
             : { backgroundColor: "#012F25" }
         }
       >
-        <div className="absolute top-80 md:top-4 flex gap-4 right-[2rem]">
+        <div className=" absolute top-75 md:top-4 flex gap-4 left-[1.8rem] right-0 md:right-[2rem]">
           <div>
             <input
               type="email"
@@ -67,9 +67,9 @@ export default function HerosecRightCard() {
           </Button>
         </div>
 
-        <div className="absolute  top-18 md:top-[12rem] xl:top-[7rem] left-4 md:left-12 xl:left-6 bg-yellow p-4 rounded-xl w-[22rem] xl:max-w-[16rem] shadow-md">
-          <div className="flex items-center gap-3">
-            <div className="w-full md:w-[40rem] border-yellow xl:w-[24rem] xl:h-28 rounded-md overflow-hidden ">
+        <div className="absolute  top-18 md:top-[12rem] xl:top-[7rem] left-4 md:left-12 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[22rem] xl:max-w-[16rem] shadow-md">
+          <div className="flex items-center gap-2">
+            <div className="w-full  xl:w-[130px] xl:h-[126px] rounded-md">
               <Image
                 width={100}
                 height={100}
@@ -79,7 +79,7 @@ export default function HerosecRightCard() {
               />
             </div>
 
-            <div className="flex flex-col ">
+            <div className="flex flex-col xl:w-[121px]">
               <div className="flex gap-x-2 text-dark-green">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
@@ -92,7 +92,7 @@ export default function HerosecRightCard() {
                   />
                 ))}
               </div>
-              <p className="text-[14.5px] xl:text-xs text-dark-green mt-1 pr-3">
+              <p className="text-[14.5px] xl:text-xs text-dark-green mt-1">
                 {current.text}
               </p>
             </div>

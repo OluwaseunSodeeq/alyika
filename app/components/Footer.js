@@ -89,7 +89,10 @@ export default function Footer() {
       {/* Bottom section for Mobile */}
       <div className="flex mt-10 md:hidden flex-col flex-wrap justify-between text-sm text-white/70 gap-6">
         <div className="flex justify-between items-end">
-          <MobileLogo />
+          {/* <div className="w-[164px] h-70"> */}
+          <div className="">
+            <MobileLogo />
+          </div>
           <div className="flex space-x-2 mb-3">
             <Facebook className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
             <Twitter className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />

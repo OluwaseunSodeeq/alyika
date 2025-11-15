@@ -45,7 +45,7 @@ export default function Header() {
       <Wrapper bg={mobile ? bg : "#012F25"}>
         <div>
           <div className="  flex justify-between items-center px-[1rem] md:px-[3rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
-            <div className=" block xl:hidden">
+            <div className=" block xl:hidden w-[115px] h-[49px] relative">
               <MobileLogo />
             </div>
             <Nav nav={navs} />
