@@ -16,7 +16,7 @@ export default function HerosecLeftCard() {
         </span>
       </h1>
       <div className=" w-[90%] md:w-full text-[28px] xl:text-4xl text-main-bg font-light mb-4 p-0">
-        <div className=" flex items-center gap-x-1 mt-[1rem] md:mt-0">
+        <div className=" flex gap-x-1 mt-[1rem] md:mt-0">
           <div className="border-b-2 flex gap-x-[10px] pb-1 ">
             <Image
               src="/white-arrows.png"
