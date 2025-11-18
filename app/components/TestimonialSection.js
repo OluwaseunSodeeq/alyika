@@ -103,7 +103,7 @@ export default function TestimonialSection() {
               // box-border so padding doesn't push the width beyond the percent
               <div
                 key={i}
-                className="flex-shrink-0 box-border border-2 py-2.5"
+                className="flex-shrink-0 box-border py-2.5"
                 style={{
                   width: `${slideWidthPercent}%`,
                 }}

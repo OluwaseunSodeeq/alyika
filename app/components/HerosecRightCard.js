@@ -44,16 +44,16 @@ export default function HerosecRightCard() {
   const current = testimonials[index];
 
   return (
-    <div className="h-[400px] md:h-[40rem] xl:h-[40rem] w-full 2xl:w-[44rem] xl:w-[44rem] md:w-[30rem] rounded-b-[1.2rem] border-2">
+    <div className="relative h-[400px] md:h-[40rem] xl:h-[40rem] w-full 2xl:w-[46rem] xl:w-[44rem] md:w-[23.8rem] xl:rounded-b-[1.2rem] ">
       <div
-        className="relative pt-12 md:pt-0 w-full h-full md:h-full bg-cover bg-center bg-no-repeat md:border-none  md:rounded-[1.2rem]"
+        className=" pt-12 md:pt-0 w-full h-full md:h-full bg-cover bg-center bg-no-repeat md:border-none  md:rounded-[1.2rem]"
         style={
           showBgImage
             ? { backgroundImage: `url(${current.bgImage})` }
             : { backgroundColor: "#012F25" }
         }
       >
-        <div className=" absolute top-75 md:top-4 flex gap-4 left-[1.8rem] right-0 md:right-[2rem]">
+        <div className="absolute top-75 md:top-9 xl:top-10 flex gap-4 left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:right-5 xl:right-[2rem]">
           <div>
             <input
               type="email"
@@ -66,9 +66,9 @@ export default function HerosecRightCard() {
           </Button>
         </div>
 
-        <div className="absolute  top-18 md:top-[12rem] xl:top-[7rem] left-4 md:left-12 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[22rem] xl:max-w-[16rem] shadow-md">
-          <div className="flex items-center gap-2">
-            <div className="w-full  xl:w-[130px] xl:h-[126px] rounded-md">
+        <div className="absolute border-2 top-12 md:top-[12rem] xl:top-[7rem] left-1/2 -translate-x-1/2 xl:translate-x-0 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[90%] md:w-[95%] xl:max-w-[16rem] shadow-md">
+          <div className=" flex items-center gap-2">
+            <div className="w-full h-[140px] md:w-[50%] xl:w-[130px] xl:h-[126px] rounded-md">
               <Image
                 width={100}
                 height={100}
@@ -78,7 +78,7 @@ export default function HerosecRightCard() {
               />
             </div>
 
-            <div className="flex flex-col xl:w-[121px]">
+            <div className="w-full flex flex-col md:w-[121px]">
               <div className="flex gap-x-2 text-dark-green">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
@@ -100,7 +100,7 @@ export default function HerosecRightCard() {
 
         <div
           onClick={leftClick}
-          className="absolute left-2 md:left-4 top-[44%] md:top-1/2 -translate-y-1/2 bg-dark-green/50 py-2 px-3 rounded-md shadow"
+          className="absolute left-2 md:left-4 top-[34%] md:top-1/2 -translate-y-1/2 bg-dark-green/50 py-2 px-1 rounded-md shadow"
         >
           <Image
             src="/left-arrow.svg"
@@ -112,7 +112,7 @@ export default function HerosecRightCard() {
         </div>
         <div
           onClick={rightClick}
-          className="absolute right-2 md:right-4 top-[44%] md:top-1/2 -translate-y-1/2 bg-dark-green/50 py-2 px-3  rounded-md shadow"
+          className="absolute right-2 md:right-4 top-[34%] md:top-1/2 -translate-y-1/2 bg-dark-green/50 py-2 px-3  rounded-md shadow"
         >
           <Image
             src="/right-arrow.png"

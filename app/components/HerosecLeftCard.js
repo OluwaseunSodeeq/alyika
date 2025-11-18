@@ -9,7 +9,7 @@ export default function HerosecLeftCard() {
   const textColor = "#012f25";
 
   return (
-    <div className="relative w-full 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[28rem]  bg-dark-green text-main-bg pt-[4.2rem] md:pt-[3rem] xl:pt-[7rem] px-[1rem] md:px-[1.5rem] xl:px-[3.5rem] pb-0 border-2 xl:pb-[2rem] md:rounded-[1.2rem]">
+    <div className="relative w-full 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[23.8rem] bg-dark-green text-main-bg pt-[4.2rem] md:pt-[3rem] xl:pt-[7rem] px-[1rem] md:px-[1.5rem] xl:px-[3.5rem] pb-0 xl:pb-[2rem] md:rounded-[1.2rem] ">
       <h1 className="font-satoshi text-[48px] md:text-[40px] text-main-bg mb-4 md:font-medium leading-[1]">
         <span className=""> Building Green </span>
         <span className="text-[84px] text-yellow md:text-main-bg md:text-[48px] xl:[40px] font-bold md:font-medium">
@@ -58,21 +58,7 @@ export default function HerosecLeftCard() {
         </Link>
       </div>
 
-      {/* <div
-        className="
-  w-full 
-  h-[3px]
-  bg-[repeating-linear-gradient(to_right,#d6d668_0px,#d6d668_8px,transparent_8px,transparent_16px)]
-  absolute
-  left-0
-  bottom-0
-  after:content-['']
-  after:absolute
-  after:inset-0
-  after:bg-[linear-gradient(to_right,rgba(214,214,104,1)_0%,rgba(214,214,104,0)_90%,rgba(214,214,104,0)_100%)]
-"
-      ></div> */}
-      <div className=" w-full mt-7.5 ">
+      <div className="w-full md:hidden mt-11.5">
         <GradientDashedLine />
       </div>
     </div>
