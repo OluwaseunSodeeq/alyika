@@ -74,8 +74,8 @@ export default function TestimonialSection() {
     return () => clearInterval(id);
   }, [maxIndex]);
 
-  const goNext = () => setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
-  const goPrev = () => setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  // const goNext = () => setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
+  // const goPrev = () => setCurrentIndex((prev) => Math.max(prev - 1, 0));
 
   return (
     <section className="relative w-full pt-8 pb-12 overflow-hidden px-4 xl:px-14">
