@@ -79,3 +79,5 @@ export default function AboutHeroSection() {
     </div>
   );
 }
+// A Nigeria where young people lead the way in solving the biggest
+//   challenges of our time.
