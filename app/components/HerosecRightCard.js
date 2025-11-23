@@ -66,7 +66,7 @@ export default function HerosecRightCard() {
           </Button>
         </div>
 
-        <div className="absolute border-2 top-12 md:top-[12rem] xl:top-[7rem] left-1/2 -translate-x-1/2 xl:translate-x-0 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[90%] md:w-[95%] xl:max-w-[16rem] shadow-md">
+        <div className="absolute top-12 md:top-[12rem] xl:top-[7rem] left-1/2 -translate-x-1/2 xl:translate-x-0 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[90%] md:w-[95%] xl:max-w-[16rem] shadow-md">
           <div className=" flex items-center gap-2">
             <div className="w-full h-[140px] md:w-[50%] xl:w-[130px] xl:h-[126px] rounded-md">
               <Image

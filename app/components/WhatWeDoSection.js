@@ -45,7 +45,7 @@ export default function WhatWeDoSection() {
       <div className="mt-[1.5rem] md:mt-[4rem] ">
         <div className="flex items-center flex-col-reverse md:flex-row md:justify-center md:gap-x-3 xl:gap-[2.8rem] md:px-[1rem] xl:px-0">
           <div
-            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[39.6rem] xl:h-[17rem] relative mt-5 md:mt-0 "
+            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[39.6rem] xl:h-[17rem] relative mt-5 md:mt-0 rounded-lg"
             style={{
               backgroundImage: "url('/whatwedo01.jpg')",
             }}
@@ -74,7 +74,7 @@ export default function WhatWeDoSection() {
       <div className="flex items-center justify-center flex-col md:flex-row gap-y-5 md:gap-x-7 xl:gap-x-6 mt-5 xl:mt-0 mb-5 xl:mb-0 ">
         <div className="flex items-center xl:gap-[2.8rem]">
           <div
-            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[33.3rem] xl:h-[17rem] relative "
+            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[33.3rem] xl:h-[17rem] relative rounded-lg"
             style={{
               backgroundImage: "url('/whatwedo.jpg')",
             }}
@@ -91,7 +91,7 @@ export default function WhatWeDoSection() {
         </div>
         <div className="flex items-center gap-[2.8rem]">
           <div
-            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[21rem] xl:h-[17rem] relative "
+            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg"
             style={{
               backgroundImage: "url('/whatwedo3.jpg')",
             }}

@@ -53,7 +53,7 @@ export default function AboutHeroSection() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 mt-10 border-2 xl:pl-10">
+        <div className="grid md:grid-cols-2 gap-10 mt-10 xl:pl-10 xl:pb-[3rem]">
           <div>
             <h3 className="text-xl font-semibold text-dark-green mb-3  xl:text-[32px] 2xl:text-[40px]">
               Our Mission

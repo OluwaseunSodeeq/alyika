@@ -8,8 +8,8 @@ export default function Page() {
     <Wrapper>
       <div className="md:px-[1.5rem] xl:px-[3.5rem]">
         <AboutHeroSection />
+        <AboutCards />
       </div>
-      <AboutCards />
     </Wrapper>
   );
 }
