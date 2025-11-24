@@ -2,7 +2,10 @@ import Image from "next/image";
 import React from "react";
 import Button from "./Button";
 import Link from "next/link";
-import GradientDashedLine from "./GradientLines";
+import {
+  LeftGradientDashedFadeLine,
+  RightGradientDashedFadeLine,
+} from "./GradientLines";
 
 export default function HerosecLeftCard() {
   const btnBg = "#fdcd31";
@@ -58,8 +61,9 @@ export default function HerosecLeftCard() {
         </Link>
       </div>
 
-      <div className="w-full md:hidden mt-11.5">
-        <GradientDashedLine />
+      <div className="w-full transition rotate-180 md:hidden mt-.5">
+        {/* <LeftGradientDashedFadeLine /> */}
+        <RightGradientDashedFadeLine />
       </div>
     </div>
   );

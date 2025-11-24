@@ -11,7 +11,8 @@ function OpenContextProvider({ children }) {
   // Check if the device width is grater than 768px or lower
   useEffect(() => {
     const screenCheck = window.innerWidth;
-    setMobile(screenCheck > 768);
+    // setMobile(screenCheck > 768);
+    setMobile(screenCheck > 1025);
     setShowBgImage(screenCheck > 560 && screenCheck >= 768);
   }, [mobile, showBgImage]);
 

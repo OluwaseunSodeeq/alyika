@@ -1,4 +1,6 @@
 import Image from "next/image";
+import ButtonText from "./ButtonText";
+import { RightGradientDashedFadeLine } from "./GradientLines";
 
 export default function AboutHeroSection() {
   return (
@@ -11,19 +13,17 @@ export default function AboutHeroSection() {
             fill
             priority
             placeholder="empty"
-            className="object-cover w-full h-full md:rounded-3xl 2xl:rounded-[40px]"
+            className="object-cover w-full h-full rounded-md md:rounded-3xl 2xl:rounded-[40px]"
           />
-
-          <div className="absolute bottom-[70px] left-[50px] bg-dark-green text-white px-6 py-3 rounded-[65px] text-sm font-medium shadow-lg flex items-center gap-3 xl:gap-4">
-            <div className="w-3 h-3 bg-yellow rounded-full"></div>
-            <button>Discover Our Roots</button>
+          <div className="absolute bottom-[40px] md:bottom-[70px] left-[10px] md:left-[50px]">
+            <ButtonText text="Discover Our Roots" />
           </div>
         </div>
 
-        <div className="relative mt-5 py-2 flex justify-center items-center xl:gap-9">
-          <div className="h-full relative text-3xl font-semibold flex items-center justify-center mt-2 ml-2.5">
+        <div className="hidden relative mt-5 py-2 md:flex justify-center items-center gap-9">
+          <div className="h-full relative text-3xl font-semibold flex items-center justify-center mt-2 ml-2 xl:ml-2.5">
             <span className="absolute top-0 w-3 h-3 bg-dark-green"></span>
-            <div className="xl:h-[290px] w-[1px] text-center bg-gray-300"></div>
+            <div className="md:h-[265px] xl:h-[290px] w-[1px] text-center bg-gray-300"></div>
             <span className="absolute bottom-0  w-3 h-3 bg-yellow"></span>
           </div>
 
@@ -52,10 +52,16 @@ export default function AboutHeroSection() {
             </div>
           </div>
         </div>
+        <div className=" md:hidden mt-[3rem]">
+          <RightGradientDashedFadeLine />
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-10 mt-10 xl:pl-10 xl:pb-[3rem]">
+        <div className="grid md:grid-cols-2 gap-10 mt-10 md:px-3 xl:px-0 xl:pl-10 xl:pb-[3rem]">
           <div>
-            <h3 className="text-xl font-semibold text-dark-green mb-3  xl:text-[32px] 2xl:text-[40px]">
+            <h3 className="text-gradient md:hidden text-xl mb-3 font-semibold">
+              Our Mission
+            </h3>
+            <h3 className="hidden md:block text-xl font-semibold text-dark-green mb-3  xl:text-[32px] 2xl:text-[40px]">
               Our Mission
             </h3>
             <p className=" xl:text-[22px] 2xl:text-[25px] leading-relaxed">
@@ -66,7 +72,10 @@ export default function AboutHeroSection() {
           </div>
 
           <div>
-            <h3 className="xl:text-2xl font-semibold text-yellow mb-3 xl:text-[32px] 2xl:text-[40px]">
+            <h3 className="text-gradient md:hidden text-xl mb-3 font-semibold">
+              Our Vision
+            </h3>
+            <h3 className="hidden md:block xl:text-2xl font-semibold text-yellow mb-3 xl:text-[32px] 2xl:text-[40px]">
               Our Vision
             </h3>
             <p className=" xl:text-[22px] 2xl:text-[25px] leading-relaxed">
@@ -79,5 +88,3 @@ export default function AboutHeroSection() {
     </div>
   );
 }
-// A Nigeria where young people lead the way in solving the biggest
-//   challenges of our time.

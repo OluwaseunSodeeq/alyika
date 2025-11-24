@@ -41,11 +41,11 @@ export default function Header() {
   const btnBg = "#012f25";
 
   return (
-    <div className={`w-full ${mobile ? "shadow-md " : ""}`}>
+    <div className={`w-full ${mobile ? "shadow-md" : ""}`}>
       <Wrapper bg={mobile ? bg : "#012F25"}>
         <div>
-          <div className="  flex justify-between items-center px-[1rem] md:px-[3rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
-            <div className=" block xl:hidden w-[115px] h-[49px] relative">
+          <div className="flex justify-between items-center px-[1rem] md:px-[3rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
+            <div className="block xl:hidden w-[115px] h-[49px] relative">
               <MobileLogo />
             </div>
             <Nav nav={navs} />
@@ -60,7 +60,7 @@ export default function Header() {
                 Contact Us
               </Button>
             </div>
-            <div className=" block xl:hidden">
+            <div className=" xl:hidden">
               <Hamburger />
             </div>
           </div>
