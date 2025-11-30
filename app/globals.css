@@ -94,3 +94,31 @@
     color: transparent;
   }
 }
+
+/* FIX slick dot width overriding Tailwind */
+/* .slick-dots li {
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+} */
+
+/* .slick-dots li button { */
+/*width: 0 !important;  hide slick's default dot */
+/* height: 0 !important;
+  padding: 0 !important;
+} */
+
+/* .slick-dots li button:before {
+  display: none !important; remove default dot circle 
+} */
+.slick-dots li button {
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0 !important; /* keep clickable but hidden */
+  padding: 0 !important;
+}
+
+.slick-dots li button:before {
+  display: none !important;
+}

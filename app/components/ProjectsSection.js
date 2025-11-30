@@ -1,4 +1,7 @@
+import Button from "./Button";
+import { RightGradientDashedFadeLine } from "./GradientLines";
 import ProjectCard from "./ProjectCard";
+import { ProjectSliderContainer } from "./ProjectSliderContainer";
 
 export default function ProjectsSection() {
   const projectsDetails = [
@@ -31,11 +34,33 @@ export default function ProjectsSection() {
     },
   ];
   return (
-    <div>
+    <div className=" pb-15">
       <div className="flex flex-col gap-y-3.5 pb-5">
         {projectsDetails.map((eachProject, index) => {
           return <ProjectCard key={index} eachProject={eachProject} />;
         })}
+      </div>
+      <div className=" mt-[2rem] ">
+        <RightGradientDashedFadeLine />
+      </div>
+      <ProjectSliderContainer />
+      <div className="font-satoshi xl:mt-10 ">
+        <h2 className="font-bold text-black  xl:text-[50px] 2xl:text-[60px]">
+          AIyika by Climeset{" "}
+        </h2>
+        <p className="xl:text-[26px] 2xl:text-[30px] text-black mt-3 xl:pr-[10rem]">
+          Our biggest dream yet: an AI-powered app that gives everyday people
+          from students to teachers to traders access to local climate data,
+          guides, and project templates to take action right where they live.
+        </p>
+        <div className="md:w-[15rem] mt-[65px] flex items-center justify-start gap-x-4 md:gap-x-2">
+          <Button btnBg="#012f25" textColor="#ffffff">
+            About Us
+          </Button>
+          <span className="italic text-dark-green cursor-pointer underline font-montserrat text-[14px] font-medium">
+            See our Projects
+          </span>
+        </div>
       </div>
     </div>
   );

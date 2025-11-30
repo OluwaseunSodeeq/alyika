@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,7 +12,6 @@ export function ProjectSliderContainer() {
     { id: 3, text: "Project Three", images: ["/gdc.png"] },
     { id: 4, text: "Project Four", images: ["/slider1.jpg"] },
   ];
-
   const settings = {
     dots: true,
     infinite: true,
@@ -25,25 +23,32 @@ export function ProjectSliderContainer() {
     arrows: false,
 
     appendDots: (dots) => (
-      <div>
-        <ul className="flex justify-center items-center gap-x-2 absolute bottom-[-30px] inset-x-0 mx-auto">
-          {dots.map((dot, index) => (
-            <li
-              key={index}
-              className={`w-[10px] h-[10px] rounded-full ${
-                dot.props.className.includes("slick-active")
-                  ? "bg-white"
-                  : "bg-gray-400"
-              }`}
-            ></li>
-          ))}
-        </ul>
-      </div>
+      <ul className="flex justify-center mt-3 gap-x-5 ">
+        {dots.map((dot, i) => {
+          const isActive = dot.props.className.includes("slick-active");
+
+          return (
+            <li key={i}>
+              <div
+                className={`
+              transition-all duration-300 cursor-pointer
+              ${
+                isActive
+                  ? "w-[38px] h-[14px] bg-dark-green rounded-md"
+                  : "w-[14px] h-[14px] bg-[#CECECE] rounded-full ml-3"
+              }
+            `}
+                onClick={dot.props.children.props.onClick} // KEEP CLICK LOGIC
+              />
+            </li>
+          );
+        })}
+      </ul>
     ),
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full h-[500px] relative xl:mt-[3rem] pt-3">
       <Slider {...settings}>
         {slidersDetails.map((each) => (
           <ProjectCardSlider key={each.id} eachslider={each} />

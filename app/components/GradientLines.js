@@ -23,7 +23,7 @@ export function RightGradientDashedFadeLine(props) {
   return (
     <div className={`w-full ${className}`}>
       <div
-        className="w-full h-[3px] md:h-[8px] rounded-full"
+        className="w-full h-[3px]  rounded-full"
         style={{
           background:
             "linear-gradient(90deg, #FDCD31 0%, #F8D24A 20%, #8FBF8F 55%, #012F25 100%)",

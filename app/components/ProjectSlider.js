@@ -3,9 +3,9 @@ import Image from "next/image";
 export function ProjectCardSlider({ eachslider }) {
   return (
     <div className="w-full px-4">
-      <div className="relative w-full mx-auto my-4 rounded-[16px]">
+      <div className="relative w-full mx-auto rounded-[16px]">
         {eachslider.images.map((img, idx) => (
-          <div key={idx} className="w-full">
+          <div key={idx} className="w-full pb-5">
             <Image
               src={img}
               alt={eachslider.text}
@@ -14,7 +14,7 @@ export function ProjectCardSlider({ eachslider }) {
               className="w-full h-[250px] md:h-[350px] xl:h-[450px] object-cover rounded-[16px]"
             />
             <p className="text-white text-center text-xl mt-3">
-              {eachslider.text}
+              {/* {eachslider.text} */}
             </p>
           </div>
         ))}
