@@ -23,7 +23,7 @@ export function ProjectSliderContainer() {
     arrows: false,
 
     appendDots: (dots) => (
-      <ul className="flex justify-center mt-3 gap-x-5 ">
+      <ul className="flex justify-center mt-3 gap-x-5">
         {dots.map((dot, i) => {
           const isActive = dot.props.className.includes("slick-active");
 
@@ -48,7 +48,7 @@ export function ProjectSliderContainer() {
   };
 
   return (
-    <div className="w-full h-[500px] relative xl:mt-[3rem] pt-3">
+    <div className="w-full h-[450px] md:h-[500px] relative xl:mt-[3rem] md:pt-3">
       <Slider {...settings}>
         {slidersDetails.map((each) => (
           <ProjectCardSlider key={each.id} eachslider={each} />

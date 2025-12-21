@@ -122,3 +122,16 @@
 .slick-dots li button:before {
   display: none !important;
 }
+.slick-dots li {
+  width: auto !important;
+  height: auto !important;
+}
+.dot-active {
+  width: 47px !important;
+  height: 16px !important;
+}
+
+.dot-inactive {
+  width: 16px !important;
+  height: 16px !important;
+}
