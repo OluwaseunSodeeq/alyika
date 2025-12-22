@@ -34,7 +34,7 @@ export default function Header() {
     "Newsletter",
     "Help Center",
     "Guides",
-    "Webinars",
+    "Support",
   ];
 
   const bg = "#ffffff";
