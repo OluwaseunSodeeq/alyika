@@ -19,7 +19,7 @@ export default function Header() {
     { name: "Impact", href: "/impact", activesStatus: false },
   ];
   const dropDown1 = [
-    "Project",
+    "Projects",
     "Features",
     "Solutions",
     "Case Studies",

@@ -1,13 +1,20 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function ProjectCard({ eachProject }) {
-  const { title, heading, description, imgUrl, details } = eachProject;
+  const router = useRouter();
+  const { title, heading, description, imgUrl, details, id } = eachProject;
   const [openDetails, setOpenDetails] = useState(false);
 
+  const goTo = (id) => {
+    router.push(`/projects/${id}`);
+    // setOpenDetails(!openDetails);
+  };
+
   return (
-    <div className="relative font-santoshi mt-5 h-auto pb-5 px-5">
+    <div className="relative font-santoshi mt-5 h-auto mb-10 px-5">
       <h4 className="text-[18px] md:text-[24px]  xl:text-[32px] 2xl:text-[40px] text-black">
         {title}
       </h4>
@@ -37,7 +44,7 @@ export default function ProjectCard({ eachProject }) {
               alt="arrow"
               width={16}
               height={16}
-              onClick={() => setOpenDetails(!openDetails)}
+              onClick={() => goTo(id)}
               className={`transition-transform duration-200 ${
                 openDetails ? "rotate-90" : "rotate-0"
               }`}

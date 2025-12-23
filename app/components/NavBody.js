@@ -34,7 +34,7 @@ function Navbody({ bg, textColor }) {
       style={{ backgroundColor: bg, color: textColor }}
     >
       <ul className=" flex h-auto flex-col xl:gap-1 items-center justify-start">
-        <li className="flex justify-between items-center pl-6 pr-1 md:pr-9 font-medium w-full h-[48px] border-t-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
+        <li className="flex uppercase justify-between items-center pl-6 pr-1 md:pr-9 font-medium w-full h-[48px] border-t-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/home">
             HOME
           </CurrentNav>
@@ -57,25 +57,30 @@ function Navbody({ bg, textColor }) {
           </div>
         </li>
 
-        <li className="flex items-center pl-6 font-medium w-full h-[48px] border-t-2 border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
+        <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-t-2 border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/about">
             ABOUT
           </CurrentNav>
         </li>
 
-        <li className="flex items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
+        <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/impact">
             IMPACT
           </CurrentNav>
         </li>
-        <li className="flex items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
+        <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/gallery">
             GALLERY
           </CurrentNav>
         </li>
-        <li className="flex items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
+        <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/support">
             SUPPORT
+          </CurrentNav>
+        </li>
+        <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
+          <CurrentNav onClick={closeHandler} to="/projects">
+            PROJECTS
           </CurrentNav>
         </li>
       </ul>
