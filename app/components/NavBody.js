@@ -83,6 +83,11 @@ function Navbody({ bg, textColor }) {
             PROJECTS
           </CurrentNav>
         </li>
+        <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
+          <CurrentNav onClick={closeHandler} to="/join">
+            JOIN
+          </CurrentNav>
+        </li>
       </ul>
     </div>
   );
