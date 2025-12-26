@@ -87,7 +87,7 @@ export default function Join() {
               </div>
 
               {/* Content */}
-              <div className="w-full border-2 md:w-1/2 lg:w-[510px] 2xl:w-[610px]  py-6 pl-4 md:p-8 flex flex-col justify-center text-white">
+              <div className="w-fullmd:w-1/2 lg:w-[510px] 2xl:w-[610px]  py-6 pl-4 md:p-8 flex flex-col justify-center text-white">
                 <h3 className=" lg:w-[380px] text-[28px] md:text-[30px] lg:text-[35px] 2xl:text-[45px] font-bold">
                   {item.title}
                 </h3>

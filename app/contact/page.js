@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Wrapper from "../components/Wrapper";
+import ContactHeroSection from "../components/ContactHeroSection";
 
 export default function Page() {
   return (
-    <div>
-      <h1>Contact Page</h1>
-    </div>
-  )
+    <Wrapper>
+      <div>
+        <ContactHeroSection />
+      </div>
+    </Wrapper>
+  );
 }
