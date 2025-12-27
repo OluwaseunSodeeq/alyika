@@ -4,7 +4,7 @@ import ContactHeroSection from "../components/ContactHeroSection";
 
 export default function Page() {
   return (
-    <Wrapper>
+    <Wrapper bg={"#FFFFFF"}>
       <div>
         <ContactHeroSection />
       </div>

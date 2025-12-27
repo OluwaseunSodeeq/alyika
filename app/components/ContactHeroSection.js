@@ -1,5 +1,4 @@
 "use client";
-
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 
@@ -29,46 +28,47 @@ export default function ContactHeroSection() {
   };
 
   return (
-    <section className="relative py-20 px-6 bg-white overflow-hidden">
-      {/* Decorative Icons */}
-      <span className="absolute top-20 left-10 text-yellow-400 text-2xl">
-        +
-      </span>
-      <span className="absolute top-32 right-20 text-green-600 text-xl">+</span>
-      <span className="absolute bottom-20 left-20 text-purple-500 text-2xl">
-        ◡
-      </span>
-      <span className="absolute bottom-32 right-32 text-sky-400 text-2xl">
-        ◡
-      </span>
-
-      <div className="max-w-6xl mx-auto">
+    <section className="font-satoshi relative py-15 md:py-20 px-3 md:px-6 bg-white overflow-hidden">
+      <div className="relative max-w-[900px] mx-auto ">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-green-900">
+        <div className="relative max-w-[750px] mx-auto text-center mb-16 ">
+          <h1 className="lg:w-[80%] text-[30px] md:text-[40px] lg:text-[50px] 2xl:text-[70px] font-bold text-dark-green mx-auto">
             Let’s Connect With Us
           </h1>
-          <p className="mt-4 text-gray-600 max-w-xl mx-auto">
+          <p className=" lg:w-[90%] mt-4 text-black text-[20px] md:text-[22px]  lg:text-[22px] 2xl:text-[27px] mx-auto">
             We’d love to hear from you. Reach out and let’s build something
             meaningful together.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+          <div className="lg:w-[95%] mx-auto  mt-6 flex flex-wrap justify-center gap-4 text-base md:text-[17px] 2xl:text-[27px] text-dark-green">
             <span>📧 hello@climeset.ng</span>
             <span>📍 projectclimeset</span>
             <span>📞 +234 800 CLIMESET</span>
             <span>📁 projectclimeset</span>
           </div>
+          {/* Decorative Icons */}
+          <span className="absolute top-[-40] left-[10] md:left-[-150] text-yellow text-[30px] md:text-[28px]">
+            +
+          </span>
+          <span className="hidden md:inline-block absolute top-[-50] md:top-[-40]  right-5 md:right-[-150] text-dark-green font-bold text-[40px] 2xl:text-[44px]">
+            +
+          </span>
+          <span className="absolute bottom-23 md:bottom-15 left-15 md:left-[-90]  font-bold lg:text-[30px] 2xl:text-[56px] text-[#B637CD] text-2xl">
+            ◡
+          </span>
+          <span className="absolute bottom-[240] md:bottom-22 font-bold right-1 md:right-[-120] rotate-90 text-[#61C1DB] text-[30px] 2xl:text-[47px]">
+            ◡
+          </span>
         </div>
 
         {/* Content */}
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Left Text */}
           <div>
-            <h2 className="text-2xl font-semibold text-green-900 mb-4">
+            <h2 className="text-[30px] md:text-[30px] lg:[40px] font-semibold text-dark-green mt-0 md:mt-10">
               Contact Us
             </h2>
-            <p className="text-gray-600">
+            <p className="w-[90%]  text-black mt-6 text-[18px] 2xl:text-[30px] md:text-[22px] lg:text-[24px]">
               Got a question, idea, or partnership proposal? Let’s talk.
             </p>
           </div>
@@ -76,17 +76,19 @@ export default function ContactHeroSection() {
           {/* Form */}
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="bg-white rounded-xl shadow-lg p-8 space-y-6"
+            className="w-full  bg-white py-4 md:py-8 space-y-6"
           >
             <div>
               <input
                 type="text"
                 placeholder="Full Name"
                 {...register("name", { required: true })}
-                className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-700"
+                className="w-full border-[#A4A0A0] border-1 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark-green"
               />
               {errors.name && (
-                <span className="text-red-500 text-sm">Name is required</span>
+                <span className="text-red-500 text-sm md:text-base">
+                  Name is required
+                </span>
               )}
             </div>
 
@@ -95,10 +97,12 @@ export default function ContactHeroSection() {
                 type="email"
                 placeholder="Email Address"
                 {...register("email", { required: true })}
-                className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-700"
+                className="w-full border-[#A4A0A0] border-1 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark-green"
               />
               {errors.email && (
-                <span className="text-red-500 text-sm">Email is required</span>
+                <span className="text-red-500 text-sm md:text-base">
+                  Email is required
+                </span>
               )}
             </div>
 
@@ -107,10 +111,10 @@ export default function ContactHeroSection() {
                 rows="4"
                 placeholder="Message"
                 {...register("message", { required: true })}
-                className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-700"
+                className="w-full border-[#A4A0A0] border-1 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark-green"
               />
               {errors.message && (
-                <span className="text-red-500 text-sm">
+                <span className="text-red-500 text-sm md:text-base">
                   Message is required
                 </span>
               )}
@@ -119,7 +123,7 @@ export default function ContactHeroSection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-green-900 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition"
+              className="w-full bg-dark-green text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition"
             >
               {isSubmitting ? "Sending..." : "Send"}
             </button>
