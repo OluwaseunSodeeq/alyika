@@ -1,8 +1,21 @@
 "use client";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
+
+////////////////// WHATSAPP stuff//////////////
+const phoneNumber = "+2348149428278";
+const message = "Hello, How can i be of help?";
+const encodedMessage = encodeURIComponent(message);
+const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+const whatSappHandler = () => {
+  window.open(whatsappLink, "_blank");
+};
+//   ====================
 
 export default function ContactHeroSection() {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const {
     register,
     handleSubmit,
@@ -19,12 +32,16 @@ export default function ContactHeroSection() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
-      alert("Message sent successfully!");
+      toast.success("Message sent successfully!");
       reset();
     } catch (error) {
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
       console.error(error);
     }
+  };
+
+  const onError = (error) => {
+    toast.error(error.message || "Kindly fill the form correctly");
   };
 
   return (
@@ -32,7 +49,7 @@ export default function ContactHeroSection() {
       <div className="relative max-w-[900px] mx-auto ">
         {/* Header */}
         <div className="relative max-w-[750px] mx-auto text-center mb-16 ">
-          <h1 className="lg:w-[80%] text-[30px] md:text-[40px] lg:text-[50px] 2xl:text-[70px] font-bold text-dark-green mx-auto">
+          <h1 className="lg:w-[80%]text-[30px] md:text-[40px] lg:text-[50px] 2xl:text-[70px] font-bold text-dark-green mx-auto">
             Let’s Connect With Us
           </h1>
           <p className=" lg:w-[90%] mt-4 text-black text-[20px] md:text-[22px]  lg:text-[22px] 2xl:text-[27px] mx-auto">
@@ -75,13 +92,15 @@ export default function ContactHeroSection() {
 
           {/* Form */}
           <form
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(onSubmit, onError)}
             className="w-full  bg-white py-4 md:py-8 space-y-6"
           >
             <div>
               <input
                 type="text"
                 placeholder="Full Name"
+                id="name"
+                name="name"
                 {...register("name", { required: true })}
                 className="w-full border-[#A4A0A0] border-1 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark-green"
               />
@@ -96,6 +115,8 @@ export default function ContactHeroSection() {
               <input
                 type="email"
                 placeholder="Email Address"
+                id="email"
+                name="email"
                 {...register("email", { required: true })}
                 className="w-full border-[#A4A0A0] border-1 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark-green"
               />
@@ -108,6 +129,8 @@ export default function ContactHeroSection() {
 
             <div>
               <textarea
+                id="message"
+                name="message"
                 rows="4"
                 placeholder="Message"
                 {...register("message", { required: true })}
@@ -123,7 +146,7 @@ export default function ContactHeroSection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-dark-green text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition"
+              className="w-full bg-dark-green text-white py-3 rounded-lg font-semibold hover:bg-dark-green cursor-pointer hover:tracking-widest  transition-all duration-500 "
             >
               {isSubmitting ? "Sending..." : "Send"}
             </button>
