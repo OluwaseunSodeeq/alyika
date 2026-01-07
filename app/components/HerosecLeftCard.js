@@ -12,10 +12,10 @@ export default function HerosecLeftCard() {
   const textColor = "#012f25";
 
   return (
-    <div className="relative w-full 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[23.8rem] bg-dark-green text-main-bg pt-[4.2rem] md:pt-[3rem] xl:pt-[7rem] px-[1rem] md:px-[1.5rem] xl:px-[3.5rem] pb-0 xl:pb-[2rem] md:rounded-[1.2rem] ">
-      <h1 className="font-satoshi text-[48px] md:text-[40px] text-main-bg mb-4 md:font-medium leading-[1]">
+    <div className="relative w-full 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[23.8rem] bg-dark-green text-main-bg pt-[4.2rem] md:pt-[3rem] xl:pt-[7rem] px-[1rem] md:px-[1.5rem] xl:px-[3.5rem] pb-0 xl:pb-[2rem] md:rounded-[1.2rem]">
+      <h1 className="font-satoshi text-[48px] md:text-[40px] text-main-bg mb-4 md:font-medium leading-[1] lg:text-nowrap">
         <span className=""> Building Green </span>
-        <span className="text-[84px] text-yellow md:text-main-bg md:text-[48px] xl:[40px] font-bold md:font-medium">
+        <span className="text-[84px] lg:text-[40px] text-yellow md:text-main-bg md:text-[48px] xl:[40px] font-bold md:font-medium">
           Dreams
         </span>
       </h1>
@@ -49,7 +49,7 @@ export default function HerosecLeftCard() {
         </p>
       </div>
 
-      <div className="font-montserrat flex font-medium gap-3 items-center mt-[2.5rem] md:mt-[2.5rem] xl:mt-[1.2rem] ">
+      <div className="font-montserrat flex font-medium gap-4 items-center mt-[2.5rem]  xl:mt-[1.2rem] pb-6 md:pb-0 pt-2 md:pt-0">
         <Button btnBg={btnBg} textColor={textColor}>
           Get Involved
         </Button>
@@ -61,7 +61,7 @@ export default function HerosecLeftCard() {
         </Link>
       </div>
 
-      <div className="w-full transition rotate-180 md:hidden mt-.5">
+      <div className="w-full transition  md:hidden mt-2.5">
         {/* <LeftGradientDashedFadeLine /> */}
         <RightGradientDashedFadeLine />
       </div>

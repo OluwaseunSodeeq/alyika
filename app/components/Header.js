@@ -8,6 +8,7 @@ import Button from "./Button";
 import useOpenContext from "../contexts/useOpenContext";
 import Hamburger from "./Hamburger";
 import Navbody from "./NavBody";
+import Link from "next/link";
 
 export default function Header() {
   const { open } = useOpenContext();
@@ -42,10 +43,25 @@ export default function Header() {
 
   return (
     <div
-      className={`w-full ${
-        mobile ? "shadow-md " : ""
-      } sticky top-0 overflow-visible z-20 w-full p-0 m-0 2xl:max-w-[1400px] md:mx-auto box-border`}
-      style={{ background: mobile ? bg : btnBg }}
+      className={`
+    w-full
+    sticky
+    top-[-1]
+    overflow-visible
+    z-20
+    p-0
+    m-0
+    box-border
+    2xl:max-w-[1400px]
+    md:mx-auto
+    bg-dark-green
+    lg:bg-main-bg
+
+    transition-colors
+    duration-300
+
+    ${mobile ? "shadow-md" : ""}
+  `}
     >
       {/* <Wrapper bg={mobile ? bg : btnBg}> */}
       <div>
@@ -61,9 +77,12 @@ export default function Header() {
           <div className="hidden  xl:flex gap-[3rem]">
             <DropDown options={dropDown1} />
             <DropDown options={dropDown2} />
-            <Button btnBg={btnBg} textColor={bg}>
-              Contact Us
-            </Button>
+
+            <Link href="/contact" className="self-center">
+              <Button btnBg={btnBg} textColor={bg}>
+                Contact Us
+              </Button>
+            </Link>
           </div>
           <div className=" xl:hidden">
             <Hamburger />
