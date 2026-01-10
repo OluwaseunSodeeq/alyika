@@ -1,13 +1,17 @@
 import { NextResponse } from "next/server";
+import { getCachedWeather, setCachedWeather } from "../../../lib/weatherCache";
 
 export async function POST(req) {
   const { city } = await req.json();
-  console.log("Received city:", city);
 
   if (!city) {
     return NextResponse.json({ error: "City is required" }, { status: 400 });
   }
 
+  const cached = getCachedWeather(city);
+  if (cached) {
+    return NextResponse.json({ ...cached, cached: true });
+  }
   const API_KEY = process.env.OPENWEATHER_API_KEY;
 
   try {
@@ -21,7 +25,7 @@ export async function POST(req) {
 
     const data = await res.json();
 
-    const response = {
+    const weatherData = {
       location: data.name,
       temperature: data.main.temp,
       condition: data.weather[0].description,
@@ -29,7 +33,8 @@ export async function POST(req) {
       wind: data.wind.speed,
     };
 
-    return NextResponse.json(response);
+    setCachedWeather(city, weatherData);
+    return NextResponse.json(weatherData);
   } catch (error) {
     return NextResponse.json(
       { error: "Unable to fetch weather data" },
