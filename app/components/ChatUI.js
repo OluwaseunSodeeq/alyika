@@ -125,6 +125,35 @@ export default function ChatUI() {
 
       return;
     }
+    // ==QUIZ START=========================
+    // ===============================
+    if (userMessage.toLowerCase().includes("quiz")) {
+      setIsTyping(true);
+
+      const res = await fetch("/api/ai", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "quiz",
+          payload: null,
+        }),
+      });
+
+      const data = await res.json();
+      setIsTyping(false);
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "bot",
+          content: `🧠 Quiz Time!\n\n${data.response}`,
+        },
+      ]);
+
+      return;
+    }
+
+    // QUIZ EEND===========
 
     // ===============================
     // 🌱 ENVIRONMENT QUESTIONS

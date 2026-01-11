@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 const mentalModel = `
 Request enters →
   1️⃣ Identify user (IP)
@@ -8,8 +10,9 @@ Request enters →
 `;
 
 import { NextResponse } from "next/server";
-import { rateLimit } from "../../../lib/rateLimit";
 import { openai } from "../../../lib/openai";
+// import { openai } from "@/lib/openai";
+import { rateLimit } from "../../../lib/rateLimit";
 import { SYSTEM_PROMPT } from "../../../lib/aiPrompt";
 import { logRateLimit, logRequest } from "../../../lib/aiMetrics";
 
@@ -60,8 +63,20 @@ export async function POST(req) {
         `;
       break;
     /*
-       case "quiz":
-       return handleQuiz(payload);
+    case "quiz":
+      userPrompt = `
+        Create ONE multiple-choice quiz question about climate, environment, or weather.
+
+        Rules:
+        - Provide exactly 4 options labeled A, B, C, D
+        - Clearly indicate the correct answer
+        - After the answer, explain why it is correct
+        - Keep it student-friendly and short
+        `;
+            break;
+
+   
+      
 
         case "did-you-know":
        return handleFact(payload);
