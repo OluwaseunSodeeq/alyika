@@ -4,8 +4,8 @@ export default function AboutCards() {
   const cardsContents = [
     {
       img: "/about-card1.jpg",
-      heading: "Confidence, creativity, and climate leadership.",
-      text: "Most youth don't practical climate education.",
+      heading: "Innovation, creativity, and climate leadership.",
+      text: "Most youth don't practice climate education.",
       alt: "Youth showing creativity and leadership",
       btnText: "We help turn that info",
     },
@@ -19,7 +19,7 @@ export default function AboutCards() {
     {
       img: "/about-card3.jpg",
       heading: "Stories that change minds.",
-      text: "Some many feel helpless about the future.",
+      text: "So many feel helpless about the future.",
       alt: "Student creating art",
       btnText: "We help turn that info",
     },

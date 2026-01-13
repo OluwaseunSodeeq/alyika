@@ -50,18 +50,18 @@ export default function ContactHeroSection() {
         {/* Header */}
         <div className="relative max-w-[750px] mx-auto text-center mb-16 ">
           <h1 className="lg:w-[80%]text-[30px] md:text-[40px] lg:text-[50px] 2xl:text-[70px] font-bold text-dark-green mx-auto">
-            Let’s Connect With Us
+            Connect With Us
           </h1>
           <p className=" lg:w-[90%] mt-4 text-black text-[20px] md:text-[22px]  lg:text-[22px] 2xl:text-[27px] mx-auto">
             We’d love to hear from you. Reach out and let’s build something
             meaningful together.
           </p>
 
-          <div className="lg:w-[95%] mx-auto  mt-6 flex flex-wrap justify-center gap-4 text-base md:text-[17px] 2xl:text-[27px] text-dark-green">
-            <span>📧 hello@climeset.ng</span>
-            <span>📍 projectclimeset</span>
-            <span>📞 +234 800 CLIMESET</span>
+          <div className="lg:w-[100%] mx-auto  mt-6 flex flex-wrap justify-center gap-4 text-base md:text-[17px] 2xl:text-[27px] text-dark-green">
+            <span>📧 projectclimeset@gmail.com</span>
             <span>📁 projectclimeset</span>
+            {/* <span>📍 projectclimeset</span> */}
+            <span>📞 +234 810 5810 398</span>
           </div>
           {/* Decorative Icons */}
           <span className="absolute top-[-40] left-[10] md:left-[-150] text-yellow text-[30px] md:text-[28px]">

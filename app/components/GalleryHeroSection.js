@@ -23,10 +23,10 @@ export default function GalleryHeroSection() {
           Browse through snapshots from
         </span>
         <span className="text-[33px] md:text-[50px] 2xl:text-[90px] lg:text-[70px] md:text-4xl font-extrabold text-dark-green">
-          School Workshops
+          Our Programmes
         </span>
         <Image
-          className="hidden lg:block absolute left-50 top-38"
+          className="hidden lg:block absolute left-58 top-38"
           src="/left-design.png"
           alt="Left decoration"
           width={50}

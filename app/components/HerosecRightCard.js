@@ -15,7 +15,7 @@ export default function HerosecRightCard() {
   const testimonials = [
     {
       name: "John Doe",
-      text: "We’re not experts in suits. We’re youths, students, storytellers, builders, and friends who decided to do something.",
+      text: `"The 'Stolen Breath' is the kind of book that can spark conversations and nudge people toward real action. Amazing job and well-done."`,
       rating: 4,
       image: "/person.png",
       bgImage: "/bgImage0.png",
@@ -68,7 +68,7 @@ export default function HerosecRightCard() {
 
         <div className="absolute top-12 md:top-[12rem] xl:top-[7rem] left-1/2 -translate-x-1/2 xl:translate-x-0 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[90%] md:w-[95%] xl:max-w-[16rem] shadow-md">
           <div className=" flex items-center gap-2">
-            <div className="w-full h-[140px] md:w-[50%] xl:w-[130px] xl:h-[126px] rounded-md">
+            <div className="w-[90%] border-2 h-[140px] md:w-[50%] xl:w-[130px] xl:h-[126px] rounded-md">
               <Image
                 width={100}
                 height={100}
@@ -125,7 +125,8 @@ export default function HerosecRightCard() {
         <div className=" hidden xl:block absolute bg-white p-3 pl-9 text-center right-0 bottom-0  rounded-tl-[4rem] clip-slant ">
           <p className="text-gray-700 font-satoshi font-light italic  xl:max-w-[22rem] text-left text-sm">
             &quot; We’re not experts in suits, we’re students, storytellers,
-            builders, and friends who decided to do something. &quot;
+            builders, and friends who decided to do something. And now we’re
+            inviting you to do it with us. &quot;
           </p>
         </div>
       </div>

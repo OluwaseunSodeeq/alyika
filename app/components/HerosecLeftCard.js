@@ -37,15 +37,15 @@ export default function HerosecLeftCard() {
       </div>
       <div className="font-satoshi mt-4.5 md:mt-0">
         <h4 className="font-bold hidden md:block">Hi there. </h4>
-        <p className="text-base  text-main-bg font-light leading-6 italic">
+        <p className="hidden md:block text-base  text-main-bg font-light leading-6 italic">
           We’re a group of young Nigerians who’ve been knee-deep (literally) in
           flooded streets, trying to figure out how to stop climate change from
           wrecking our homes, schools, and futures.
         </p>
-        <p className="text-base  text-main-bg font-light leading-6 mt-6 italic hidden md:block">
-          We’re not experts in suits, we’re students, storytellers, builders,
-          and friends who decided to do something. And now we’re inviting you to
-          do it with us.
+        <p className="text-base  text-main-bg font-light leading-6 mt-6 italic ">
+          Project Climeset is a climate literacy organization that uses
+          storytelling and technology to advance climate education, build
+          resilience, and reduce climate apathy.
         </p>
       </div>
 

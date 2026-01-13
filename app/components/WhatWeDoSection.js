@@ -18,7 +18,7 @@ function Container({ children }) {
 export default function WhatWeDoSection() {
   const cardArr = [
     { numb: "100", text: "students trained directly" },
-    { numb: "2000", text: "young people engaged in directly" },
+    { numb: "2000", text: "young people engaged directly" },
     { numb: "12000", text: "reached online through digital campaigns" },
     { numb: "30", text: "youth volunteers in our network" },
   ];
@@ -31,14 +31,12 @@ export default function WhatWeDoSection() {
         </span>
         <div className="p-0">
           <span className="font-normal md:font-bold text-[15px] md:text-[2.2rem] ">
-            We do three main things
+            Everything We Do Centers on
           </span>
-          <span className="text-[15px] md:text-[2.2rem] font-normal">
-            (all inspired
-          </span>
+          {/* <span className="text-[15px] md:text-[2.2rem] font-normal"></span> */}
         </div>
         <div className="font-normal md:font-medium text-[15px] md:text-[2.2rem] md:flex flex-col p-0 ">
-          <span>by what we’ve lived through and seen)</span>
+          <span>Three Key Things</span>
         </div>
       </div>
 
