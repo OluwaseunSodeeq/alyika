@@ -36,12 +36,12 @@ export default function ImpactHeroSection() {
       <div className="w-full  py-20 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <h2 className="max-w-3xl mx-auto text-center text-black font-bold text-[24px] md:text-[40px] lg:text-[50px] 2xl:text-[70px]  leading-tight">
+          <h2 className="max-w-3xl 2xl:max-w-[1100px] mx-auto text-center text-black font-bold text-[24px] md:text-[40px] lg:text-[50px] 2xl:text-[70px]  leading-tight">
             We’re still learning. Still growing. But here’s what we’ve been able
             to do:
           </h2>
           {/* Cards */}
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 px-3 lg:px-0">
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 2xl:gap-1.5 px-3 lg:px-0">
             {impactStats.map((impact, index) => (
               <ImpactCard key={index} index={index} impact={impact} />
             ))}
@@ -52,7 +52,7 @@ export default function ImpactHeroSection() {
             <div className="px-3 lg:px-0">
               <ImpactCard impact={lastImapactCard} index={0} />
             </div>
-            <div className="block font-satoshi  md:w-[480px]  2xl:max-w-[600px] xl:h-auto  mt-8 md:mt-4 px-2 pt-2 pb-20 relative ">
+            <div className="block font-satoshi  md:w-[480px]  xl:h-auto  mt-8 md:mt-4 px-2 pt-2 pb-20 relative ">
               <p className="font-satoshi font-medium text-[22px] md:text-[30px] 2xl:text-[40px] text-dark-green">
                 We track all our efforts from school outreaches to storytelling
                 campaigns. Every small win counts.

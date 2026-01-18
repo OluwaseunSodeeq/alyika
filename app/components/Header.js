@@ -52,19 +52,17 @@ export default function Header() {
     p-0
     m-0
     box-border
-    2xl:max-w-[1400px]
-    md:mx-auto
+    md:shadow-md
     bg-dark-green
     lg:bg-main-bg
-
     transition-colors
     duration-300
 
-    ${mobile ? "shadow-md" : ""}
+    ${mobile ? "" : ""}
   `}
     >
       {/* <Wrapper bg={mobile ? bg : btnBg}> */}
-      <div>
+      <div className="2xl:max-w-[1400px] md:mx-auto">
         <div className="flex justify-between items-center px-[1rem] md:px-[3rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
           <div className="block xl:hidden w-[115px] h-[49px] relative">
             <MobileLogo />
