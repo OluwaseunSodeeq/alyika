@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   const { message } = await req.json();
 
-
   const res = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
