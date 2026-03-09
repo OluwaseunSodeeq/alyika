@@ -41,9 +41,9 @@ export default function WhatWeDoSection() {
       </div>
 
       <div className="mt-[1.5rem] md:mt-[4rem] ">
-        <div className="flex items-center flex-col-reverse md:flex-row md:justify-center md:gap-x-3 xl:gap-[2.8rem] md:px-[1rem] xl:px-0">
+        <div className="flex items-center flex-col-reverse md:gap-x-8 xl:gap-[2.8rem]  md:justify-center md:flex-row ">
           <div
-            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[39.6rem] xl:h-[17rem] relative mt-5 md:mt-0 rounded-lg"
+            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[39.6rem] xl:h-[17rem] relative mt-5 md:mt-0 rounded-lg "
             style={{
               backgroundImage: "url('/whatwedo01.jpg')",
             }}
@@ -60,7 +60,7 @@ export default function WhatWeDoSection() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-x-4 w-[25rem] xl:w-[28rem] h-[20rem] justify-center items-center mx-auto xl:mx-0 ">
+          <div className="flex flex-wrap gap-x-4 w-[25rem] xl:w-[28rem] h-[20rem] justify-center items-center  ">
             {cardArr.map((card, i) => {
               const { numb, text } = card;
               return <CardCounter key={i} numb={numb} text={text} />;

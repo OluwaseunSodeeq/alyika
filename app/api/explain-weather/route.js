@@ -1,67 +1,67 @@
-import { NextResponse } from "next/server";
-import openai from "../../../config-openai";
-import { rateLimit } from "../../../lib/rateLimit";
-import { SYSTEM_PROMPT } from "../../../lib/aiPrompt";
+// import { NextResponse } from "next/server";
+// import openai from "../../../config-openai";
+// import { rateLimit } from "../../../lib/rateLimit";
+// import { SYSTEM_PROMPT } from "../../../lib/aiPrompt";
 
-export async function POST(req) {
-  const ip = req.headers.get("x-forwarded-for") || "unknown";
+// export async function POST(req) {
+//   const ip = req.headers.get("x-forwarded-for") || "unknown";
 
-  //  Rate limit FIRST
-  if (!rateLimit(ip)) {
-    return NextResponse.json(
-      { error: "Too many requests. Please slow down 😊" },
-      { status: 429 }
-    );
-  }
+//   //  Rate limit FIRST
+//   if (!rateLimit(ip)) {
+//     return NextResponse.json(
+//       { error: "Too many requests. Please slow down 😊" },
+//       { status: 429 }
+//     );
+//   }
 
-  //  Then weather explanation logic
-  const { weather } = await req.json();
+//   //  Then weather explanation logic
+//   const { weather } = await req.json();
 
-  if (!weather) {
-    return NextResponse.json(
-      { error: "Weather data is required" },
-      { status: 400 }
-    );
-  }
+//   if (!weather) {
+//     return NextResponse.json(
+//       { error: "Weather data is required" },
+//       { status: 400 }
+//     );
+//   }
 
-  try {
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      temperature: 0.4,
-      max_tokens: 300,
-      messages: [
-        {
-          role: "system",
-          content: SYSTEM_PROMPT,
-        },
-        {
-          role: "user",
-          content: `
-Here is the current weather data:
-${JSON.stringify(weather)}
+//   try {
+//     const completion = await openai.chat.completions.create({
+//       model: "gpt-4o-mini",
+//       temperature: 0.4,
+//       max_tokens: 300,
+//       messages: [
+//         {
+//           role: "system",
+//           content: SYSTEM_PROMPT,
+//         },
+//         {
+//           role: "user",
+//           content: `
+// Here is the current weather data:
+// ${JSON.stringify(weather)}
 
-Explain what this means to a student.
-Then add a short "Did you know?" fact.
-          `,
-        },
-      ],
-    });
+// Explain what this means to a student.
+// Then add a short "Did you know?" fact.
+//           `,
+//         },
+//       ],
+//     });
 
-    return NextResponse.json({
-      explanation: completion.choices[0].message.content,
-    });
-  } catch (error) {
-    console.error("AI error:", error);
+//     return NextResponse.json({
+//       explanation: completion.choices[0].message.content,
+//     });
+//   } catch (error) {
+//     console.error("AI error:", error);
 
-    return NextResponse.json(
-      {
-        explanation:
-          "I’m having trouble explaining the weather right now. Please try again in a moment 🌱",
-      },
-      { status: 200 }
-    );
-  }
-}
+//     return NextResponse.json(
+//       {
+//         explanation:
+//           "I’m having trouble explaining the weather right now. Please try again in a moment 🌱",
+//       },
+//       { status: 200 }
+//     );
+//   }
+// }
 
 // =================SECOND TRY WITH RATE LIMITING==================
 // export async function POST(req) {

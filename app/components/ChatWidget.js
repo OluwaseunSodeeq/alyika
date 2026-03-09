@@ -5,7 +5,7 @@ import ChatOverlay from "./ChatOverlay";
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const widgetRef = useRef(null);
-  const position = useRef({ x: 20, y: 120 });
+  const position = useRef({ x: 30, y: 20 });
 
   const handleDrag = (e) => {
     const touch = e.touches ? e.touches[0] : e;
@@ -14,8 +14,8 @@ export default function ChatWidget() {
       y: touch.clientY - 30,
     };
 
-    widgetRef.current.style.left = `${position.current.x}px`;
-    widgetRef.current.style.top = `${position.current.y}px`;
+    widgetRef.current.style.right = `${position.current.x}px`;
+    widgetRef.current.style.bottom = `${position.current.y}px`;
   };
 
   return (
@@ -42,7 +42,7 @@ export default function ChatWidget() {
           transition-transform
           hover:scale-110
         "
-        style={{ left: position.current.x, top: position.current.y }}
+        style={{ right: position.current.x, bottom: position.current.y }}
       >
         💬
       </div>

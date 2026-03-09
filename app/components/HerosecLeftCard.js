@@ -12,7 +12,7 @@ export default function HerosecLeftCard() {
   const textColor = "#012f25";
 
   return (
-    <div className="relative w-full 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[23.8rem] bg-dark-green text-main-bg pt-[4.2rem] md:pt-[3rem] xl:pt-[7rem] px-[1rem] md:px-[1.5rem] xl:px-[3.5rem] pb-0 xl:pb-[2rem] md:rounded-[1.2rem]">
+    <div className="relative w-full 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[45%] bg-dark-green text-main-bg pt-[4.2rem] md:pt-[3rem] xl:pt-[7rem] px-[1rem]  xl:px-[3.5rem] pb-0 xl:pb-[2rem] md:rounded-[1.2rem]">
       <h1 className="font-satoshi text-[48px] md:text-[40px] text-main-bg mb-4 md:font-medium leading-[1] lg:text-nowrap">
         <span className=""> Building Green </span>
         <span className="text-[84px] lg:text-[40px] text-yellow md:text-main-bg md:text-[48px] xl:[40px] font-bold md:font-medium">
@@ -37,7 +37,7 @@ export default function HerosecLeftCard() {
       </div>
       <div className="font-satoshi mt-4.5 md:mt-0">
         <h4 className="font-bold hidden md:block">Hi there. </h4>
-        <p className="hidden md:block text-base  text-main-bg font-light leading-6 italic">
+        <p className="hidden md:block text-base text-main-bg font-light leading-6 italic">
           We’re a group of young Nigerians who’ve been knee-deep (literally) in
           flooded streets, trying to figure out how to stop climate change from
           wrecking our homes, schools, and futures.

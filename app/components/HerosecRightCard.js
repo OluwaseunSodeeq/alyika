@@ -44,7 +44,7 @@ export default function HerosecRightCard() {
   const current = testimonials[index];
 
   return (
-    <div className="relative h-[400px] md:h-[40rem] xl:h-[40rem] w-full 2xl:w-[46rem] xl:w-[44rem] md:w-[23.8rem] xl:rounded-b-[1.2rem] ">
+    <div className="relative h-[400px] md:h-[40rem] xl:h-[40rem] w-full 2xl:w-[46rem] xl:w-[44rem] md:w-[45%] xl:rounded-b-[1.2rem] ">
       <div
         className=" pt-12 md:pt-0 w-full h-full md:h-full bg-cover bg-center bg-no-repeat md:border-none  md:rounded-[1.2rem]"
         style={

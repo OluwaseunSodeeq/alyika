@@ -5,23 +5,23 @@ export default function AboutCard({ cardContent, index }) {
   const { img, text, alt, heading, btnText } = cardContent;
   return (
     <div className="">
-      <div className="relative font-satoshi w-full h-72 md:h-96 xl:h-[500px] rounded-2xl overflow-hidden shadow-md">
+      <div className="relative font-satoshi w-full h-80 md:h-96 xl:h-[500px] rounded-2xl overflow-hidden shadow-md">
         <Image
           src={img}
           alt={alt}
           width={1024}
           height={400}
-          className="w-full h-[350px] md:h-auto"
+          className="w-full h-[450px] md:h-auto"
         />
 
         <div
-          className={`h-[140px] md:h-auto absolute bottom-[-3px]  text-dark-green w-full md:w-[350px] 2xl:w-[400px] md:bottom-6 bg-white/5 md:bg-white/90 backdrop-blur py-8 rounded-xl shadow ${
+          className={`h-[120px] md:h-auto absolute bottom-[-3px]  text-dark-green w-full md:w-[350px] 2xl:w-[400px] md:bottom-6 bg-white/5 md:bg-white/90 backdrop-blur py-8 rounded-xl shadow ${
             index !== 1
               ? "md:right-[2rem] xl:right-[5rem]"
               : "md:left-[2rem] xl:left-[5rem]"
           }`}
         >
-          <div className="md:hidden absolute top-[20px]  left-[20px] md:left-[50px]">
+          <div className="md:hidden absolute top-[12.5px]  left-[20px] md:left-[50px]">
             <ButtonText text={btnText} />
           </div>
           <p className="hidden md:block xl:w-[330px]  xl:text-[20px] 2xl:text-[25px] italic pl-[53px] md:pr-3 xl:pr-0">

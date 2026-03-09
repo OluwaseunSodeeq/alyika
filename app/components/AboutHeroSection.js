@@ -6,7 +6,8 @@ export default function AboutHeroSection() {
   return (
     <div className="w-full flex flex-col gap-16 px-4 lg:px-0 py-8.5">
       <div className="w-full bg-white overflow-hidden ">
-        <div className="relative w-full h-72 md:h-[420px] xl:h-[650px] 2xl:h-[860px]">
+        {/* <div className="relative 80-full h-72 md:h-[420px] xl:h-[650px] 2xl:h-[860px]"> */}
+        <div className="relative w-full h-80 md:h-[420px] xl:h-[650px] 2xl:h-[860px] ">
           <Image
             src="/aboutheropic.jpg"
             alt="Team working"
@@ -20,8 +21,9 @@ export default function AboutHeroSection() {
           </div>
         </div>
 
-        <div className="hidden relative mt-5 py-2 md:flex justify-center items-center gap-9">
-          <div className="h-full relative text-3xl font-semibold flex items-center justify-center mt-2 ml-2 xl:ml-2.5">
+        {/* <div className="hidden relative mt-5 py-2 md:flex justify-center items-center gap-9"> */}
+        <div className="relative mt-5 py-2 md:flex justify-center items-center gap-9">
+          <div className=" hidden h-full relative text-3xl font-semibold md:flex items-center justify-center mt-2 ml-2 xl:ml-2.5">
             <span className="absolute top-0 w-3 h-3 bg-dark-green"></span>
             <div className="md:h-[265px] xl:h-[290px] w-[1px] text-center bg-gray-300"></div>
             <span className="absolute bottom-0  w-3 h-3 bg-yellow"></span>

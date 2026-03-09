@@ -14,7 +14,7 @@ export default function ProjectCard({ eachProject }) {
   };
 
   return (
-    <div className="relative font-santoshi mt-5 h-auto mb-10 px-5">
+    <div className="relative font-santoshi mt-5 h-auto pb-5 px-5">
       <h4 className="text-[18px] md:text-[24px]  xl:text-[32px] 2xl:text-[40px] text-black">
         {title}
       </h4>
