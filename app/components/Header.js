@@ -47,7 +47,7 @@ export default function Header() {
     w-full
     sticky
     top-[-1]
-    overflow-visible
+    overflow-hidden
     z-20
     p-0
     m-0
@@ -62,7 +62,7 @@ export default function Header() {
   `}
     >
       {/* <Wrapper bg={mobile ? bg : btnBg}> */}
-      <div className="2xl:max-w-[1400px] md:mx-auto">
+      <div className="w-full 2xl:max-w-[1400px] md:mx-auto">
         <div className="flex justify-between items-center px-[1rem] md:px-[3rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
           <div className="block xl:hidden w-[115px] h-[49px] relative">
             <MobileLogo />

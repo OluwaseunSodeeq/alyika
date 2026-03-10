@@ -10,7 +10,9 @@ import HeroScetion from "../components/HeroSection";
 export default function Page() {
   return (
     <section>
-      <HeroScetion />
+      <section className="px-0 md:px-[1.5rem] xl:px-[3.5rem]">
+        <HeroScetion />
+      </section>
       <Wrapper bg={"#ffffff"}>
         <WhatWeDoSection />
         <TestimonialSection />

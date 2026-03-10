@@ -19,9 +19,9 @@ export default function HerosecLeftCard() {
           Dreams
         </span>
       </h1>
-      <div className=" w-[90%] md:w-full text-[28px] xl:text-4xl text-main-bg font-light mb-4 p-0">
-        <div className=" flex gap-x-1 mt-[1rem] md:mt-0">
-          <div className="border-b-2 flex gap-x-[10px] pb-1 ">
+      <div className=" w-full text-[32px] xl:text-4xl text-main-bg font-light mb-4 p-0 text-nowrap">
+        <div className=" flex gap-x-1 mt-[1rem] md:mt-0 ">
+          <div className="border-b-2 flex gap-x-[10px] ">
             <Image
               src="/white-arrows.png"
               alt="arrow"
@@ -29,7 +29,7 @@ export default function HerosecLeftCard() {
               height={40}
               className="inline-block mb-2 "
             />
-            <span className="mr-1"> From</span>
+            <span className="mr-1 pb-2"> From</span>
           </div>
 
           <p className="pb-3">the Ground Up</p>
