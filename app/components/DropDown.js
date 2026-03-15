@@ -8,7 +8,7 @@ export default function DropDown({ options }) {
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
   return (
-    <div className="relative inline-block">
+    <div className="relative z-50 inline-block">
       <button
         onClick={() => setOpen((prev) => !prev)}
         className="flex items-center gap-2 bg-navbar-bg text-green-800 font-medium px-4 py-2 rounded-full shadow-sm"
@@ -51,7 +51,9 @@ export default function DropDown({ options }) {
               }}
               className="px-4 py-2 hover:bg-gray-100 hover:text-dark-green active:text-dark-green cursor-pointer"
             >
-              <Link href={`/${option.toLowerCase()}`}>{option}</Link>
+              <Link href={`/${option.toLowerCase().replace(/\s+/g, "-")}`}>
+                {option}
+              </Link>
             </li>
           ))}
         </ul>

@@ -8,7 +8,7 @@ export default function RootComponent({ children }) {
     <section className="w-full mx-0 overflow-x-hidden">
       <section className="w-full relative ">
         <Header />
-        <div>{children}</div>
+        <div className="w-full relative z-10">{children}</div>
         <ChatWidget />
         <Footer />
       </section>

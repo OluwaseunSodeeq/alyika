@@ -2,7 +2,6 @@
 import React from "react";
 import Nav from "./Nav";
 import { MobileLogo, Logo } from "./Logo";
-// import Wrapper from "./Wrapper";
 import DropDown from "./DropDown";
 import Button from "./Button";
 import useOpenContext from "../contexts/useOpenContext";
@@ -47,7 +46,6 @@ export default function Header() {
     w-full
     sticky
     top-[-1]
-    overflow-hidden
     z-20
     p-0
     m-0
@@ -61,7 +59,6 @@ export default function Header() {
     ${mobile ? "" : ""}
   `}
     >
-      {/* <Wrapper bg={mobile ? bg : btnBg}> */}
       <div className="w-full 2xl:max-w-[1400px] md:mx-auto">
         <div className="flex justify-between items-center px-[1rem] md:px-[3rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
           <div className="block xl:hidden w-[115px] h-[49px] relative">
@@ -72,7 +69,7 @@ export default function Header() {
             <Logo />
           </div>
 
-          <div className="hidden  xl:flex gap-[3rem]">
+          <div className="hidden relative xl:flex gap-[3rem] ">
             <DropDown options={dropDown1} />
             <DropDown options={dropDown2} />
 
@@ -95,7 +92,6 @@ export default function Header() {
           <Navbody bg="#ffffff" textColor="#012f25" />
         </div>
       </div>
-      {/* </Wrapper> */}
     </div>
   );
 }
