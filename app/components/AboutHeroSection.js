@@ -9,7 +9,7 @@ export default function AboutHeroSection() {
         {/* <div className="relative 80-full h-72 md:h-[420px] xl:h-[650px] 2xl:h-[860px]"> */}
         <div className="relative w-full h-80 md:h-[420px] xl:h-[650px] 2xl:h-[860px] ">
           <Image
-            src="/aboutheropic.jpg"
+            src="/aboutBg.jpg"
             alt="Team working"
             fill
             priority
@@ -25,7 +25,7 @@ export default function AboutHeroSection() {
         <div className="relative mt-5 py-2 md:flex justify-center items-center gap-9">
           <div className=" hidden h-full relative text-3xl font-semibold md:flex items-center justify-center mt-2 ml-2 xl:ml-2.5">
             <span className="absolute top-0 w-3 h-3 bg-dark-green"></span>
-            <div className="md:h-[265px] xl:h-[290px] w-[1px] text-center bg-gray-300"></div>
+            <div className="md:h-[265px] xl:h-[370px] w-[1px] text-center bg-gray-300"></div>
             <span className="absolute bottom-0  w-3 h-3 bg-yellow"></span>
           </div>
 
@@ -35,6 +35,28 @@ export default function AboutHeroSection() {
             </h1>
             <div className=" mt-5 font-normal  xl:text-[22px] 2xl:text-[25px] leading-relaxed">
               <p className="mt-3.5">
+                It all started with the rain—the kind that floods roads, ruins
+                mornings, and nearly caused one of our team members to miss an
+                exam.
+              </p>
+              <p className="mt-3.5">
+                That day, our founder, Abeedah, realised that climate change
+                wasn’t a distant threat; it was a personal reality affecting her
+                community’s access to education.
+              </p>
+              <p className="mt-3.5">
+                What began in 2022 as &quot;Project Climeset&quot;—a capstone
+                project for her STEM scholarship through AFS and the University
+                of Pennsylvania—was intended to be a one-off initiative for
+                local secondary students.
+              </p>
+              <p className="mt-3.5">
+                Today, Climeset has expanded far beyond its original scope,
+                evolving into a dedicated 18-member team of creatives, techies,
+                and managers.
+              </p>
+
+              {/* <p className="mt-3.5">
                 It started with rain. The kind that floods roads, ruins
                 mornings, and almost made one of us miss an exam. That day,
                 Abeedah (our founder) realized climate change wasn’t a far-off
@@ -50,7 +72,7 @@ export default function AboutHeroSection() {
                 In 2022, we ran our first school outreach. We taught students
                 about sensors, waste, and climate solutions. Since then, we’ve
                 been building, failing, learning, and growing.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -67,9 +89,9 @@ export default function AboutHeroSection() {
               Our Mission
             </h3>
             <p className=" xl:text-[22px] 2xl:text-[25px] leading-relaxed">
-              To help young Nigerians especially those in underserved areas
-              solve climate challenges using tech, community, and stories that
-              sound like us.
+              To combat climate apathy and build community resilience among
+              Nigerian youth by merging creative storytelling with innovative
+              technology to deliver transformative climate education.
             </p>
           </div>
 
@@ -81,8 +103,10 @@ export default function AboutHeroSection() {
               Our Vision
             </h3>
             <p className=" xl:text-[22px] 2xl:text-[25px] leading-relaxed">
-              A Nigeria where young people lead the way in solving the biggest
-              challenges of our time.
+              To become Nigeria’s premier hub for climate storytelling and
+              innovation, by establishing physical and digital centres and
+              solutions that turn &apos;Green Dreams&apos; into reality for
+              young people and communities in every region of the country.
             </p>
           </div>
         </div>

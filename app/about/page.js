@@ -1,6 +1,7 @@
 import React from "react";
 import AboutHeroSection from "../components/AboutHeroSection";
-import AboutCards from "../components/AboutCards";
+import MeetTheTeam from "../components/MeetTheTeam";
+// import AboutCards from "../components/AboutCards";
 import Wrapper from "../components/Wrapper";
 
 export default function Page() {
@@ -8,7 +9,8 @@ export default function Page() {
     <Wrapper>
       <div className="md:px-[1.5rem] xl:px-[3.5rem]">
         <AboutHeroSection />
-        <AboutCards />
+        {/* <AboutCards /> */}
+        <MeetTheTeam />
       </div>
     </Wrapper>
   );

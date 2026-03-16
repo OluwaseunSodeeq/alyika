@@ -1,4 +1,4 @@
-import AboutCard from "./AboutCard";
+// import AboutCard from "./AboutCard";
 
 export default function AboutCards() {
   const cardsContents = [
@@ -29,17 +29,18 @@ export default function AboutCards() {
     <div>
       <div className="pb-4 md:hidden">
         <h2 className="w-[250px] ml-4 font-montserrat font-bold text-[26px] text-black">
-          What We’re Up Against
+          {/* What We’re Up Against */}
+          Meet the team
         </h2>
-        <p className="w-[300px] ml-4">
+        {/* <p className="w-[300px] ml-4">
           Most youth don’t get practical climate education.
-        </p>
+        </p> */}
       </div>
-      <div className="flex flex-col gap-10 px-4 xl:px-0 pb-[3rem]">
+      {/* <div className="flex flex-col gap-10 px-4 xl:px-0 pb-[3rem]">
         {cardsContents.map((cardContent, index) => (
           <AboutCard key={index} index={index} cardContent={cardContent} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
