@@ -21,18 +21,12 @@ export default function HerosecLeftCard() {
       </h1>
       <div className=" w-full text-[32px] xl:text-4xl text-main-bg font-light mb-4 p-0 text-nowrap">
         <div className=" flex gap-x-1 mt-[1rem] md:mt-0 ">
-          <div className="border-b-2 flex gap-x-[10px] ">
-            <Image
-              src="/white-arrows.png"
-              alt="arrow"
-              width={40}
-              height={40}
-              className="inline-block mb-2 "
-            />
-            <span className="mr-1 pb-2"> From</span>
+          <div className="border-b-2 flex gap-x-[10px] pb-1 ">
+            <Image src="/white-arrows.svg" alt="arrow" width={32} height={32} />
+            <span className="mr-1 lg:pb-2"> From</span>
           </div>
 
-          <p className="pb-3">the Ground Up</p>
+          <p className="lg:pb-3">the Ground Up</p>
         </div>
       </div>
       <div className="font-satoshi mt-4.5 md:mt-0">

@@ -13,10 +13,13 @@ export default function Footer() {
           <div className=" flex gap-x-6 p-2">
             <div className="w-[3rem] h-[3.2rem] relative">
               <Image
-                fill
                 src="/white-logo.png"
-                alt="white-logo"
-                className="object-contain"
+                alt="logo"
+                width={150}
+                height={50}
+                priority
+                sizes="(max-width: 768px) 120px, 150px"
+                className="w-[120px] md:w-[150px] h-auto object-contain"
               />
             </div>
             <p className="text-center md:text-left text-xl md:text-base xl:w-[22.2rem]">

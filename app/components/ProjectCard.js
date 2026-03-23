@@ -1,11 +1,21 @@
 "use client";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectCard({ eachProject }) {
   const router = useRouter();
-  const { title, heading, description, imgUrl, details, id } = eachProject;
+  const {
+    title,
+    heading,
+    description,
+    imgUrl,
+    details,
+    id,
+    projectlink,
+    linkText,
+  } = eachProject;
   const [openDetails, setOpenDetails] = useState(false);
 
   const goTo = (id) => {
@@ -24,9 +34,21 @@ export default function ProjectCard({ eachProject }) {
       >
         {heading}
       </h2>
-      <p className="xl:w-[90%] text-[18px] md:text-[20px] xl:text-[24px] 2xl:text-[28px] text-black mt-2">
+      <p className="xl:w-[90%] text-[18px] md:text-[20px] xl:text-[24px] 2xl:text-[28px] text-black mt-2 ">
         {description}
       </p>
+
+      <div className="mt-6">
+        <Link
+          href={projectlink}
+          className="text-dark-green hover:underline mt-4"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {linkText}
+        </Link>
+      </div>
+
       <div className="relative mt-5 xl:mt-8">
         <div className="relative w-full h-72 md:h-96 xl:h-[400px] 2xl:h-[500px] rounded-[1rem]">
           <Image

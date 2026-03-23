@@ -1,35 +1,31 @@
 import Image from "next/image";
 import Wrapper from "../../components/Wrapper";
+import Link from "next/link";
 
 const PROJECTS = {
   gdft: {
     tag: "GDFT",
     title: "Green Dreamers for Tech",
     currentParagraphs: [
+      "We use technology to educate and innovate, guiding young people to apply existing tools in protecting and connecting to the environment, while building solutions ourselves. We’ve worked with 5 schools since we started our tech-focused outreaches.",
       "We don’t just talk climate solutions we build them. With simple tools and local ideas, we teach students how to create things like flood sensors, solar-powered lights, and recycling tech. Our goal? Equip 10,000 students by 2028.",
-
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-
-      "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-
-      "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     ],
     image: "/gdft.png",
+    projectlink:
+      "https://drive.google.com/drive/folders/11zjpNjerxMTRR6u9ZhjPbspn26bmzjNW?usp=drive_link",
+    linkText: "See more about GDFT",
   },
 
   gds: {
     tag: "GDS",
     title: "Green Dreams Series",
     currentParagraphs: [
+      "We tell stories of climate and environmental resilience, drawn from real cases and communities to amplify voices and create awareness about the lived experiences of people affected by climate and environmental injustice.",
       "We don’t just talk climate solutions we build them. With simple tools and local ideas, we teach students how to create things like flood sensors, solar-powered lights, and recycling tech. Our goal? Equip 10,000 students by 2028.",
-
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-
-      "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-
-      "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     ],
     image: "/gds.png",
+    projectlink: "https://selar.com/thestolenbreath",
+    linkText: "Get the e-book ",
   },
 
   gdc: {
@@ -37,21 +33,21 @@ const PROJECTS = {
     title: "Green Dreams Campaign",
     currentParagraphs: [
       "We don’t just talk climate solutions we build them. With simple tools and local ideas, we teach students how to create things like flood sensors, solar-powered lights, and recycling tech. Our goal? Equip 10,000 students by 2028.",
-
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-
-      "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-
-      "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     ],
     image: "/gdc1.png",
+    projectlink:
+      "https://docs.google.com/forms/d/e/1FAIpQLScV-2v7Cg6-IaAIgBjG8-qbw6CP3ch7q5D-bf6GJKdT8z4IkA/viewform?usp=header",
+    linkText: "Join our community",
   },
 };
 
-export default function ProjectDetailsPage({ params }) {
-  const { id } = params;
+export default async function ProjectDetailsPage({ params }) {
+  const { id } = await params;
   const project = PROJECTS[id];
-  const { tag, title, currentParagraphs, image } = project || {};
+  console.log(id);
+  const { tag, title, currentParagraphs, image, projectlink, linkText } =
+    project || {};
 
   if (!project) {
     return <p className="p-10">Project not found</p>;
@@ -91,6 +87,16 @@ export default function ProjectDetailsPage({ params }) {
                   {para}
                 </div>
               ))}
+            </div>
+            <div className="mt-6">
+              <Link
+                href={projectlink}
+                className="text-dark-green hover:underline mt-4"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {linkText}
+              </Link>
             </div>
           </div>
         </div>
