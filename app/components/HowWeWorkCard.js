@@ -1,5 +1,4 @@
 import React from "react";
-// import Button from "./Button";
 
 export default function HowWeWorkCard({ item, index }) {
   return (
@@ -20,9 +19,6 @@ export default function HowWeWorkCard({ item, index }) {
             Explore
           </button>
         </div>
-        {/* <Button btnBg="#ffffff" textColor="#012f25">
-          Explore
-        </Button> */}
       </div>
     </div>
   );

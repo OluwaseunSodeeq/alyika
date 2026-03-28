@@ -11,22 +11,60 @@ export default function Chatbot() {
 
   const sendMessage = async () => {
     if (!input.trim()) return;
-    console.log("User input:", input);
 
-    // const userMessage = { text: input, sender: "user" };
-    // setMessages((prev) => [...prev, userMessage]);
-    // setInput("");
+    const userMessage = input;
+    setInput("");
 
-    // // Placeholder for API integration
-    // const botReply = await fetchBotReply(input);
+    setMessages((prev) => [
+      ...prev,
+      { role: "user", content: userMessage },
+      { role: "bot", content: "" }, // 👈 placeholder
+    ]);
 
-    // setMessages((prev) => [...prev, { text: botReply, sender: "bot" }]);
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      body: JSON.stringify({ message: userMessage }),
+    });
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+
+    let botReply = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      const chunk = decoder.decode(value);
+      botReply += chunk;
+
+      // 🔥 Update last message live
+      setMessages((prev) => {
+        const updated = [...prev];
+        updated[updated.length - 1].content = botReply;
+        return updated;
+      });
+    }
   };
 
-  const fetchBotReply = async (userText) => {
-    // Replace this with real API call
-    return "I'm just a demo bot, but I'm listening!";
-  };
+  // const sendMessage = async () => {
+  //   if (!input.trim()) return;
+  //   console.log("User input:", input);
+
+  // const userMessage = { text: input, sender: "user" };
+  // setMessages((prev) => [...prev, userMessage]);
+  // setInput("");
+
+  // // Placeholder for API integration
+  // const botReply = await fetchBotReply(input);
+
+  // setMessages((prev) => [...prev, { text: botReply, sender: "bot" }]);
+  // };
+
+  // const fetchBotReply = async (userText) => {
+  //   // Replace this with real API call
+  //   return "I'm just a demo bot, but I'm listening!";
+  // };
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });

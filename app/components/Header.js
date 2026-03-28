@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
+import React, { use, useState } from "react";
 import Nav from "./Nav";
 import { MobileLogo, Logo } from "./Logo";
-import DropDown from "./DropDown";
+import DropDown, { DropDownProject } from "./DropDown";
 import Button from "./Button";
 import useOpenContext from "../contexts/useOpenContext";
 import Hamburger from "./Hamburger";
@@ -10,6 +10,7 @@ import Navbody from "./NavBody";
 import Link from "next/link";
 
 export default function Header() {
+  // const [isOpen, setIsOpen] = useState(false);
   const { open } = useOpenContext();
   const { mobile } = useOpenContext();
 
@@ -19,14 +20,11 @@ export default function Header() {
     { name: "Impact", href: "/impact", activesStatus: false },
   ];
   const dropDown1 = [
-    "Projects",
-    "Features",
-    "Solutions",
-    "Case Studies",
-    "Resources",
-    "Pricing",
+    { name: "Projects", href: "/projects" },
+    { name: "GDFT", href: "/projects/gdft" },
+    { name: "GDS", href: "/projects/gds" },
+    { name: "GDC", href: "/projects/gdc" },
   ];
-
   const dropDown2 = [
     "Gallery",
     "Blog",
@@ -70,7 +68,7 @@ export default function Header() {
           </div>
 
           <div className="hidden relative xl:flex gap-[3rem] ">
-            <DropDown options={dropDown1} />
+            <DropDownProject options={dropDown1} />
             <DropDown options={dropDown2} />
 
             <Link href="/contact" className="self-center">

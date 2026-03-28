@@ -5,7 +5,6 @@ export default function CardCounter({ numb, text }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const hasAnimated = useRef(false);
-  console.log("numb:", numb);
 
   function formatText(value) {
     if (value === undefined || value === null) return "";
@@ -42,7 +41,7 @@ export default function CardCounter({ numb, text }) {
           requestAnimationFrame(updateCounter);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     const currentRef = ref.current;
