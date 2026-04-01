@@ -150,3 +150,8 @@
 .animate-scaleIn {
   animation: scaleIn 0.25s ease-out;
 }
+.masonry-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* matches your gap-6 */
+}

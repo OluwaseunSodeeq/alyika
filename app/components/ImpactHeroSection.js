@@ -1,21 +1,22 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Button from "./Button";
 import ImpactCard from "./ImpactCard";
+import Link from "next/link";
 
 const impactStats = [
   {
     title: "500+ Students Trained",
-    text: "We have directly equipped over 500 students with practical skills, giving them hands-on knowledge that supports their academic and career growth.",
+    text: "We have directly equipped over 500 students with practical knowledge, giving them hands-on knowledge that supports their academic and career growth.",
     icon: "📘",
   },
   {
-    title: "8 Schools Reached",
-    text: "Our outreach has expanded to 8 schools including underserved communities ensuring access to opportunities regardless of background.",
+    title: "10+ Schools Reached",
+    text: "Our outreaches, including environmental-tech outreaches, have expanded to over 10 secondary schools across various communities in Lagos, Nigeria.",
     icon: "🏫",
   },
   {
     title: "2,000+ Youth Engaged",
-    text: "More than 2,000 young people have actively participated in our peer-led sessions, creating a strong network of shared learning and mentorship.",
+    text: "More than 2,000 young people have actively participated in our peer-led sessions and storytelling projects collectively.",
     icon: "👥",
   },
   {
@@ -54,20 +55,31 @@ export default function ImpactHeroSection() {
             </div>
             <div className="block font-satoshi  md:w-[480px]  xl:h-auto  mt-8 md:mt-4 px-2 pt-2 pb-20 relative ">
               <p className="font-satoshi font-medium text-[22px] md:text-[30px] 2xl:text-[40px] text-dark-green">
-                We track all our efforts from school outreaches to storytelling
-                campaigns. Every small win counts.
+                We track all our efforts from tech-driven outreaches to
+                storytelling projects. Every small win counts.
               </p>
 
               <div className="w-full left-0 absolute pl-2 bottom-[-15px] md:bottom-[-50px] lg:bottom-3  flex items-center md:justify-center lg:justify-start flex-wrap gap-x-4 md:gap-y-4 py-2 md:pb-20 lg:py-2">
                 <div className="block md:hidden lg:block">
-                  <Button btnBg="#012f25" textColor="#ffffff">
-                    Download Reports
-                  </Button>
+                  <Link
+                    href="https://drive.google.com/drive/folders/1NruAl4gUYkElKbivGsceG8G_4ur2M-sX?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button btnBg="#012f25" textColor="#ffffff">
+                      Download Reports
+                    </Button>
+                  </Link>
                 </div>
-
-                <span className="italic text-dark-green cursor-pointer underline font-montserrat  font-bold text-base md:text-[22px] 2xl:text-[28px]">
-                  Watch Stories
-                </span>
+                <Link
+                  href="https://www.instagram.com/project_climeset/reels/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="italic text-dark-green cursor-pointer underline font-montserrat  font-bold text-base md:text-[22px] 2xl:text-[28px]">
+                    Watch Stories Link
+                  </span>
+                </Link>
               </div>
             </div>
           </div>

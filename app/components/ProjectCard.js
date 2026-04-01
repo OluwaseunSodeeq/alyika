@@ -34,9 +34,11 @@ export default function ProjectCard({ eachProject }) {
       >
         {heading}
       </h2>
-      <p className="xl:w-[90%] text-[18px] md:text-[20px] xl:text-[24px] 2xl:text-[28px] text-black mt-2 ">
-        {description}
-      </p>
+      <div className="xl:w-[90%] text-[18px] md:text-[20px] xl:text-[24px] 2xl:text-[28px] text-black mt-2 ">
+        {description.map((each, index) => (
+          <p key={index}>{each}</p>
+        ))}
+      </div>
 
       <div className="mt-6">
         <Link

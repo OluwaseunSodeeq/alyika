@@ -1,5 +1,15 @@
+"use client";
+
+import Masonry from "react-masonry-css";
 import Image from "next/image";
 import WorkshopCard from "./WorkshopCard";
+
+const breakpointColumnsObj = {
+  default: 3,
+  1024: 3,
+  768: 2,
+  500: 1,
+};
 
 const images = [
   "/workshop1.png",
@@ -12,6 +22,20 @@ const images = [
   "/workshop8.png",
   "/workshop9.png",
   "/workshop10.png",
+];
+
+const imagess = [
+  "/gallery/gallery1.png",
+  "/gallery/gallery2.png",
+  "/gallery/gallery3a.png",
+  "/gallery/gallery4.jpg",
+  "/gallery/gallery6.png",
+  "/gallery/gallery5a.png",
+  "/gallery/gallery7a.png",
+  "/gallery/gallery8.png",
+  "/gallery/gallery9.png",
+  "/gallery/gallery10.png",
+  "/gallery/gallery11.png",
 ];
 
 export default function GalleryHeroSection() {
@@ -42,9 +66,23 @@ export default function GalleryHeroSection() {
       </div>
 
       {/* Masonry Grid */}
-      <div
+
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="flex gap-6"
+        columnClassName="masonry-column"
+      >
+        {imagess.map((src, index) => (
+          <WorkshopCard key={index} image={src} />
+        ))}
+      </Masonry>
+    </section>
+  );
+}
+{
+  /* <div
         className="
-         columns-2
+        columns-2
         sm:columns-3
         lg:columns-3
         xl:columns-3
@@ -53,10 +91,8 @@ export default function GalleryHeroSection() {
        
         "
       >
-        {images.map((src, index) => (
-          <WorkshopCard key={index} image={src} />
+        {imagess.map((src, ind) => (
+          <WorkshopCard key={ind} index={ind}  image={src} />
         ))}
-      </div>
-    </section>
-  );
+      </div> */
 }
