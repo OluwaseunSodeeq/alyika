@@ -8,9 +8,8 @@ const PROJECTS = {
     title: "Green Dreamers for Tech",
     currentParagraphs: [
       "We use technology to educate and innovate, guiding young people to apply existing tools in protecting and connecting to the environment, while building solutions ourselves. We’ve worked with 5 schools since we started our tech-focused outreaches.",
-      "We don’t just talk climate solutions we build them. With simple tools and local ideas, we teach students how to create things like flood sensors, solar-powered lights, and recycling tech. Our goal? Equip 10,000 students by 2028.",
     ],
-    image: "/gdft.png",
+    image: "/projects/project1.png",
     projectlink:
       "https://drive.google.com/drive/folders/11zjpNjerxMTRR6u9ZhjPbspn26bmzjNW?usp=drive_link",
     linkText: "See more about GDFT",
@@ -21,9 +20,9 @@ const PROJECTS = {
     title: "Green Dreams Series",
     currentParagraphs: [
       "We tell stories of climate and environmental resilience, drawn from real cases and communities to amplify voices and create awareness about the lived experiences of people affected by climate and environmental injustice.",
-      "We don’t just talk climate solutions we build them. With simple tools and local ideas, we teach students how to create things like flood sensors, solar-powered lights, and recycling tech. Our goal? Equip 10,000 students by 2028.",
+      'Our first story in the series, The Stolen Breath, was written by Abeedah Alabi. "The Stolen Breath" is a 99-page novel centered around climate education and resilience that chronicles the struggle of 11-year-old Nana to save her flood-threatened school in Itowolo.',
     ],
-    image: "/gds.png",
+    image: "/projects/project2.png",
     projectlink: "https://selar.com/thestolenbreath",
     linkText: "Get the e-book ",
   },
@@ -32,10 +31,9 @@ const PROJECTS = {
     tag: "GDC",
     title: "Green Dreams Campaign",
     currentParagraphs: [
-      "We don’t just talk climate solutions we build them. With simple tools and local ideas, we teach students how to create things like flood sensors, solar-powered lights, and recycling tech. Our goal? Equip 10,000 students by 2028.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "We run a sustainability pop culture community where we team up with members to get them fired up about protecting their communities.",
     ],
-    image: "/gdc1.png",
+    image: "/projects/project3.png",
     projectlink:
       "https://docs.google.com/forms/d/e/1FAIpQLScV-2v7Cg6-IaAIgBjG8-qbw6CP3ch7q5D-bf6GJKdT8z4IkA/viewform?usp=header",
     linkText: "Join our community",
@@ -45,7 +43,6 @@ const PROJECTS = {
 export default async function ProjectDetailsPage({ params }) {
   const { id } = await params;
   const project = PROJECTS[id];
-  console.log(id);
   const { tag, title, currentParagraphs, image, projectlink, linkText } =
     project || {};
 
@@ -58,7 +55,30 @@ export default async function ProjectDetailsPage({ params }) {
       <section className="w-full md:px-[1.5rem] lg:px-[2.5rem]">
         <div className=" px-4 md:px-8 pb-8 md:py-8">
           {/* IMAGE */}
-          <div className="relative w-full h-[340px] sm:h-[320px] md:h-[420px] md:rounded-xl overflow-hidden">
+          <div className="relative w-full xl:w-[840px]">
+            <Image
+              src={image}
+              alt={title}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full h-auto rounded-[1rem]"
+            />
+
+            {/* Arrow Button */}
+            <Link href="/projects">
+              <div className="absolute bottom-[28px] right-[10px]  bg-white border-1 cursor-pointer border-yellow w-[60px] h-[60px] xl:w-14 xl:h-14 rounded-full flex items-center justify-center">
+                <Image
+                  src="/arrow.png"
+                  alt="arrow"
+                  width={16}
+                  height={16}
+                  className={`transition-transform duration-200 rotate-180`}
+                />
+              </div>
+            </Link>
+          </div>
+          {/* <div className="relative w-auto h-[340px] sm:h-[320px] md:h-[420px] lg:h-auto md:rounded-xl overflow-hidden">
             <Image
               src={image}
               alt={title}
@@ -66,7 +86,7 @@ export default async function ProjectDetailsPage({ params }) {
               className="object-cover"
               priority
             />
-          </div>
+          </div> */}
 
           {/* CONTENT */}
           <div className="mt-6 font-satoshi px-4">

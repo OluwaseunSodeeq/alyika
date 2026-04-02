@@ -12,7 +12,7 @@ export default function ProjectsSection() {
       description: [
         "We use technology to educate and innovate, guiding young people to apply existing tools in protecting and connecting to the environment, while building solutions ourselves. We’ve worked with 5 schools since we started our tech-focused outreaches.",
       ],
-      imgUrl: "/gdft.png",
+      imgUrl: "/projects/project1b.jpg",
 
       projectlink:
         "https://drive.google.com/drive/folders/11zjpNjerxMTRR6u9ZhjPbspn26bmzjNW?usp=drive_link",
@@ -26,7 +26,7 @@ export default function ProjectsSection() {
         "We tell stories of climate and environmental resilience, drawn from real cases and communities to amplify voices and create awareness about the lived experiences of people affected by climate and environmental injustice.",
         'Our first story in the series, The Stolen Breath, was written by Abeedah Alabi. "The Stolen Breath" is a 99-page novel centered around climate education and resilience that chronicles the struggle of 11-year-old Nana to save her flood-threatened school in Itowolo.',
       ],
-      imgUrl: "/gds.png",
+      imgUrl: "/projects/project2b.jpg",
       projectlink: "https://selar.com/thestolenbreath",
       linkText: "Get the e-book ",
     },
@@ -37,7 +37,7 @@ export default function ProjectsSection() {
       description: [
         "We run a sustainability pop culture community where we team up with members to get them fired up about protecting their communities.",
       ],
-      imgUrl: "/gdc1.png",
+      imgUrl: "/projects/project3.png",
 
       projectlink:
         "https://docs.google.com/forms/d/e/1FAIpQLScV-2v7Cg6-IaAIgBjG8-qbw6CP3ch7q5D-bf6GJKdT8z4IkA/viewform?usp=header",

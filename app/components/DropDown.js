@@ -14,10 +14,10 @@ export default function DropDown({ options }) {
   };
 
   return (
-    <div className="relative z-50 inline-block">
+    <div className="relative z-50 inline-block ">
       <button
         onClick={() => setOpenDropDown((prev) => !prev)}
-        className="flex items-center gap-2 bg-navbar-bg text-green-800 font-medium px-4 py-2 rounded-full shadow-sm"
+        className="flex items-center gap-2 bg-navbar-bg text-green-800 font-medium px-4 py-2 rounded-full shadow-sm cursor-pointer"
       >
         {selectedOption}
         <Image
@@ -61,10 +61,10 @@ export function DropDownProject({ options }) {
   };
 
   return (
-    <div className="relative z-50 inline-block">
+    <div className="relative z-50 inline-block ">
       <button
         onClick={() => setOpenDropDown((prev) => !prev)}
-        className="flex items-center gap-2 bg-navbar-bg text-green-800 font-medium px-4 py-2 rounded-full shadow-sm"
+        className="flex items-center gap-2 bg-navbar-bg text-green-800 font-medium px-4 py-2 rounded-full shadow-sm cursor-pointer"
       >
         {selectedOption}
         <Image
