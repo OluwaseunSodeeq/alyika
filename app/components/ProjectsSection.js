@@ -26,7 +26,7 @@ export default function ProjectsSection() {
         "We tell stories of climate and environmental resilience, drawn from real cases and communities to amplify voices and create awareness about the lived experiences of people affected by climate and environmental injustice.",
         'Our first story in the series, The Stolen Breath, was written by Abeedah Alabi. "The Stolen Breath" is a 99-page novel centered around climate education and resilience that chronicles the struggle of 11-year-old Nana to save her flood-threatened school in Itowolo.',
       ],
-      imgUrl: "/projects/project2b.jpg",
+      imgUrl: "/bookbig.png",
       projectlink: "https://selar.com/thestolenbreath",
       linkText: "Get the e-book ",
     },

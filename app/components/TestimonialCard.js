@@ -6,7 +6,7 @@ import { Star, Quote } from "lucide-react";
 export default function TestimonialCard({ testimonial }) {
   const { rating, text, name, image, age } = testimonial;
   return (
-    <div className="shadow-[0_0_4px_0_#00000040] w-full h-[20rem] md:w-[22.5rem] xl:w-[24.5rem] xl:h-[23rem]  bg-white rounded-lg p-3 xl:p-5 relative">
+    <div className="shadow-[0_0_4px_0_#00000040] w-full h-[20rem] md:w-[22.5rem] xl:w-[24.5rem] xl:h-[25rem]  bg-white rounded-lg p-3 xl:p-5 relative">
       {/* Stars */}
       <div className=" absolute left-[3.5rem] top-[3.8rem] xl:top-[5.8rem] flex items-center gap-1">
         {Array.from({ length: rating }).map((_, i) => (
@@ -28,7 +28,7 @@ export default function TestimonialCard({ testimonial }) {
 
       {/* Author */}
       <div className=" w-[80%] absolute left-[3.5rem] bottom-[1.5rem] flex  justify-between gap-3 mt-4">
-        <div className="relative w-[5.4rem] h-[5.6rem]   rounded-full overflow-hidden">
+        <div className="relative w-[5.0rem] h-[5.2rem]   rounded-full overflow-hidden">
           <Image
             src={image}
             alt={name}

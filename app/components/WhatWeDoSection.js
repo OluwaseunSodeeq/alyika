@@ -2,6 +2,7 @@ import React from "react";
 // import Wrapper from "./Wrapper";
 import Button from "./Button";
 import CardCounter from "./CardCounter";
+import Link from "next/link";
 
 function Container({ children }) {
   <div
@@ -48,7 +49,7 @@ export default function WhatWeDoSection() {
               backgroundImage: "url('/whatwedo01.jpg')",
             }}
           >
-            <div className="absolute xl:left-[2rem] bottom-0  xl:top-[45%] xl:bottom-auto bg-main-bg/80 xl:w-[25rem] rounded-md">
+            <div className="absolute xl:left-[2rem] bottom-0   xl:bottom-[7%] bg-main-bg/80 xl:w-[25rem] rounded-md">
               <p className="font-satoshi font-normal text-sm p-4 ">
                 <span className="font-bold">
                   We use technology to educate and innovate,{" "}
@@ -74,31 +75,37 @@ export default function WhatWeDoSection() {
           <div
             className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[33.3rem] xl:h-[17rem] relative rounded-lg"
             style={{
-              backgroundImage: "url('/whatwedo.jpg')",
+              backgroundImage: "url('/whatwedo.png')",
             }}
           >
-            <div className="absolute xl:left-[2rem] bottom-0 xl:top-[45%] xl:bottom-auto bg-main-bg/80 xl:w-[70%] rounded-md">
-              <p className="font-normal text-sm p-4 ">
+            <div className="absolute xl:left-[2rem] bottom-0  xl:bottom-[7%] bg-main-bg/80 xl:w-[70%] rounded-md">
+              <p className=" font-normal text-sm p-4 ">
+                <span className="font-bold">We run digital campaigns </span>
+                where we team up with creators to get young people fired up
+                about protecting their communities.
+              </p>
+              {/* <p className="font-normal text-sm p-4 ">
                 <span className="font-bold">
                   We tell stories of climate and environmental resilience,{" "}
                 </span>
                 drawn from real cases to amplify voices.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
         <div className="flex items-center gap-[2.8rem]">
           <div
-            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg"
+            className="bg-conver bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg"
             style={{
-              backgroundImage: "url('/whatwedo3.jpg')",
+              backgroundImage: "url('/booksmall.png')",
             }}
           >
-            <div className="absolute xl:left-[2rem] bottom-0 xl:top-[45%] xl:bottom-auto bg-main-bg/80 xl:w-[70%] rounded-md">
+            <div className="absolute xl:left-[2rem] bottom-0  xl:bottom-[7%] bg-main-bg/80 xl:w-[70%] rounded-md">
               <p className=" font-normal text-sm p-4 ">
-                <span className="font-bold">We run digital campaigns </span>
-                where we team up with creators to get young people fired up
-                about protecting their communities.
+                <span className="font-bold">We tell stories of climate </span>
+                and environmental resilience, drawn from true-life cases and
+                experiences to amplify voices and inspire environmental
+                changemaking.
               </p>
             </div>
           </div>
@@ -110,12 +117,16 @@ export default function WhatWeDoSection() {
           </p>
 
           <div className="w-[15rem] absolute top-14 left-1/2 -translate-x-1/2  md:bottom-2 xl:top-30 flex items-center justify-center gap-x-4 md:gap-x-2">
-            <Button btnBg="#012f25" textColor="#ffffff">
-              About Us
-            </Button>
-            <span className="italic cursor-pointer underline font-montserrat text-[11px] font-medium">
-              See our Projects
-            </span>
+            <Link href="/about" className="inline-block">
+              <Button btnBg="#012f25" textColor="#ffffff">
+                About Us
+              </Button>
+            </Link>
+            <Link href="/projects" className="inline-block">
+              <button className="italic cursor-pointer underline font-montserrat text-[11px] font-medium">
+                See our Projects
+              </button>
+            </Link>
           </div>
         </div>
       </div>

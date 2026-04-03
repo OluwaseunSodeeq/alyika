@@ -48,7 +48,7 @@ export default function ProjectCard({ eachProject }) {
       </div>
 
       <div className="relative mt-5 xl:mt-8">
-        <div className="relative w-full xl:w-[800px] z-10">
+        <div className="relative w-full xl:w-[700px] z-10">
           <Image
             src={imgUrl}
             alt={title}
@@ -61,7 +61,7 @@ export default function ProjectCard({ eachProject }) {
           {/* Arrow Button */}
           <div
             onClick={() => goTo(id)}
-            className="absolute bottom-[-20px] right-[10px] md:bottom-[28px]  bg-white border-1 cursor-pointer border-yellow w-[60px] h-[60px] xl:w-14 xl:h-14 rounded-full flex items-center justify-center z-20"
+            className="absolute bottom-[-20px] right-[10px] md:bottom-[-2px] md:right-[-20px]  bg-white border-1 cursor-pointer border-yellow w-[60px] h-[60px] xl:w-14 xl:h-14 rounded-full flex items-center justify-center z-20"
           >
             <Image
               src="/arrow.png"

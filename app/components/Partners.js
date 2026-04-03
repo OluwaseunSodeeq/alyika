@@ -6,16 +6,12 @@ export default function Partners() {
   const marqueeRef = useRef(null);
 
   const partnersArray = [
-    { image: "/atlas.png" },
-    { image: "/slack.png" },
-    { image: "/atlas.png" },
-    { image: "/slack.png" },
-    { image: "/dropbox.png" },
-    { image: "/google.png" },
-    { image: "/shopify.png" },
-    { image: "/dropbox.png" },
-    { image: "/shopify.png" },
-    { image: "/google.png" },
+    { image: "/partners/ashoka.png" },
+    { image: "/partners/cih.png" },
+    { image: "/partners/comic.png" },
+    { image: "/partners/eco2.png" },
+    { image: "/partners/greenquest.png" },
+    { image: "/partners/nmsa.png" },
   ];
 
   // Duplicate items to create a continuous scroll effect

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function HowWeWorkCard({ item, index }) {
@@ -13,11 +14,19 @@ export default function HowWeWorkCard({ item, index }) {
       <p className=" text-base text-center mt-5 ">{item.text}</p>
       <div className="mt-6">
         <div>
-          <button
-            className={` bg-main-bg text-dark-green cursor-pointer text-medium px-28 md:px-6 py-2 rounded-full shadow-sm transition `}
+          <Link
+            href={item.link}
+            className="bg-main-bg text-dark-green cursor-pointer text-medium px-28 md:px-6 py-2 rounded-full shadow-sm transition inline-block text-center"
           >
             Explore
-          </button>
+          </Link>
+          {/* <Link href={item.link} passHref>
+            <button
+              className={` bg-main-bg text-dark-green cursor-pointer text-medium px-28 md:px-6 py-2 rounded-full shadow-sm transition `}
+            >
+              Explore
+            </button>
+          </Link> */}
         </div>
       </div>
     </div>
