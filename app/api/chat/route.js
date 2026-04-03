@@ -1,6 +1,8 @@
 import { OpenAI } from "openai";
-import { isEnvironmentRelated, isWeatherQuery } from "@/lib/filters";
-
+import {
+  isEnvironmentRelated,
+  isWeatherQuery,
+} from "../../../lib/isEnvironmentRelated";
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
