@@ -53,10 +53,11 @@ export default function MeetTheTeamImages() {
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2 lg:gap-1">
         {visibleImages.map((person, index) => {
-          const imageName = person["First Name"]
+          const firstName = person["First Name"]
             .toLowerCase()
             .replace(" ", "")
             .trim();
+          const imageName = firstName === "saidah" ? "animashaun" : firstName; // Assuming image names are just the first name in lowercase without spaces
           return (
             <div
               key={index}
