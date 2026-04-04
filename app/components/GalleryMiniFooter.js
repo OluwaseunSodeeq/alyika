@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { X, Copy, Check, Heart } from "lucide-react";
-import Link from "next/link";
 import Button from "./Button";
 
 export default function GalleryMiniFooter() {

@@ -65,7 +65,7 @@ export default function MeetTheTeamImages() {
             >
               <Image
                 src={`/teams/${imageName}.png`}
-                alt={person["First Name"]}
+                alt={imageName}
                 fill
                 sizes="(max-width: 768px) 100vw, 20vw"
                 className={`object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300 ${person["First Name"] === "Saidah" ? "object-top" : "object-center"}`}
