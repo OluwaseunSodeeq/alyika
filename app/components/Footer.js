@@ -1,8 +1,15 @@
 // import { Mail, Facebook, Twitter, Instagram } from "lucide-react";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  InstagramIcon,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 import Button from "./Button";
 import Image from "next/image";
 import { MobileLogo } from "./Logo";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -28,9 +35,11 @@ export default function Footer() {
             </p>
           </div>
           <div className="hidden xl:block mr-7">
-            <Button btnBg="#fdcd31" textColor="#012f25">
-              Contact Us
-            </Button>
+            <Link href="/contact" className="inline-block">
+              <Button btnBg="#fdcd31" textColor="#012f25">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -56,23 +65,41 @@ export default function Footer() {
           {/* Links */}
           <div className="mt-10 md:mt-0">
             <ul className="text-sm flex gap-7 md:gap-y-5 md:flex-col">
-              <li>Home</li>
-              <li>About</li>
-              <li>Projects</li>
-              <li>Impact</li>
+              <Link href="/">
+                <li>Home</li>
+              </Link>
+              <Link href="/about">
+                <li>About</li>
+              </Link>
+              <Link href="/projects">
+                <li>Projects</li>
+              </Link>
+              <Link href="/impact">
+                <li>Impact</li>
+              </Link>
             </ul>
           </div>
           <div>
             <ul className="flex gap-7 md:gap-y-5 md:flex-col text-sm">
-              <li>Our Story</li>
-              <li>Join Us</li>
-              <li>Project Gallery</li>
+              <Link href="/stolen-breath">
+                <li>Our Story</li>
+              </Link>
+              <Link href="/join">
+                <li>Join Us</li>
+              </Link>
+              <Link href="/gallery">
+                <li>Project Gallery</li>
+              </Link>
             </ul>
           </div>
           <div>
             <ul className="flex gap-7 md:gap-y-5 md:flex-col text-sm">
-              <li>Support Us</li>
-              <li>Contact Us</li>
+              <Link href="/support">
+                <li>Support Us</li>
+              </Link>
+              <Link href="/contact">
+                <li>Contact Us</li>
+              </Link>
             </ul>
           </div>
         </div>
@@ -82,11 +109,25 @@ export default function Footer() {
           <p>Privacy Policy</p>
           <div className="flex gap-12">
             <p>+234 810 5810 398 </p>
-            <p> projectclimeset@gmail.com</p>
+            <Link href="mailto:projectclimeset@gmail.com">
+              <p className="cursor-pointer"> projectclimeset@gmail.com</p>
+            </Link>
             <div className="flex space-x-4">
-              <Facebook className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
-              <Twitter className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
-              <Instagram className="w-5 h-5 cursor-pointer text-white stroke-white stroke-[2]" />
+              <Link
+                href="https://www.linkedin.com/company/projectclimeset"
+                target="_blank"
+              >
+                <Linkedin className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
+              </Link>
+              <Link href="https://x.com/projectclimeset" target="_blank">
+                <Twitter className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/project_climeset?igsh=MWU2NXp2NW55Y2piag=="
+                target="_blank"
+              >
+                <InstagramIcon className="w-5 h-5 cursor-pointer text-white stroke-white stroke-[2]" />
+              </Link>
             </div>
           </div>
         </div>

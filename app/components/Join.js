@@ -46,9 +46,17 @@ export default function Join() {
     <section className="w-full md:px-4 pt-10 pb-15 md:pt-16 md:pb-18 font-satoshi">
       {/* Header */}
       <div className="text-center mb-14">
-        <SquareButton btnBg="#fdcd31" textColor="#012f25">
-          Join the Movement
-        </SquareButton>
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+        <a
+          href="https://whatsapp.com/channel/0029Vb7i8Px3rZZUJUPnh146"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SquareButton btnBg="#fdcd31" textColor="#012f25">
+            Join the Movement
+          </SquareButton>
+        </a>
+
         <h2 className="text-[24px] md:text-[24px] lg:text-[30px] 2xl:text-[38px] font-semibold text-dark-green mt-4">
           Here at Climeset,
         </h2>
@@ -100,12 +108,19 @@ export default function Join() {
                   {item.description}
                 </p>
                 <div className="mt-10">
-                  <SquareButtonBigSize
-                    btnBg={item.bg === "#012F25" ? "#FDCD31" : "#012F25"}
-                    textColor={item.bg === "#012F25" ? "#012F25" : "#FDCD31"}
+                  {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+                  <a
+                    href="https://whatsapp.com/channel/0029Vb7i8Px3rZZUJUPnh146"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Join us
-                  </SquareButtonBigSize>
+                    <SquareButtonBigSize
+                      btnBg={item.bg === "#012F25" ? "#FDCD31" : "#012F25"}
+                      textColor={item.bg === "#012F25" ? "#012F25" : "#FDCD31"}
+                    >
+                      Join us
+                    </SquareButtonBigSize>
+                  </a>
                 </div>
               </div>
             </div>

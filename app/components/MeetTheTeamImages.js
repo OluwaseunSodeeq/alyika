@@ -208,8 +208,6 @@ export default function MeetTheTeamImages() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   console.log(team);
-  //   const visibleImages = showAll ? team : team.slice(0, 5);
-  //   const visibleImages = isMobile ? team.slice(0, 5) : team;
   const visibleImages = isMobile ? (showAll ? team : team.slice(0, 5)) : team;
 
   return (

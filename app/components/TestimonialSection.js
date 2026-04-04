@@ -2,6 +2,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import TestimonialCard from "./TestimonialCard";
+import { title } from "framer-motion/client";
 
 export default function TestimonialSection() {
   const testimonialArray = [
@@ -10,36 +11,29 @@ export default function TestimonialSection() {
       text: "“The Stolen Breath had:Good character development, good scripting, and good narration; educational and informative.”",
       name: "Magnus Imam",
       image: "/imam.png",
-      // age: 17,
+      title: "Founder ZeroUp Initiative",
     },
     {
       rating: "5",
       text: "“Stolen Breath is it, and so much more! The storytelling, the imagery, the suspense, the flow, and the way Climeset subtly entwined it with advocacy is simply beautiful.”",
-      name: "Godswill",
-      image: "/godswill.png",
-      // age: 17,
+      name: "Unique",
+      image: "/unique.png",
+      title: "Ashoka Young Changemaker",
     },
     {
       rating: "5",
       text: "“My teammates and I have now created a club for environmental awareness in my school, where we carry out weekly activities using visuals like cardboards and markers”",
       name: "Abdulbasit",
       image: "/abdulbasit.png",
-      // age: 17,
+      title: "HultPrize KWASU Campus Lead",
     },
     {
       rating: "5",
       text: "“l had no idea when I reached page 50 of The Stolen Breath! The writing is clear, vivid, and easy to understand, perfectly capturing every moment.”",
-      name: "Participant, Project Athena",
-      image: "/participant.png",
-      // age: 18,
+      name: "Godswill",
+      image: "/godswill.png",
+      title: "GDFT Student",
     },
-    // {
-    //   rating: "5",
-    //   text: "“Now I understand how tech can solve real environmental problems.”",
-    //   name: "Daniel",
-    //   image: "/hafsat.jpg",
-    //   // age: 19,
-    // },
   ];
 
   const [cardsPerView, setCardsPerView] = useState(3);

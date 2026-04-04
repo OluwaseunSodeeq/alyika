@@ -40,7 +40,8 @@ export default function DropDown({ options }) {
               className="px-4 py-2 hover:bg-gray-100 hover:text-dark-green active:text-dark-green cursor-pointer"
             >
               <Link href={`/${option.toLowerCase().replace(/\s+/g, "-")}`}>
-                {option}
+                {option}{" "}
+                {option === "Support " || option === "Join" ? "Us" : ""}
               </Link>
             </li>
           ))}

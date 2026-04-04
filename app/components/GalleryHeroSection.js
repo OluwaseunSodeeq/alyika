@@ -11,18 +11,18 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
-const images = [
-  "/workshop1.png",
-  "/workshop2.png",
-  "/workshop3.png",
-  "/workshop4.png",
-  "/workshop5.png",
-  "/workshop6.png",
-  "/workshop7.png",
-  "/workshop8.png",
-  "/workshop9.png",
-  "/workshop10.png",
-];
+// const images = [
+//   "/workshop1.png",
+//   "/workshop2.png",
+//   "/workshop3.png",
+//   "/workshop4.png",
+//   "/workshop5.png",
+//   "/workshop6.png",
+//   "/workshop7.png",
+//   "/workshop8.png",
+//   "/workshop9.png",
+//   "/workshop10.png",
+// ];
 
 const imagess = [
   "/gallery/gallery1.png",
@@ -36,6 +36,9 @@ const imagess = [
   "/gallery/gallery9.png",
   "/gallery/gallery10.png",
   "/gallery/gallery11.png",
+  "/gallery/gallery13.png",
+  "/gallery/gallery12.png",
+  "/gallery/gallery14.png",
 ];
 
 export default function GalleryHeroSection() {
@@ -78,21 +81,4 @@ export default function GalleryHeroSection() {
       </Masonry>
     </section>
   );
-}
-{
-  /* <div
-        className="
-        columns-2
-        sm:columns-3
-        lg:columns-3
-        xl:columns-3
-        2xl:columns-3
-        gap-6
-       
-        "
-      >
-        {imagess.map((src, ind) => (
-          <WorkshopCard key={ind} index={ind}  image={src} />
-        ))}
-      </div> */
 }

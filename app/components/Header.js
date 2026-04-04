@@ -27,12 +27,10 @@ export default function Header() {
   ];
   const dropDown2 = [
     "Gallery",
-    "Blog",
-    "Events",
-    "Newsletter",
-    "Help Center",
-    "Guides",
     "Support",
+    "Join",
+    "Stolen-Breath",
+    "Newsletter",
   ];
 
   const bg = "#ffffff";
