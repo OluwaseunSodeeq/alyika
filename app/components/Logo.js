@@ -9,7 +9,7 @@ export function Logo() {
       <Link href="/home">
         {/* <Image src="/logo.png" alt="logo" width={150} height={50} /> */}
         <Image
-          src="/logo.png"
+          src="/clemesetlogo-desktop.svg"
           alt="logo"
           width={150}
           height={50}
@@ -28,7 +28,7 @@ export function MobileLogo() {
       <Link href="/home">
         {/* <Image src="/mobilelogo.png" alt="logo" width={150} height={50} /> */}
         <Image
-          src="/mobilelogo.png"
+          src="/clemesetlogo-mobile.svg"
           alt="logo"
           width={150}
           height={50}

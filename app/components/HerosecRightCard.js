@@ -3,10 +3,70 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { Star } from "lucide-react";
-import Button from "./Button";
+// import Button from "./Button";
 import useOpenContext from "../contexts/useOpenContext";
+import SubscribeButton from "./SubscribeButton";
 
 export default function HerosecRightCard() {
+  // Subscriber Feature startts here
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const YOUR_FORM_ID = "";
+
+  // ✅ Email validation
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  // ✅ Handle subscribe
+  const handleSubscribe = async () => {
+    if (!validateEmail(email) || email.trim() === "") {
+      setMessage("Please enter a valid email");
+      setIsSuccess(false);
+
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // 🔥 CONNECT TO GOOGLE FORM
+      await fetch(
+        `https://docs.google.com/forms/d/e/${YOUR_FORM_ID}/formResponse`,
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `entry.1234567890=${encodeURIComponent(email)}`, // replace entry ID
+        },
+      );
+
+      // ✅ Success
+      setMessage("Thank you for joining!");
+      setIsSuccess(true);
+      setEmail("");
+
+      // ⏳ Hide message after 3s
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
+    } catch (error) {
+      setMessage("Something went wrong. Try again.");
+      setIsSuccess(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+  // End here
+
   const { showBgImage } = useOpenContext();
   const btnBg = "#fdcd31";
   const textColor = "#012f25";
@@ -40,17 +100,32 @@ export default function HerosecRightCard() {
             : { backgroundColor: "#012F25" }
         }
       >
-        <div className="absolute top-75 md:top-9 xl:top-10 flex gap-4 left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:right-5 xl:right-[2rem]">
-          <div>
+        <div className="absolute top-75 md:top-9 xl:top-10 left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:right-5 xl:right-[2rem]">
+          <div className="flex gap-4 justify-between items-center">
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="px-3 bg-light-green py-2 rounded-full outline-none xl:w-[18rem] shadow-md text-sm"
             />
+            <SubscribeButton
+              btnBg={btnBg}
+              textColor={textColor}
+              handleSubscribe={handleSubscribe}
+              loading={loading}
+            />
           </div>
-          <Button btnBg={btnBg} textColor={textColor}>
-            Subscribe
-          </Button>
+          {/* Message */}
+          {message && (
+            <p
+              className={`text-sm ${
+                isSuccess ? "text-main-bg" : "text-red-500"
+              } transition-opacity duration-300`}
+            >
+              {message}
+            </p>
+          )}
         </div>
 
         <div className="absolute top-12 md:top-[12rem] xl:top-[7rem] left-1/2 -translate-x-1/2 xl:translate-x-0 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[90%] md:w-[95%] xl:max-w-[16rem] shadow-md">
@@ -65,15 +140,6 @@ export default function HerosecRightCard() {
                 priority
               />
             </div>
-            {/* <div className="w-[90%]  h-[140px] md:w-[50%] xl:w-[130px] xl:h-[126px] ">
-              <Image
-                width={100}
-                height={100}
-                src={current.image}
-                alt={current.name}
-                className="object-cover h-full w-full rounded-md border-yellow"
-              />
-            </div> */}
 
             <div className="w-full flex flex-col md:w-[121px]">
               <div className="flex gap-x-2 text-dark-green">

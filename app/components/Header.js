@@ -29,7 +29,7 @@ export default function Header() {
     "Gallery",
     "Support",
     "Join",
-    "Stolen-Breath",
+    "The-Stolen-Breath",
     "Newsletter",
   ];
 

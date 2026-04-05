@@ -74,18 +74,13 @@ function Navbody({ bg, textColor }) {
           </CurrentNav>
         </li>
         <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
-          <CurrentNav onClick={closeHandler} to="/support">
-            SUPPORT
-          </CurrentNav>
-        </li>
-        <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/projects">
             PROJECTS
           </CurrentNav>
         </li>
         <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/join">
-            JOIN
+            JOIN US
           </CurrentNav>
         </li>
         <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
@@ -100,7 +95,7 @@ function Navbody({ bg, textColor }) {
         </li>
         <li className="flex uppercase items-center pl-6 font-medium w-full h-[48px] border-b-2 border-btn-text-color-400 font-quicksand text-base leading-[32px] text-btn-text-color hover:text-blue-text">
           <CurrentNav onClick={closeHandler} to="/stolen-breath">
-            STOLEN BREATH
+            THE STOLEN BREATH
           </CurrentNav>
         </li>
       </ul>

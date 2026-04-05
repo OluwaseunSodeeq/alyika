@@ -30,7 +30,6 @@ export default function AboutCards() {
       <div className="pb-4 md:hidden">
         <h2 className="w-[250px] ml-4 font-montserrat font-bold text-[26px] text-black">
           {/* What We’re Up Against */}
-          Meet the team
         </h2>
         {/* <p className="w-[300px] ml-4">
           Most youth don’t get practical climate education.

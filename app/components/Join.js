@@ -110,7 +110,7 @@ export default function Join() {
                 <div className="mt-10">
                   {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
                   <a
-                    href="https://whatsapp.com/channel/0029Vb7i8Px3rZZUJUPnh146"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSeSDq9c0lHfmWGWAnK5oHID6UgZAZQzosnWMfHCJc-ItjV5AA/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

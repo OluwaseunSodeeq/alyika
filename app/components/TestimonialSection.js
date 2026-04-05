@@ -22,14 +22,14 @@ export default function TestimonialSection() {
     },
     {
       rating: "5",
-      text: "“My teammates and I have now created a club for environmental awareness in my school, where we carry out weekly activities using visuals like cardboards and markers”",
+      text: "“l had no idea when I reached page 50 of The Stolen Breath! The writing is clear, vivid, and easy to understand, perfectly capturing every moment.”",
       name: "Abdulbasit",
       image: "/abdulbasit.png",
       title: "HultPrize KWASU Campus Lead",
     },
     {
       rating: "5",
-      text: "“l had no idea when I reached page 50 of The Stolen Breath! The writing is clear, vivid, and easy to understand, perfectly capturing every moment.”",
+      text: "“My teammates and I have now created a club for environmental awareness in my school, where we carry out weekly activities using visuals like cardboards and markers”",
       name: "Godswill",
       image: "/godswill.png",
       title: "GDFT Student",
