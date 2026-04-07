@@ -1,71 +1,64 @@
 "use client";
+import { supabase } from "../../lib/supabase";
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { Star } from "lucide-react";
-// import Button from "./Button";
 import useOpenContext from "../contexts/useOpenContext";
 import SubscribeButton from "./SubscribeButton";
 
 export default function HerosecRightCard() {
-  // Subscriber Feature startts here
+  // Subcsribe form states
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const YOUR_FORM_ID = "";
-
-  // ✅ Email validation
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  // ✅ Handle subscribe
   const handleSubscribe = async () => {
-    if (!validateEmail(email) || email.trim() === "") {
+    const cleanEmail = email.trim().toLowerCase();
+
+    if (!validateEmail(cleanEmail)) {
       setMessage("Please enter a valid email");
       setIsSuccess(false);
 
-      setTimeout(() => {
-        setMessage("");
-      }, 3000);
+      setTimeout(() => setMessage(""), 3000);
       return;
     }
 
     setLoading(true);
 
     try {
-      // 🔥 CONNECT TO GOOGLE FORM
-      await fetch(
-        `https://docs.google.com/forms/d/e/${YOUR_FORM_ID}/formResponse`,
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: `entry.1234567890=${encodeURIComponent(email)}`, // replace entry ID
-        },
-      );
+      const { error } = await supabase
+        .from("subscribers")
+        .insert([{ email: cleanEmail }]);
 
-      // ✅ Success
+      if (error) {
+        if (error.code === "23505") {
+          setMessage("This email is already subscribed");
+        } else {
+          setMessage("Something went wrong. Try again.");
+        }
+        setIsSuccess(false);
+        return;
+      }
+
       setMessage("Thank you for joining!");
       setIsSuccess(true);
       setEmail("");
-
-      // ⏳ Hide message after 3s
-      setTimeout(() => {
-        setMessage("");
-      }, 3000);
-    } catch (error) {
-      setMessage("Something went wrong. Try again.");
+    } catch (err) {
+      setMessage("Unexpected error occurred.");
       setIsSuccess(false);
     } finally {
       setLoading(false);
+      setTimeout(() => setMessage(""), 3000);
     }
   };
-  // End here
+
+  // ===========
 
   const { showBgImage } = useOpenContext();
   const btnBg = "#fdcd31";
@@ -119,7 +112,7 @@ export default function HerosecRightCard() {
           {/* Message */}
           {message && (
             <p
-              className={`text-sm ${
+              className={`text-lg font-bold ${
                 isSuccess ? "text-main-bg" : "text-red-500"
               } transition-opacity duration-300`}
             >
