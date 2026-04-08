@@ -68,7 +68,7 @@ export default function HerosecRightCard() {
   const testimonials = [
     {
       rating: "5",
-      text: "“The Stolen Breath had:Good character development, good scripting, and good narration; educational and informative.”",
+      text: "“The Stolen Breath had: Good character development, good scripting, and good narration; educational and informative.”",
       name: "Magnus Imam",
       image: "/imam.png",
       bgImage: "/bgImage0.png",

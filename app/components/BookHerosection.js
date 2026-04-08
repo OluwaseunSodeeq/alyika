@@ -1,5 +1,10 @@
 "use client";
+import Link from "next/link";
+import React, { useState } from "react";
 import Image from "next/image";
+import { SquareButton } from "./SquareButton";
+import DonationCard from "./DonationCard";
+import StatsCards from "./BookStatsCards";
 
 // TESTING PURPOSES ONLY
 
@@ -198,9 +203,21 @@ function StatsSection() {
 }
 
 export default function BookHerosection() {
+  const [showDonation, setShowDonation] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("8105810398");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const btnBg = "#fdcd31";
+  const textColor = "#012f25";
+
   return (
-    <div className="relative pt-4">
-      {/* <div className="relative top-[-15px] left-0">
+    <div className="relative bg-dark-green">
+      <div className="relative top-[-15px] left-0">
         <Image
           src="/stolenbig.png"
           alt="The Story Break"
@@ -209,12 +226,49 @@ export default function BookHerosection() {
           sizes="100vw"
           className="w-full h-auto object-contain object-center rounded-lg"
         />
-      </div> */}
+      </div>
+      <div className="absolute xl:right-[5%] top-[130px] w-full xl:w-[430px] h-auto  font-satoshi">
+        <h1 className="px-2 2xl:text-[45px] md:text-[40px] text-[20px] text-center font-bold  text-main-bg">
+          “Nana’s Story isn’t Over. Let’s Build Her a Stronghold”
+        </h1>
+        <p className="xl:mt-5 text-[14px] md:text-[16px] xl:text-[18px] 2xl:text-[22px] text-main-bg text-right leading-relaxed">
+          &quot;The Stolen Breath&quot; is a 99-page novel based on true
+          happenings, centered around climate education and resilience that
+          chronicles the struggle of 11-year-old Nana to save her
+          flood-threatened school in Itowolo. To provide the story the happy
+          ending it needs, we are raising ₦1,500,000 to fund eco-resilient
+          classroom renovation projects at Community Primary School, Itowolo.
+        </p>
+        <div className="flex flex-row-reverse xl:flex-row gap-4  px-4 xl:mt-5 items-center">
+          <div onClick={() => setShowDonation(true)}>
+            <SquareButton btnBg={btnBg} textColor={textColor}>
+              DONATE TO THE PROJECT
+            </SquareButton>
+          </div>
+          <Link href="https://selar.com/thestolenbreath" target="_blank">
+            <button className="underline text-light-green text-[14px] cursor-pointer ">
+              Buy An E-Copy
+            </button>
+          </Link>
+        </div>
+      </div>
+      <div className="absolute bottom-[5%]">
+        {/* <BookStatsCards /> */}
+        <StatsCards />
+      </div>
 
-      <div className="w-full mx-auto text-main-bg text-5xl text-center py-12 border-4 ">
+      {showDonation && (
+        <DonationCard
+          setShowDonation={setShowDonation}
+          copied={copied}
+          handleCopy={handleCopy}
+        />
+      )}
+
+      {/* <div className="w-full mx-auto text-main-bg text-5xl text-center py-12 border-4 ">
         <h1>What are u looking for?</h1>
         <h1>Be calming down oooo 😆🤣😁</h1>
-      </div>
+      </div> */}
     </div>
   );
 }

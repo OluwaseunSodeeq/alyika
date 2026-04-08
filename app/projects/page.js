@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Wrapper from "../components/Wrapper";
 import ProjectsSection from "../components/ProjectsSection";
 
