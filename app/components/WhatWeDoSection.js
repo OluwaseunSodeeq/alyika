@@ -3,6 +3,7 @@ import React from "react";
 import Button from "./Button";
 import CardCounter from "./CardCounter";
 import Link from "next/link";
+import Image from "next/image";
 
 function Container({ children }) {
   <div
@@ -23,6 +24,7 @@ export default function WhatWeDoSection() {
     { numb: "12000", text: "reached online through digital campaigns" },
     { numb: "30", text: "youth volunteers in our network" },
   ];
+
   return (
     // <Wrapper>
     <div className="relative mt-[3rem] md:mt-[7rem] pb-[3.5rem] md:pb-[5rem] xl:px-[3.5rem] py-0">
@@ -84,20 +86,14 @@ export default function WhatWeDoSection() {
                 where we team up with creators to get young people fired up
                 about protecting their communities.
               </p>
-              {/* <p className="font-normal text-sm p-4 ">
-                <span className="font-bold">
-                  We tell stories of climate and environmental resilience,{" "}
-                </span>
-                drawn from real cases to amplify voices.
-              </p> */}
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-[2.8rem]">
+        {/* <div className="flex items-center gap-[2.8rem]">
           <div
-            className="bg-conver bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg"
+            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg"
             style={{
-              backgroundImage: "url('/booksmall.png')",
+              backgroundImage: "url('/clemesetcover.png')",
             }}
           >
             <div className="absolute xl:left-[2rem] bottom-0  xl:bottom-[7%] bg-main-bg/80 xl:w-[70%] rounded-md">
@@ -108,6 +104,25 @@ export default function WhatWeDoSection() {
                 changemaking.
               </p>
             </div>
+          </div>
+        </div> */}
+        <div className="gradient-border w-[360px] h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg overflow-hidden">
+          <Image
+            src="/clemesetcover.png"
+            alt="cover"
+            fill
+            className="object-cover"
+            quality={100}
+            priority
+          />
+
+          <div className="absolute xl:left-[1rem] bottom-0 xl:bottom-[7%] bg-main-bg/80 xl:w-[90%] rounded-md">
+            <p className="font-normal text-sm p-4">
+              <span className="font-bold">We tell stories of climate </span>
+              and environmental resilience, drawn from true-life cases and
+              experiences to amplify voices and inspire environmental
+              changemaking.
+            </p>
           </div>
         </div>
 

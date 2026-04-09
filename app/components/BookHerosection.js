@@ -227,35 +227,38 @@ export default function BookHerosection() {
           className="w-full h-auto object-contain object-center rounded-lg"
         />
       </div>
-      <div className="absolute xl:right-[5%] top-[130px] w-full xl:w-[430px] h-auto  font-satoshi">
-        <h1 className="px-2 2xl:text-[45px] md:text-[40px] text-[20px] text-center font-bold  text-main-bg">
-          “Nana’s Story isn’t Over. Let’s Build Her a Stronghold”
-        </h1>
-        <p className="xl:mt-5 text-[14px] md:text-[16px] xl:text-[18px] 2xl:text-[22px] text-main-bg text-right leading-relaxed">
-          &quot;The Stolen Breath&quot; is a 99-page novel based on true
-          happenings, centered around climate education and resilience that
-          chronicles the struggle of 11-year-old Nana to save her
-          flood-threatened school in Itowolo. To provide the story the happy
-          ending it needs, we are raising ₦1,500,000 to fund eco-resilient
-          classroom renovation projects at Community Primary School, Itowolo.
-        </p>
-        <div className="flex flex-row-reverse xl:flex-row gap-4  px-4 xl:mt-5 items-center">
-          <div onClick={() => setShowDonation(true)}>
-            <SquareButton btnBg={btnBg} textColor={textColor}>
-              DONATE TO THE PROJECT
-            </SquareButton>
+      <div className="absolute top-[130px] font-satoshi w-full xl:w-[430px] h-auto b right-0 xl:mx-[3rem]">
+        <div className="">
+          <h1 className="px-2 2xl:text-[45px] md:text-[40px] text-[20px] text-center font-bold  text-main-bg">
+            “Nana’s Story isn’t Over. Let’s Build Her a Stronghold”
+          </h1>
+          <p className="xl:mt-5 text-[14px] md:text-[16px] xl:text-[18px] 2xl:text-[22px] text-main-bg text-right leading-relaxed">
+            &quot;The Stolen Breath&quot; is a 99-page novel based on true
+            happenings, centered around climate education and resilience that
+            chronicles the struggle of 11-year-old Nana to save her
+            flood-threatened school in Itowolo. To provide the story the happy
+            ending it needs, we are raising ₦1,500,000 to fund eco-resilient
+            classroom renovation projects at Community Primary School, Itowolo.
+          </p>
+          <div className="flex flex-row-reverse xl:flex-row gap-4  px-4 xl:mt-5 items-center">
+            <div onClick={() => setShowDonation(true)}>
+              <SquareButton btnBg={btnBg} textColor={textColor}>
+                DONATE TO THE PROJECT
+              </SquareButton>
+            </div>
+            <Link href="https://selar.com/thestolenbreath" target="_blank">
+              <button className="underline text-light-green text-[14px] cursor-pointer ">
+                Buy An E-Copy
+              </button>
+            </Link>
           </div>
-          <Link href="https://selar.com/thestolenbreath" target="_blank">
-            <button className="underline text-light-green text-[14px] cursor-pointer ">
-              Buy An E-Copy
-            </button>
-          </Link>
         </div>
       </div>
-      <div className="absolute bottom-[5%]">
-        {/* <BookStatsCards /> */}
+      <div className="w-full absolute top-[700px] 2xl:top-[840px] left-1/2 -translate-x-1/2 ">
+        {/* <BookStatsCards />  */}
         <StatsCards />
       </div>
+      <div className="xl:h-[100px] 2xl:h-[200px]  w-full"></div>
 
       {showDonation && (
         <DonationCard

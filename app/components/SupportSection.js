@@ -17,7 +17,7 @@ const cardsData = [
     title: "3. Buy Our Book (Coming Soon!):",
     text: "Order 10 copies for 10 school libraries and we’ll send you a report showing how the books were used and the stories that came from them.",
     highlight: false,
-    image: "/support-card3.png",
+    image: "/support-card3.jpg",
   },
 ];
 

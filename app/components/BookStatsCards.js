@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FaUser } from "react-icons/fa";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -7,26 +7,51 @@ import "react-circular-progressbar/dist/styles.css";
 import { PieChart, Pie, Cell } from "recharts";
 
 export default function StatsCards() {
+  const sectionRef = useRef(null);
   const [raised, setRaised] = useState(0);
   const [sold, setSold] = useState(0);
-
+  const [soldCopies, setSoldCopies] = useState(0);
+  const goalAmount = 1500000;
+  const goalCopies = 600;
   const raisedTarget = 563000;
   const soldPercent = 37;
-  console.log(sold);
+  const soldCopiesPercent = 225;
+
   useEffect(() => {
-    let progress = 0;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
 
-    const animate = () => {
-      if (progress <= 100) {
-        setRaised(Math.floor((raisedTarget * progress) / 100));
-        setSold(Math.floor((soldPercent * progress) / 100));
+        if (entry.isIntersecting) {
+          let progress = 0;
 
-        progress += 2;
-        requestAnimationFrame(animate);
-      }
-    };
+          const animate = () => {
+            if (progress <= 100) {
+              setRaised(Math.floor((raisedTarget * progress) / 100));
+              setSold(Math.floor((soldPercent * progress) / 100));
+              setSoldCopies(Math.floor((soldCopiesPercent * progress) / 100));
 
-    animate();
+              progress += 2;
+              requestAnimationFrame(animate);
+            }
+          };
+
+          animate();
+
+          // 🔥 run only once
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.3, // triggers when 30% is visible
+      },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const raisedPercentage = (raised / 1500000) * 100;
@@ -53,154 +78,162 @@ export default function StatsCards() {
   const activeColor = getActiveColor(sold);
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 justify-center items-center p-6">
-      {/* ================= CARD 1 ================= 
-       <div
-        className="bg-white/90 backdrop-blur-md rounded-2xl p-6 w-80 flex flex-col items-center gap-4
+    <div className="flex flex-col gap-4" ref={sectionRef}>
+      {/* Sold card */}
+
+      <div
+        className="font-satoshi bg-white backdrop-blur-md rounded-2xl py-6 px-6 flex flex-col items-center gap-4 w-full h-auto xl:w-[400px] xl:ml-[770px]
               shadow-[0_10px_30px_rgba(0,0,0,0.08)]
               hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
               transition-all duration-300 hover:scale-105"
       >
-        <svg width="0" height="0">
-          <defs>
-            <linearGradient
-              id="raisedGradient"
-              gradientTransform="rotate(247.17)"
-            >
-              <stop offset="12.87%" stopColor="#F78A8F" />
-              <stop offset="86.82%" stopColor="#FCC931" />
-            </linearGradient>
-          </defs>
-        </svg>
-
-        <div className="w-28 h-28 relative">
-          <CircularProgressbar
-            value={raisedPercentage}
-            styles={buildStyles({
-              pathColor: "url(#raisedGradient)", // 🔥 gradient applied here
-              trailColor: "#e5e7eb",
-              strokeLinecap: "round",
-            })}
-          />
-
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <FaUser className="text-gray-600 mb-1" />
-            <span className="font-bold text-lg">
-              ₦{(raised / 1000).toFixed(0)}k
-            </span>
-            <span className="text-xs text-gray-500">Raised</span>
-          </div>
-        </div>
-
-        <div className="w-full bg-green-100 rounded-full h-3">
+        <h1 className=" text-dark-green font-bold text-[40px] xl:text-[100px] 2xl:text-[120px] ">
+          {soldCopies}+
+        </h1>
+        <div className=" w-[80%] bg-[#F3F3F3] rounded-full h-3 overflow-hidden">
           <div
-            className="bg-green-500 h-3 rounded-full transition-all duration-500"
+            className="bg-[#00D648] h-3 rounded-full"
             style={{ width: `${raisedPercentage}%` }}
           />
         </div>
-
-        <p className="text-xs text-gray-500 text-center">
-          Raised: ₦{raised.toLocaleString()} <br />
-          Goal: ₦1,500,000
-        </p>
-      </div> 
-      */}
-      <div
-        className="bg-white backdrop-blur-md rounded-2xl py-6 px-12 flex flex-col items-center gap-4
-                      shadow-[0_10px_30px_rgba(0,0,0,0.08)]
-                      hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
-                      transition-all duration-300 hover:scale-105"
-      >
-        <div className="w-28 h-28 xl:w-[200px] xl:h-[200px] relative">
-          <CircularProgressbar
-            value={raisedPercentage}
-            styles={buildStyles({
-              pathColor: "#FCC931",
-              trailColor: "#E9ECF1",
-              strokeLinecap: "round",
-            })}
-          />
-
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <FaUser className="text-gray-600 mb-1" />
-            <span className="font-bold text-lg">
-              ₦{(raised / 1000).toFixed(0)}k
-            </span>
-            <span className="text-xs text-gray-500">Raised</span>
-          </div>
-        </div>
-
-        <div className="w-full bg-green-100 rounded-full h-3">
-          <div
-            className="bg-green-500 h-3 rounded-full"
-            style={{ width: `${raisedPercentage}%` }}
-          />
-        </div>
-
-        <p className="text-xs text-gray-500 text-center">
-          Raised: ₦{raised.toLocaleString()} <br />
-          Goal: ₦1,500,000
+        <p className="font-normal text-sm mt-2 text-center text-dark-green xl:px-6">
+          Your support turns a story into shelter. Every donation brings us
+          closer to building climate-resilient infrastructure that protects the
+          children of Community Primary School, Itowolo.
         </p>
       </div>
 
-      {/* ================= CARD 2 ================= */}
-
-      <div
-        className="bg-white backdrop-blur-md rounded-2xl py-6 px-12 flex flex-col items-center gap-4
-              shadow-[0_10px_30px_rgba(0,0,0,0.08)]
-              hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
-              transition-all duration-300 hover:scale-105"
-      >
-        <div className="relative w-28 h-28 xl:w-[200px] xl:h-[200px] border-2">
-          <PieChart width={200} height={200}>
-            <Pie
-              data={segments}
-              cx="50%"
-              cy="50%"
-              innerRadius={60}
-              outerRadius={75}
-              startAngle={110} // 🔥 rotate here
-              endAngle={-250}
-              paddingAngle={4} // even spacing
-              dataKey="value"
-              cornerRadius={12} // 🔥 smooth rounded arcs (~1rem feel)
-            >
-              {segments.map((entry, index) => (
-                <Cell key={index} fill={entry.color} />
-              ))}
-            </Pie>
-          </PieChart>
-
-          {/* 🎯 CENTER TEXT WITH DYNAMIC BG */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <div
-              className=" flex flex-col justify-center items-center xl:w-[90px] xl:h-[90px] p-4 rounded-full  text-dark-green font-semibold transition-all duration-300 "
-              style={{ backgroundColor: activeColor }}
-            >
-              <span className="font-bold text-[20px] xl:text-[30px]">
-                {sold}%
-              </span>
-              <span className="text-xs t">Sold</span>
-              {/* <div>
-                <span className="text-[20px] xl:text-[30px]">{sold}%</span>
+      <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+        {/* ================= CARD 1 =================   */}
+        <div
+          className="bg-white backdrop-blur-md rounded-2xl py-6 px-6 flex flex-col items-center gap-4 w-full h-auto xl:w-[380px] 2xl:w-[400px] 
+                      shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+                      hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
+                      transition-all duration-300 hover:scale-105"
+        >
+          <div className="w-auto h-auto relative">
+            <div className="flex gap-4 items-center">
+              <div className="w-28 h-28 xl:w-[200px] xl:h-[200px] relative">
+                <CircularProgressbar
+                  value={raisedPercentage}
+                  styles={buildStyles({
+                    pathColor: "#FCC931",
+                    trailColor: "#E9ECF1",
+                    strokeLinecap: "round",
+                  })}
+                />
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <div className="bg-[#E9ECF3] rounded-full xl:w-[90px] xl:h-[90px] flex justify-center items-center">
+                    <FaUser className="text-dark-green mb-1 text-2xl xl:text-4xl" />
+                  </div>
+                </div>
               </div>
-              <span className=" mt-1 text-center">Sold</span> */}
+              <div className="flex flex-col">
+                <span className="font-bold text-black xl:text-[46px] 2xl:text-[46px]">
+                  ₦{(raised / 1000).toFixed(0)}k
+                </span>
+                <span className="text-xs text-black xl:text-[32px] 2xl:text-[36px]">
+                  Raised
+                </span>
+              </div>
             </div>
+          </div>
+
+          <div className="w-full mx-auto bg-[#F3F7E8] rounded-[8px] h-auto py-4 text-dark-green px-2">
+            <div className="flex justify-between items-center mb-2">
+              <p className="font-normal text-sm text-left ">
+                Raised: <span className="font-bold">₦</span>{" "}
+                <span className="font-bold"> {raised.toLocaleString()} </span>
+              </p>
+              <p className="font-normal text-sm text-left ">Current Total</p>
+            </div>
+            <div className=" bg-main-bg rounded-full h-3 overflow-hidden">
+              <div
+                className="bg-[#00D648] h-3 rounded-full"
+                style={{ width: `${raisedPercentage}%` }}
+              />
+            </div>
+
+            <p className="font-normal text-sm text-left mt-2">
+              Goal: <span className="font-bold">₦</span>{" "}
+              <span> {goalAmount.toLocaleString()} </span>
+            </p>
           </div>
         </div>
 
-        {/* PROGRESS BAR */}
-        <div className="w-full bg-green-100 rounded-full h-3">
-          <div
-            className="bg-green-500 h-3 rounded-full transition-all duration-500"
-            style={{ width: `${sold}%` }}
-          />
-        </div>
+        {/* ================= CARD 2 ================= */}
 
-        <p className="text-xs text-gray-500 text-center">
-          Sold: {Math.floor((225 * sold) / 37)} copies <br />
-          Goal: 600 copies
-        </p>
+        <div
+          className="bg-white backdrop-blur-md rounded-2xl py-6 px-6 flex flex-col items-center gap-4 w-full h-auto xl:w-[380px]  2xl:w-[400px] 
+              shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+              hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
+              transition-all duration-300 hover:scale-105"
+        >
+          <div className="relative w-auto h-auto ">
+            <PieChart width={210} height={210}>
+              <Pie
+                data={segments}
+                cx="50%"
+                cy="50%"
+                innerRadius={90}
+                outerRadius={100}
+                startAngle={110}
+                endAngle={-250}
+                paddingAngle={4}
+                dataKey="value"
+                cornerRadius={12}
+              >
+                {segments.map((entry, index) => (
+                  <Cell key={index} fill={entry.color} />
+                ))}
+              </Pie>
+            </PieChart>
+
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <div
+                className=" flex flex-col justify-center items-center xl:w-[90px] xl:h-[90px] p-4 rounded-full  text-dark-green font-semibold transition-all duration-300 "
+                style={{ backgroundColor: activeColor }}
+              >
+                <span className="font-bold text-[20px] xl:text-[30px]">
+                  {sold}%
+                </span>
+                <span className="text-xs t">Sold</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative w-full mx-auto bg-[#E4F9ED] rounded-[8px] h-auto py-4 text-dark-green px-2 xl:mt-[-25px] 2xl:mt-[-30px] z-10">
+            <div className="flex justify-between items-center mb-2">
+              <p className="font-normal text-sm text-left ">
+                Sold:{" "}
+                <span className="font-bold"> {sold.toLocaleString()} </span>
+              </p>
+              <p className="font-normal text-sm text-left ">Copies Sold</p>
+            </div>
+            <div className=" bg-main-bg rounded-full h-3 overflow-hidden">
+              <div
+                className="bg-[#00D648] h-3 rounded-full"
+                style={{ width: `${soldPercent}%` }}
+              />
+            </div>
+
+            <p className="font-normal text-sm text-left mt-2">
+              Goal: <span> {goalCopies} </span>
+            </p>
+          </div>
+        </div>
+        {/* ================= CARD 3 ================= */}
+        <div
+          className="font-satoshi bg-white backdrop-blur-md rounded-2xl py-6 px-6 flex flex-col items-center gap-4 w-full h-auto xl:w-[300px] 
+              shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+              hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
+              transition-all duration-300 hover:scale-105"
+        >
+          <h1 className=" text-dark-green font-bold text-[40px] xl:text-[100px] 2xl:text-[120px] ">
+            {" "}
+            Graph Card
+          </h1>
+        </div>
       </div>
     </div>
   );
