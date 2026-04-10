@@ -18,7 +18,7 @@ export function SquareButtonBigSize({ children, btnBg, textColor }) {
     <div>
       <button
         style={{ backgroundColor: btnBg, color: textColor }}
-        className={` cursor-pointer text-[18px] lg:text-[28px] 2xl:text-[35px] font-bold px-6 py-2 rounded-[10px] shadow-sm transition`}
+        className={` cursor-pointer text-[16px] lg:text-[28px] 2xl:text-[35px] font-bold px-6 py-2 rounded-[10px] shadow-sm transition`}
       >
         {children}
       </button>

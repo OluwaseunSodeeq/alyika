@@ -96,6 +96,16 @@
   }
 }
 
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw {
+  animation: drawLine 2s ease forwards;
+}
+
 /* FIX slick dot width overriding Tailwind */
 /* .slick-dots li {
   width: auto !important;

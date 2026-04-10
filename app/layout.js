@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import { satoshi } from "./fonts/fonts";
 import RootComponent from "./components/RootComponent";
 import { OpenContextProvider } from "./contexts/OpenContext";
+import { SubscribeContextProvider } from "./contexts/SubscribeContext";
 // import ChatWidget from "./components/ChatWidget";
 
 const montserrat = Montserrat({
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${satoshi.variable} ${montserrat.variable}`}>
       <body className="h-auto bg-main-bg relative">
         <OpenContextProvider>
-          <RootComponent>{children}</RootComponent>
+          <SubscribeContextProvider>
+            <RootComponent>{children}</RootComponent>
+          </SubscribeContextProvider>
           {/* <ChatWidget /> */}
         </OpenContextProvider>
       </body>

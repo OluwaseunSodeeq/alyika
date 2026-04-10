@@ -1,4 +1,5 @@
 // import { Mail, Facebook, Twitter, Instagram } from "lucide-react";
+"use client";
 import {
   Facebook,
   Instagram,
@@ -10,8 +11,13 @@ import Button from "./Button";
 import Image from "next/image";
 import { MobileLogo } from "./Logo";
 import Link from "next/link";
+import useSubscribeContext from "../contexts/useSubscribeContext";
 
 export default function Footer() {
+  // Subcsribe form states
+  const { email, setEmail, message, isSuccess, loading, handleSubscribe } =
+    useSubscribeContext();
+
   return (
     <footer className="bg-dark-green text-main-bg px-6 md:px-16 py-12">
       <div className="2xl:max-w-[1400px] md:mx-auto">
@@ -50,15 +56,34 @@ export default function Footer() {
             <h3 className="font-semibold text-xl mb-3 w-[10.2rem] ">
               Subscribe to our newsletter
             </h3>
-            <div className="w-[15rem] md:w-[20rem]  xl:w-[25.6rem] flex mt-7 border-b border-t rounded-sm border-white/40 items-center">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="bg-transparent outline-none py-2 pl-2 text-sm flex-1 placeholder:text-white/60"
-              />
-              <button className="cursor-pointer bg-yellow text-black p-2 rounded-sm hover:bg-yellow">
-                →
-              </button>
+            <div className="">
+              <div className="w-[15rem] md:w-[20rem]  xl:w-[25.6rem] flex mt-7 border-b border-t rounded-sm border-white/40">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="bg-transparent outline-none py-2 pl-2 text-sm flex-1 placeholder:text-white/60"
+                />
+                <button
+                  onClick={handleSubscribe}
+                  loading={loading}
+                  className="cursor-pointer bg-yellow text-black p-2 rounded-sm hover:bg-yellow"
+                >
+                  →
+                </button>
+              </div>
+              <div>
+                {message && (
+                  <p
+                    className={`text-lg font-bold ${
+                      isSuccess ? "text-main-bg" : "text-red-500"
+                    } transition-opacity duration-300`}
+                  >
+                    {message}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
 
@@ -97,8 +122,8 @@ export default function Footer() {
               <Link href="/support">
                 <li>Support Us</li>
               </Link>
-              <Link href="/contact">
-                <li>Contact Us</li>
+              <Link href="/the-stolen-breath">
+                <li>The Stolen Breath</li>
               </Link>
             </ul>
           </div>
