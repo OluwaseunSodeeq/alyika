@@ -1,5 +1,5 @@
-"use client";
-import { useEffect, useState, useRef } from "react";
+// "use client";
+// import { useEffect, useState, useRef } from "react";
 import { FaUser } from "react-icons/fa";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -7,54 +7,62 @@ import "react-circular-progressbar/dist/styles.css";
 import { PieChart, Pie, Cell } from "recharts";
 import GrowthCard from "./GrowthCard";
 
-export default function StatsCards() {
-  const sectionRef = useRef(null);
-  const [raised, setRaised] = useState(0);
-  const [sold, setSold] = useState(0);
-  const [soldCopies, setSoldCopies] = useState(0);
-  const goalAmount = 1500000;
-  const goalCopies = 600;
-  const raisedTarget = 563000;
-  const soldPercent = 37;
-  const soldCopiesPercent = 225;
+export default function StatsCards({
+  sold,
+  soldPercent,
+  raisedPercentage,
+  goalCopies,
+  raised,
+  goalAmount,
+  sectionRef,
+}) {
+  // const sectionRef = useRef(null);
+  // const [raised, setRaised] = useState(0);
+  // const [sold, setSold] = useState(0);
+  // const [soldCopies, setSoldCopies] = useState(0);
+  // const goalAmount = 1500000;
+  // const goalCopies = 600;
+  // const raisedTarget = 563000;
+  // const soldPercent = 37;
+  // const soldCopiesPercent = 225;
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       const entry = entries[0];
 
-        if (entry.isIntersecting) {
-          let progress = 0;
+  //       if (entry.isIntersecting) {
+  //         let progress = 0;
 
-          const animate = () => {
-            if (progress <= 100) {
-              setRaised(Math.floor((raisedTarget * progress) / 100));
-              setSold(Math.floor((soldPercent * progress) / 100));
-              setSoldCopies(Math.floor((soldCopiesPercent * progress) / 100));
+  //         const animate = () => {
+  //           if (progress <= 100) {
+  //             setRaised(Math.floor((raisedTarget * progress) / 100));
+  //             setSold(Math.floor((soldPercent * progress) / 100));
+  //             setSoldCopies(Math.floor((soldCopiesPercent * progress) / 100));
 
-              progress += 2;
-              requestAnimationFrame(animate);
-            }
-          };
+  //             progress += 2;
+  //             requestAnimationFrame(animate);
+  //           }
+  //         };
 
-          animate();
+  //         animate();
 
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.3,
-      },
-    );
+  //         observer.disconnect();
+  //       }
+  //     },
+  //     {
+  //       threshold: 0.3,
+  //     },
+  //   );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+  //   if (sectionRef.current) {
+  //     observer.observe(sectionRef.current);
+  //   }
 
-    return () => observer.disconnect();
-  }, []);
+  //   return () => observer.disconnect();
+  // }, []);
 
-  const raisedPercentage = (raised / 1500000) * 100;
+  // const raisedPercentage = (raised / 1500000) * 100;
 
   const segments = [
     { name: "A", value: 20, color: "#F78A8F" },
@@ -81,29 +89,6 @@ export default function StatsCards() {
       className="flex flex-col gap-4 px-3 xl:px-0 will-change-transform"
       ref={sectionRef}
     >
-      {/* Sold card */}
-      {/* <div
-        className="font-satoshi bg-white backdrop-blur-md rounded-2xl py-6 px-6 flex flex-col items-center gap-4 w-full h-[300px] md:h-auto xl:w-[400px] xl:ml-[770px]
-              shadow-lg
-              hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
-              transition-all duration-300 hover:scale-105"
-      >
-        <h1 className=" text-dark-green font-bold text-[40px] xl:text-[100px] 2xl:text-[120px] ">
-          {soldCopies}+
-        </h1>
-        <div className=" w-[80%] bg-[#F3F3F3] rounded-full h-3 overflow-hidden">
-          <div
-            className="bg-[#00D648] h-3 rounded-full"
-            style={{ width: `${raisedPercentage}%` }}
-          />
-        </div>
-        <p className="font-normal text-sm mt-2 text-center text-dark-green xl:px-6">
-          Your support turns a story into shelter. Every donation brings us
-          closer to building climate-resilient infrastructure that protects the
-          children of Community Primary School, Itowolo.
-        </p>
-      </div> */}
-
       <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
         {/* ================= CARD 1 =================   */}
         <div

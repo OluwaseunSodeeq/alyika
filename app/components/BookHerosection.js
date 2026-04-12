@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { SquareButton } from "./SquareButton";
 import DonationCard from "./DonationCard";
@@ -8,12 +8,64 @@ import StatsCards from "./BookStatsCards";
 import GrowthCard from "./GrowthCard";
 
 export default function BookHerosection() {
-  const [showDonation, setShowDonation] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [showDonation, setShowDonation] = useState(false);
 
-  const soldCopies = 225;
-  const raisedPercentage = 37;
+  const sectionRef = useRef(null);
+  const [raised, setRaised] = useState(0);
+  const [sold, setSold] = useState(0);
+  const [soldCopies, setSoldCopies] = useState(0);
+  const [soldvalueInPercent, setSoldValueInPercent] = useState(0);
+  const soldPercent = 37;
+  const raisedTarget = 563000;
+  const soldCopiesPercent = 225;
 
+  const goalAmount = 1500000;
+  const goalCopies = 600;
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (entry.isIntersecting) {
+          let progress = 0;
+
+          const animate = () => {
+            if (progress <= 100) {
+              setRaised(Math.floor((raisedTarget * progress) / 100));
+              setSold(Math.floor((soldPercent * progress) / 100));
+              setSoldCopies(Math.floor((soldCopiesPercent * progress) / 100));
+              setSoldValueInPercent(Math.floor((soldPercent * progress) / 100));
+
+              progress += 2;
+              requestAnimationFrame(animate);
+            }
+          };
+
+          animate();
+
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.3,
+      },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const raisedPercentage = (raised / 1500000) * 100;
+
+  // const soldCopies = 225;
+  // const raisedPercentage = 37;
+
+  // =============
   const handleCopy = () => {
     navigator.clipboard.writeText("8105810398");
     setCopied(true);
@@ -24,7 +76,7 @@ export default function BookHerosection() {
   const textColor = "#012f25";
 
   return (
-    <div className="relative bg-dark-green min-h-screen pb-[120px] ">
+    <div className="relative bg-dark-green min-h-screen pb-5 md:pb-[80px] lg:pb-[100px]">
       {/* Hero Image */}
       <div className="relative top-[-15px]">
         <Image
@@ -80,7 +132,7 @@ export default function BookHerosection() {
               raisedPercentage={raisedPercentage}
             />
             <div className=" hidden md:block lg:hidden">
-              <GrowthCard value={20} />
+              <GrowthCard value={soldvalueInPercent} />
             </div>
           </div>
         </div>
@@ -88,10 +140,18 @@ export default function BookHerosection() {
 
       {/* STATS SECTION */}
       <div className="w-full px-4 pt-10 md:pt-16">
-        <StatsCards />
+        <StatsCards
+          sold={sold}
+          raised={raised}
+          goalCopies={goalCopies}
+          goalAmount={goalAmount}
+          soldCopies={soldCopies}
+          raisedPercentage={raisedPercentage}
+          sectionRef={sectionRef}
+        />
       </div>
 
-      <div className="xl:h-[100px] 2xl:h-[200px]" />
+      {/* <div className="xl:h-[100px] 2xl:h-[200px] border-2" /> */}
 
       {/* DONATION MODAL */}
       {showDonation && (
@@ -109,7 +169,7 @@ export default function BookHerosection() {
 
 function SoldBooksCounts({ soldCopies, raisedPercentage }) {
   return (
-    <div className="font-satoshi bg-white backdrop-blur-md rounded-2xl py-6 px-6 flex flex-col items-center gap-4 w-full md:w-[80%] xl:w-[400px] mx-auto shadow-lg transition-all duration-300 hover:scale-105">
+    <div className="font-satoshi bg-white backdrop-blur-md rounded-2xl py-6 px-6 flex flex-col items-center gap-4 w-full md:w-[300px] xl:w-[400px] mx-auto shadow-lg transition-all duration-300 hover:scale-105">
       <h1 className="text-dark-green font-bold text-[40px] xl:text-[100px] 2xl:text-[120px]">
         {soldCopies}+
       </h1>

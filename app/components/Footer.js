@@ -19,7 +19,7 @@ export default function Footer() {
     useSubscribeContext();
 
   return (
-    <footer className="bg-dark-green text-main-bg px-6 md:px-16 py-12">
+    <footer className="py-12 bg-dark-green text-main-bg px-6 md:px-16 ">
       <div className="2xl:max-w-[1400px] md:mx-auto">
         {/* Top message row */}
         <div className="hidden md:flex flex-col md:flex-row justify-between items-center border-b border-white/20 pb-8">
