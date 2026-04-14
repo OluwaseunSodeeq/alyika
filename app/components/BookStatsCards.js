@@ -9,12 +9,13 @@ import GrowthCard from "./GrowthCard";
 
 export default function StatsCards({
   sold,
-  soldPercent,
+  soldvalueInPercent,
   raisedPercentage,
   goalCopies,
   raised,
   goalAmount,
   sectionRef,
+  graphValue,
 }) {
   // const sectionRef = useRef(null);
   // const [raised, setRaised] = useState(0);
@@ -198,7 +199,7 @@ export default function StatsCards({
             <div className=" bg-main-bg rounded-full h-3 overflow-hidden">
               <div
                 className="bg-[#00D648] h-3 rounded-full"
-                style={{ width: `${soldPercent}%` }}
+                style={{ width: `${soldvalueInPercent}%` }}
               />
             </div>
 
@@ -209,7 +210,7 @@ export default function StatsCards({
         </div>
         {/* ================= CARD 3 ================= */}
         <div className=" block md:hidden lg:block">
-          <GrowthCard value={20} />
+          <GrowthCard value={graphValue} />
         </div>
       </div>
     </div>

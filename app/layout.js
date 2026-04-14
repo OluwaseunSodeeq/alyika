@@ -4,7 +4,6 @@ import { satoshi } from "./fonts/fonts";
 import RootComponent from "./components/RootComponent";
 import { OpenContextProvider } from "./contexts/OpenContext";
 import { SubscribeContextProvider } from "./contexts/SubscribeContext";
-// import ChatWidget from "./components/ChatWidget";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,3 +29,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+// Checked!

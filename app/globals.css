@@ -28,7 +28,7 @@
     .gradient-border {
       position: relative;
       border-radius: 1.2rem;
-      overflow: hidden; /* ensures rounding applies visually */
+      overflow: hidden;
       z-index: 0;
     }
 
@@ -66,9 +66,6 @@
 .clip-slant {
   clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
 }
-/* :root {
-  font-size: 62.5%;
-} */
 
 /* Custom utility to hide scrollbars while keeping scroll functionality */
 .scrollbar-hide {
@@ -81,11 +78,11 @@
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .no-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 @layer utilities {
   .text-gradient {
@@ -106,27 +103,10 @@
   animation: drawLine 2s ease forwards;
 }
 
-/* FIX slick dot width overriding Tailwind */
-/* .slick-dots li {
-  width: auto !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-} */
-
-/* .slick-dots li button { */
-/*width: 0 !important;  hide slick's default dot */
-/* height: 0 !important;
-  padding: 0 !important;
-} */
-
-/* .slick-dots li button:before {
-  display: none !important; remove default dot circle 
-} */
 .slick-dots li button {
   width: 100% !important;
   height: 100% !important;
-  opacity: 0 !important; /* keep clickable but hidden */
+  opacity: 0 !important;
   padding: 0 !important;
 }
 
@@ -163,7 +143,7 @@
 .masonry-column {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* matches your gap-6 */
+  gap: 1.5rem;
 }
 
 @keyframes fade-in {

@@ -8,7 +8,7 @@ export default function NotFound() {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.replace("/");
-    }, 2000); // 2 seconds
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [router]);
@@ -20,3 +20,4 @@ export default function NotFound() {
     </div>
   );
 }
+// Checked!

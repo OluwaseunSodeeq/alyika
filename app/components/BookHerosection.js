@@ -16,6 +16,7 @@ export default function BookHerosection() {
   const [sold, setSold] = useState(0);
   const [soldCopies, setSoldCopies] = useState(0);
   const [soldvalueInPercent, setSoldValueInPercent] = useState(0);
+  const [graphValue, setGraphValue] = useState(0);
   const soldPercent = 37;
   const raisedTarget = 563000;
   const soldCopiesPercent = 225;
@@ -37,6 +38,7 @@ export default function BookHerosection() {
               setSold(Math.floor((soldPercent * progress) / 100));
               setSoldCopies(Math.floor((soldCopiesPercent * progress) / 100));
               setSoldValueInPercent(Math.floor((soldPercent * progress) / 100));
+              setGraphValue(20);
 
               progress += 2;
               requestAnimationFrame(animate);
@@ -148,6 +150,8 @@ export default function BookHerosection() {
           soldCopies={soldCopies}
           raisedPercentage={raisedPercentage}
           sectionRef={sectionRef}
+          soldvalueInPercent={soldvalueInPercent}
+          graphValue={graphValue}
         />
       </div>
 

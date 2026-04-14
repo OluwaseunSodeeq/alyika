@@ -46,3 +46,4 @@ export default function AboutCard({ cardContent, index }) {
     </div>
   );
 }
+// Checked!

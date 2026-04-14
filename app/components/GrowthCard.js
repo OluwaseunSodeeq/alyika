@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function GrowthCard({ value = 0 }) {
+export default function GrowthCard({ value }) {
   const pathRef = useRef(null);
   const [point, setPoint] = useState({ x: 0, y: 0 });
 
@@ -45,6 +45,7 @@ export default function GrowthCard({ value = 0 }) {
 
     animate();
   }, [value]);
+
   // useEffect(() => {
   //   const path = pathRef.current;
   //   const totalLength = path.getTotalLength();
@@ -88,6 +89,7 @@ export default function GrowthCard({ value = 0 }) {
 
             <stop offset="100%" stopColor="#6BD096" stopOpacity="0.4" />
           </linearGradient>
+
           {/* <linearGradient id="areaGradient" x1="0" y1="0" x2="1" y2="1">
             <stop offset={`${value}%`} stopColor="#6BD096" stopOpacity="0.2">
               <animate
