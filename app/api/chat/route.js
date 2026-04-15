@@ -9,7 +9,6 @@ const openai = new OpenAI({
 export async function POST(req) {
   const { message } = await req.json();
 
-  // 🚫 Block long inputs
   if (!message || message.length > 500) {
     return new Response("⚠️ Message too long. Keep it under 500 characters.", {
       status: 400,
@@ -18,19 +17,15 @@ export async function POST(req) {
 
   const encoder = new TextEncoder();
 
-  // ✅ Helper to stream plain text (for non-AI responses too)
-  const streamText = (text) => {
-    return new ReadableStream({
+  const streamText = (text) =>
+    new ReadableStream({
       start(controller) {
         controller.enqueue(encoder.encode(text));
         controller.close();
       },
     });
-  };
 
-  // ===============================
-  // 🌦 WEATHER QUERY (STREAMED)
-  // ===============================
+  // 🌦 WEATHER
   if (isWeatherQuery(message)) {
     try {
       const weatherRes = await fetch(
@@ -44,25 +39,18 @@ export async function POST(req) {
 
       const weatherData = await weatherRes.json();
 
-      // 🔥 Stream AI explanation directly
       const stream = await openai.chat.completions.create({
         model: "gpt-4o-mini",
         stream: true,
         messages: [
           {
             role: "system",
-            content: `
-You are a fun, engaging AI for students and young learners 🌍
-- Explain weather in a simple way
-- Use emojis 🌤️🌱✨
-- Keep it short and friendly
-            `,
+            content:
+              "You are a fun AI for students. Explain weather simply with emojis 🌤️",
           },
           {
             role: "user",
-            content: `Explain this weather in a fun way: ${JSON.stringify(
-              weatherData,
-            )}`,
+            content: `Explain this weather: ${JSON.stringify(weatherData)}`,
           },
         ],
       });
@@ -71,35 +59,33 @@ You are a fun, engaging AI for students and young learners 🌍
         async start(controller) {
           for await (const chunk of stream) {
             const text = chunk.choices[0]?.delta?.content || "";
-            controller.enqueue(encoder.encode(text));
+            if (text) {
+              controller.enqueue(encoder.encode(text));
+            }
           }
           controller.close();
         },
       });
 
-      return new Response(readableStream);
-    } catch (error) {
-      return new Response(
-        streamText("❌ Couldn't fetch weather right now. Try again."),
-        { status: 500 },
-      );
+      return new Response(readableStream, {
+        headers: { "Content-Type": "text/plain; charset=utf-8" },
+      });
+    } catch {
+      return new Response(streamText("❌ Couldn't fetch weather right now."), {
+        status: 500,
+      });
     }
   }
 
-  // ===============================
-  // 🚫 OUTSIDE SCOPE (STREAMED)
-  // ===============================
+  // 🚫 OUTSIDE SCOPE
   if (!isEnvironmentRelated(message)) {
     return new Response(
-      streamText(
-        "🌍 I can only help with weather and environmental topics. Try asking about climate or pollution!",
-      ),
+      streamText("🌍 I only help with weather & environmental topics."),
+      { headers: { "Content-Type": "text/plain; charset=utf-8" } },
     );
   }
 
-  // ===============================
-  // 🤖 ENVIRONMENT AI (STREAMED)
-  // ===============================
+  // 🌱 ENVIRONMENT AI
   try {
     const stream = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -107,16 +93,8 @@ You are a fun, engaging AI for students and young learners 🌍
       messages: [
         {
           role: "system",
-          content: `
-You are a friendly AI tutor for students and young learners 🌱
-
-Rules:
-- Use simple English
-- Be engaging and conversational
-- Add emojis 🌍✨🌱
-- Occasionally ask follow-up questions
-- Keep answers clear and not too long
-          `,
+          content:
+            "You are a friendly AI tutor 🌱. Use simple English + emojis.",
         },
         { role: "user", content: message },
       ],
@@ -126,20 +104,24 @@ Rules:
       async start(controller) {
         for await (const chunk of stream) {
           const text = chunk.choices[0]?.delta?.content || "";
-          controller.enqueue(encoder.encode(text));
+          if (text) {
+            controller.enqueue(encoder.encode(text));
+          }
         }
         controller.close();
       },
     });
 
-    return new Response(readableStream);
-  } catch (error) {
-    return new Response(
-      streamText("⚠️ Something went wrong. Please try again."),
-      { status: 500 },
-    );
+    return new Response(readableStream, {
+      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    });
+  } catch {
+    return new Response(streamText("⚠️ Something went wrong."), {
+      status: 500,
+    });
   }
 }
+
 //=================
 // import { OpenAI } from "openai";
 

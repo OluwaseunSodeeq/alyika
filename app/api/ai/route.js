@@ -27,17 +27,14 @@ export async function POST(req) {
     );
   }
 
-  // 🔒 Payload protection (cost control)
   if (!payload || payload.length > 500) {
     return NextResponse.json({ error: "Message too long" }, { status: 400 });
   }
 
-  // 📊 Log request
   logRequest({ ip, type });
 
   let userPrompt = "";
 
-  // 🎯 Intent handling
   switch (type) {
     case "explain-weather":
       userPrompt = `
@@ -47,7 +44,7 @@ ${JSON.stringify(payload)}
 Explain this in a fun and simple way for a student.
 
 Then add:
-- one helpful tip (e.g. what to wear or do)
+- one helpful tip
 - one short "Did you know?" fact 🌍
 `;
       break;
@@ -70,13 +67,12 @@ If possible:
         { status: 400 },
       );
   }
+
   try {
     const stream = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       temperature: 0.5,
       max_tokens: 180,
-      top_p: 0.85,
-      frequency_penalty: 0.3,
       stream: true,
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
@@ -90,13 +86,19 @@ If possible:
       async start(controller) {
         for await (const chunk of stream) {
           const text = chunk.choices[0]?.delta?.content || "";
-          controller.enqueue(encoder.encode(text));
+          if (text) {
+            controller.enqueue(encoder.encode(text));
+          }
         }
         controller.close();
       },
     });
 
-    return new Response(readable);
+    return new Response(readable, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+      },
+    });
   } catch (error) {
     console.error("AI error:", error);
 
@@ -104,31 +106,141 @@ If possible:
       status: 500,
     });
   }
-  // try {
-  //   const completion = await openai.chat.completions.create({
-  //     model: "gpt-4o-mini",
-  //     temperature: 0.5, // slightly higher for engagement
-  //     max_tokens: 180,
-  //     top_p: 0.85,
-  //     frequency_penalty: 0.3,
-  //     messages: [
-  //       { role: "system", content: SYSTEM_PROMPT },
-  //       { role: "user", content: userPrompt },
-  //     ],
-  //   });
-
-  //   return NextResponse.json({
-  //     response: completion.choices[0].message.content,
-  //   });
-  // } catch (error) {
-  //   console.error("AI error:", error);
-
-  //   return NextResponse.json({
-  //     response:
-  //       "🌱 Hmm… I’m having a little trouble right now. Please try again in a moment!",
-  //   });
-  // }
 }
+
+// export const runtime = "nodejs";
+
+// import { NextResponse } from "next/server";
+// import { openai } from "../../../lib/openai";
+// import { rateLimit } from "../../../lib/rateLimit";
+// import { SYSTEM_PROMPT } from "../../../lib/aiPrompt";
+// import { logRateLimit, logRequest } from "../../../lib/aiMetrics";
+
+// export async function POST(req) {
+//   const ip = req.headers.get("x-forwarded-for") || "unknown";
+
+//   // 🔒 Rate limit
+//   if (!rateLimit(ip)) {
+//     logRateLimit();
+//     return NextResponse.json(
+//       { error: "Too many requests. Please slow down 😊" },
+//       { status: 429 },
+//     );
+//   }
+
+//   const { type, payload } = await req.json();
+
+//   if (!type) {
+//     return NextResponse.json(
+//       { error: "AI request type is required" },
+//       { status: 400 },
+//     );
+//   }
+
+//   // 🔒 Payload protection (cost control)
+//   if (!payload || payload.length > 500) {
+//     return NextResponse.json({ error: "Message too long" }, { status: 400 });
+//   }
+
+//   // 📊 Log request
+//   logRequest({ ip, type });
+
+//   let userPrompt = "";
+
+//   // 🎯 Intent handling
+//   switch (type) {
+//     case "explain-weather":
+//       userPrompt = `
+// Here is the weather data:
+// ${JSON.stringify(payload)}
+
+// Explain this in a fun and simple way for a student.
+
+// Then add:
+// - one helpful tip (e.g. what to wear or do)
+// - one short "Did you know?" fact 🌍
+// `;
+//       break;
+
+//     case "environment":
+//       userPrompt = `
+// Explain this in a simple, engaging way:
+
+// ${payload}
+
+// If possible:
+// - give a real-life example
+// - keep it short and interesting
+// `;
+//       break;
+
+//     default:
+//       return NextResponse.json(
+//         { error: "Unsupported AI request type" },
+//         { status: 400 },
+//       );
+//   }
+//   try {
+//     const stream = await openai.chat.completions.create({
+//       model: "gpt-4o-mini",
+//       temperature: 0.5,
+//       max_tokens: 180,
+//       top_p: 0.85,
+//       frequency_penalty: 0.3,
+//       stream: true,
+//       messages: [
+//         { role: "system", content: SYSTEM_PROMPT },
+//         { role: "user", content: userPrompt },
+//       ],
+//     });
+
+//     const encoder = new TextEncoder();
+
+//     const readable = new ReadableStream({
+//       async start(controller) {
+//         for await (const chunk of stream) {
+//           const text = chunk.choices[0]?.delta?.content || "";
+//           controller.enqueue(encoder.encode(text));
+//         }
+//         controller.close();
+//       },
+//     });
+
+//     return new Response(readable);
+//   } catch (error) {
+//     console.error("AI error:", error);
+
+//     return new Response("🌱 I’m having trouble responding right now.", {
+//       status: 500,
+//     });
+//   }
+
+// try {
+//   const completion = await openai.chat.completions.create({
+//     model: "gpt-4o-mini",
+//     temperature: 0.5, // slightly higher for engagement
+//     max_tokens: 180,
+//     top_p: 0.85,
+//     frequency_penalty: 0.3,
+//     messages: [
+//       { role: "system", content: SYSTEM_PROMPT },
+//       { role: "user", content: userPrompt },
+//     ],
+//   });
+
+//   return NextResponse.json({
+//     response: completion.choices[0].message.content,
+//   });
+// } catch (error) {
+//   console.error("AI error:", error);
+
+//   return NextResponse.json({
+//     response:
+//       "🌱 Hmm… I’m having a little trouble right now. Please try again in a moment!",
+//   });
+// }
+// }
+//===============================
 // ========
 // export const runtime = "nodejs";
 
