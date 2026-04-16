@@ -4,7 +4,7 @@ import { SquareButton, SquareButtonBigSize } from "./SquareButton";
 
 const items = [
   {
-    title: "Become a Dreamer",
+    title: "Become a Green Dreamer",
     subtitle: "(Youth Membership)",
     description:
       "Join our youth community, connect with like-minded peers, and access opportunities to learn, grow and lead.",
@@ -16,7 +16,7 @@ const items = [
     title: "Volunteer",
     subtitle: "",
     description:
-      "Share your skills whether in teaching, design, coding or writing and help place youths where they make the most impact.",
+      "Share your skills whether in leading climate and environmental education programs, design, coding, writing, fundraising, or even partnerships, and help place young people where they make the most impact with environmental sustainability.",
     image: "/join-2.jpg",
     bg: "#fdcd31",
     reverse: true,
@@ -96,7 +96,7 @@ export default function Join() {
 
               {/* Content */}
               <div className="w-fullmd:w-1/2 lg:w-[510px] 2xl:w-[610px]  py-6 pl-4 md:p-8 flex flex-col justify-center text-white">
-                <h3 className=" lg:w-[380px] text-[28px] md:text-[30px] lg:text-[35px] 2xl:text-[45px] font-bold">
+                <h3 className="text-[28px] md:text-[30px] lg:text-[35px] 2xl:text-[45px] font-bold ">
                   {item.title}
                 </h3>
                 {item.subtitle && (

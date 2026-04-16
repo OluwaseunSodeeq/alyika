@@ -133,7 +133,8 @@ export default function Footer() {
         <div className=" hidden mt-30 mb-5 md:flex flex-col md:flex-row justify-between items-center text-sm text-white/70 gap-6">
           <p>Privacy Policy</p>
           <div className="flex gap-12">
-            <p>+234 810 5810 398 </p>
+            <p>+234 816 927 0029</p>
+            <p>+234 816 734 6082</p>
             <Link href="mailto:projectclimeset@gmail.com">
               <p className="cursor-pointer"> projectclimeset@gmail.com</p>
             </Link>
@@ -171,9 +172,12 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex justify-between">
-            <p>+234 810 5810 398 </p>
-            <p> projectclimeset@gmail.com</p>
+          <div className="flex justify-between border-2">
+            <p>+234 816 927 0029</p>
+            <p>+234 816 734 6082</p>
+            <Link href="mailto:projectclimeset@gmail.com">
+              <p className="cursor-pointer"> projectclimeset@gmail.com</p>
+            </Link>
           </div>
         </div>
       </div>

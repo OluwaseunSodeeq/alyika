@@ -7,15 +7,29 @@ import DonationCard from "./DonationCard";
 import StatsCards from "./BookStatsCards";
 import GrowthCard from "./GrowthCard";
 
-export default function BookHerosection() {
+export default function BookHerosection({ bookStats }) {
+  const { sold_copies, a_copy_amount } = bookStats;
+
+  /*
+41% sold
+625,000 naira raised
+250 ebooks sold
+a_copy_amount = 2500
+sold copies = 250
+goal_amount = 1,500,000
+goal_copies = 600
+*/
+
   const [copied, setCopied] = useState(false);
   const [showDonation, setShowDonation] = useState(false);
-
+  // ALL STATES
   const sectionRef = useRef(null);
-  const [raised, setRaised] = useState(0);
-  const [sold, setSold] = useState(0);
   const [soldCopies, setSoldCopies] = useState(0);
+  const [soldCopiesInPercent, setSoldCopiesInPercent] = useState(0);
+
+  const [raised, setRaised] = useState(0);
   const [soldvalueInPercent, setSoldValueInPercent] = useState(0);
+  const [sold, setSold] = useState(0);
   const [graphValue, setGraphValue] = useState(0);
   const soldPercent = 37;
   const raisedTarget = 563000;
@@ -23,6 +37,7 @@ export default function BookHerosection() {
 
   const goalAmount = 1500000;
   const goalCopies = 600;
+  console.log(soldCopiesInPercent);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,9 +49,17 @@ export default function BookHerosection() {
 
           const animate = () => {
             if (progress <= 100) {
+              setSoldCopies(Math.floor(sold_copies));
+              setSoldCopiesInPercent(
+                Math.floor(
+                  ((sold_copies / a_copy_amount) * 100 * progress) / 100,
+                ),
+              );
+
               setRaised(Math.floor((raisedTarget * progress) / 100));
               setSold(Math.floor((soldPercent * progress) / 100));
-              setSoldCopies(Math.floor((soldCopiesPercent * progress) / 100));
+
+              // setSoldCopies(Math.floor((soldCopiesPercent * progress) / 100));
               setSoldValueInPercent(Math.floor((soldPercent * progress) / 100));
               setGraphValue(20);
 
@@ -97,7 +120,8 @@ export default function BookHerosection() {
           {/* TEXT BLOCK */}
           <div className="relative font-satoshi">
             <h1 className="w-full pl-[200px] md:pl-[50px] lg:px-3 text-[20px] md:text-[40px] 2xl:text-[45px] text-center font-bold text-main-bg">
-              “Nana’s Story isn’t Over. Let’s Build Her a Stronghold”
+              {/* “Nana’s Story isn’t Over. Let’s Build Her a Stronghold” */}
+              Nana’s Story isn’t Over. Let’s Build Her a Stronghold
             </h1>
 
             <div className="mt-6 md:mt-10">

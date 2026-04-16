@@ -26,6 +26,7 @@ export default function Header() {
     { name: "GDC", href: "/projects/gdc" },
   ];
   const dropDown2 = [
+    "More",
     "Gallery",
     "Support",
     "Join",
