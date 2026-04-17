@@ -10,12 +10,13 @@ const encodedMessage = encodeURIComponent(message);
 const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
 const whatSappHandler = () => {
+  toast("Opening WhatsApp...");
   window.open(whatsappLink, "_blank");
 };
 //   ====================
 
 export default function ContactHeroSection() {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  // const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const {
     register,
     handleSubmit,
@@ -23,31 +24,55 @@ export default function ContactHeroSection() {
     formState: { errors, isSubmitting },
   } = useForm();
 
+  // const onSubmit = async (data) => {
+  //   try {
+  //     await emailjs.send(
+  //       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+  //       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+  //       data,
+  //       process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+  //     );
+
+  //     toast.success("Message sent successfully!");
+  //     reset();
+  //   } catch (error) {
+  //     toast.error("Something went wrong. Please try again.");
+  //     console.error(error);
+  //   }
+  // };
+
   const onSubmit = async (data) => {
+    const toastId = toast.loading("Sending message...");
+
     try {
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         data,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
       );
 
-      toast.success("Message sent successfully!");
+      toast.success("Message sent successfully!", {
+        id: toastId,
+      });
+
       reset();
     } catch (error) {
-      toast.error("Something went wrong. Please try again.");
-      console.error(error);
+      toast.error(error.message || "Kindly fill the form correctly");
     }
   };
+  const onError = (errors) => {
+    const firstError = Object.values(errors)[0];
 
-  const onError = (error) => {
-    toast.error(error.message || "Kindly fill the form correctly");
+    toast.error(firstError?.message || "Please fill all required fields");
   };
+  // const onError = (error) => {
+  //   toast.error(error.message || "Kindly fill the form correctly");
+  // };
 
   return (
     <section className="font-satoshi relative py-15 md:py-20 px-3 md:px-6 bg-white overflow-hidden">
       <div className="relative max-w-[900px] mx-auto ">
-        {/* Header */}
         <div className="relative max-w-[750px] mx-auto text-center mb-16 ">
           <h1 className="lg:w-[80%]text-[30px] md:text-[40px] lg:text-[50px] 2xl:text-[70px] font-bold text-dark-green mx-auto">
             Connect With Us
@@ -63,7 +88,7 @@ export default function ContactHeroSection() {
             {/* <span>📍 projectclimeset</span> */}
             <span>📞 +234 810 5810 398</span>
           </div>
-          {/* Decorative Icons */}
+
           <span className="absolute top-[-40] left-[10] md:left-[-150] text-yellow text-[30px] md:text-[28px]">
             +
           </span>
@@ -78,7 +103,6 @@ export default function ContactHeroSection() {
           </span>
         </div>
 
-        {/* Content */}
         <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Left Text */}
           <div>
@@ -101,7 +125,9 @@ export default function ContactHeroSection() {
                 placeholder="Full Name"
                 id="name"
                 name="name"
-                {...register("name", { required: true })}
+                {...register("name", {
+                  required: "Name is required",
+                })}
                 className="w-full border-[#A4A0A0] border-1 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark-green"
               />
               {errors.name && (
@@ -117,7 +143,13 @@ export default function ContactHeroSection() {
                 placeholder="Email Address"
                 id="email"
                 name="email"
-                {...register("email", { required: true })}
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    message: "Enter a valid email",
+                  },
+                })}
                 className="w-full border-[#A4A0A0] border-1 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark-green"
               />
               {errors.email && (
@@ -133,7 +165,9 @@ export default function ContactHeroSection() {
                 name="message"
                 rows="4"
                 placeholder="Message"
-                {...register("message", { required: true })}
+                {...register("message", {
+                  required: "Message is required",
+                })}
                 className="w-full border-[#A4A0A0] border-1 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark-green"
               />
               {errors.message && (

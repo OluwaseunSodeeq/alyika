@@ -4,6 +4,7 @@ import { satoshi } from "./fonts/fonts";
 import RootComponent from "./components/RootComponent";
 import { OpenContextProvider } from "./contexts/OpenContext";
 import { SubscribeContextProvider } from "./contexts/SubscribeContext";
+import { Toaster } from "react-hot-toast";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -22,6 +23,17 @@ export default function RootLayout({ children }) {
         <OpenContextProvider>
           <SubscribeContextProvider>
             <RootComponent>{children}</RootComponent>
+            <Toaster
+              position="bottom-right"
+              reverseOrder={false}
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: "#012f25",
+                  color: "#fff",
+                },
+              }}
+            />
           </SubscribeContextProvider>
           {/* <ChatWidget /> */}
         </OpenContextProvider>
