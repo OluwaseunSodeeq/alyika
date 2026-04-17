@@ -89,29 +89,13 @@ export default function WhatWeDoSection() {
             </div>
           </div>
         </div>
-        {/* <div className="flex items-center gap-[2.8rem]">
-          <div
-            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg"
-            style={{
-              backgroundImage: "url('/clemesetcover.png')",
-            }}
-          >
-            <div className="absolute xl:left-[2rem] bottom-0  xl:bottom-[7%] bg-main-bg/80 xl:w-[70%] rounded-md">
-              <p className=" font-normal text-sm p-4 ">
-                <span className="font-bold">We tell stories of climate </span>
-                and environmental resilience, drawn from true-life cases and
-                experiences to amplify voices and inspire environmental
-                changemaking.
-              </p>
-            </div>
-          </div>
-        </div> */}
-        <div className="gradient-border w-[360px] h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg overflow-hidden">
+
+        <div className=" w-[360px]  h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg overflow-hidden">
           <Image
-            src="/clemesetcover.png"
+            src="/hero22.png"
             alt="cover"
             fill
-            className="object-cover"
+            className="object-cover scale-[1.01]"
             quality={100}
             priority
           />

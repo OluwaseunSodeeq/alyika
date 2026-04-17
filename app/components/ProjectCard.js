@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { BoldButton } from "./Button";
 
 export default function ProjectCard({ eachProject }) {
   const router = useRouter();
@@ -11,12 +12,16 @@ export default function ProjectCard({ eachProject }) {
     heading,
     description,
     imgUrl,
-    details,
     id,
     projectlink,
     linkText,
+    linkText2,
   } = eachProject;
   const [openDetails, setOpenDetails] = useState(false);
+
+  const gdsCard = id === "gds";
+  const textColor = "#ffffff";
+  const btnBg = "#012f25";
 
   const goTo = (id) => {
     router.push(`/projects/${id}`);
@@ -45,6 +50,14 @@ export default function ProjectCard({ eachProject }) {
         >
           {linkText}
         </Link>
+
+        {gdsCard && (
+          <Link href="/the-stolen-breath" className="md:ml-4">
+            <BoldButton btnBg={btnBg} textColor={textColor}>
+              {linkText2}
+            </BoldButton>
+          </Link>
+        )}
       </div>
 
       <div className="relative mt-5 xl:mt-8">

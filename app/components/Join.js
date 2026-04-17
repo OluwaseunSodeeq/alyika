@@ -8,7 +8,8 @@ const items = [
     subtitle: "(Youth Membership)",
     description:
       "Join our youth community, connect with like-minded peers, and access opportunities to learn, grow and lead.",
-    image: "/join-5.jpg",
+    image: "/green_dreamer.jpeg",
+    // image: "/join-5.jpg",
     bg: "#012F25",
     reverse: false,
   },
@@ -17,7 +18,8 @@ const items = [
     subtitle: "",
     description:
       "Share your skills whether in leading climate and environmental education programs, design, coding, writing, fundraising, or even partnerships, and help place young people where they make the most impact with environmental sustainability.",
-    image: "/join-2.jpg",
+    image: "/volunteer_sir.jpeg",
+    // image: "/join-2.jpg",
     bg: "#fdcd31",
     reverse: true,
   },
@@ -35,7 +37,8 @@ const items = [
     subtitle: "",
     description:
       "Launch a club in your school or community and empower youths to take action on climate issues.",
-    image: "/join-4.jpg",
+    image: "/local.jpg",
+    // image: "/join-4.jpg",
     bg: "#fdcd31",
     reverse: true,
   },

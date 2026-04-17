@@ -17,6 +17,7 @@ export default function ProjectsSection() {
       projectlink:
         "https://drive.google.com/drive/folders/11zjpNjerxMTRR6u9ZhjPbspn26bmzjNW?usp=drive_link",
       linkText: "See more about GDFT",
+      linkText2: "",
     },
     {
       id: "gds",
@@ -25,10 +26,12 @@ export default function ProjectsSection() {
       description: [
         "We tell stories of climate and environmental resilience, drawn from real cases and communities to amplify voices and create awareness about the lived experiences of people affected by climate and environmental injustice.",
         'Our first story in the series, The Stolen Breath, was written by Abeedah Alabi. "The Stolen Breath" is a 99-page novel centered around climate education and resilience that chronicles the struggle of 11-year-old Nana to save her flood-threatened school in Itowolo.',
+        "To provide the story the happy ending it needs, we are raising ₦1,500,000 to fund eco-resilient classroom renovation projects at Community Primary School, Itowolo.",
       ],
       imgUrl: "/bookbig.png",
       projectlink: "https://selar.com/thestolenbreath",
       linkText: "Get the e-book ",
+      linkText2: "Follow the fundraising drive updates here ",
     },
     {
       id: "gdc",
@@ -42,6 +45,7 @@ export default function ProjectsSection() {
       projectlink:
         "https://docs.google.com/forms/d/e/1FAIpQLScV-2v7Cg6-IaAIgBjG8-qbw6CP3ch7q5D-bf6GJKdT8z4IkA/viewform?usp=header",
       linkText: "Join our community",
+      linkText2: "",
     },
   ];
   return (

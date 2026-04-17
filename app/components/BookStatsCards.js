@@ -8,12 +8,12 @@ import { PieChart, Pie, Cell } from "recharts";
 import GrowthCard from "./GrowthCard";
 
 export default function StatsCards({
-  sold,
-  soldvalueInPercent,
-  raisedPercentage,
+  soldCopies,
+  soldCopiesInPercent,
+  moneyRaisedInPercent,
   goalCopies,
-  raised,
-  goalAmount,
+  moneyRaised,
+  raisedTarget,
   sectionRef,
   graphValue,
 }) {
@@ -83,7 +83,7 @@ export default function StatsCards({
     if (value <= 100) return segments[6].color;
     return segments[3].color;
   };
-  const activeColor = getActiveColor(sold);
+  const activeColor = getActiveColor(soldCopiesInPercent);
 
   return (
     <div
@@ -101,7 +101,7 @@ export default function StatsCards({
             <div className="flex gap-4 items-center">
               <div className="w-28 h-28 xl:w-[200px] xl:h-[200px] relative">
                 <CircularProgressbar
-                  value={raisedPercentage}
+                  value={moneyRaisedInPercent}
                   styles={buildStyles({
                     pathColor: "#FCC931",
                     trailColor: "#E9ECF1",
@@ -116,7 +116,7 @@ export default function StatsCards({
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-black xl:text-[46px] 2xl:text-[46px]">
-                  ₦{(raised / 1000).toFixed(0)}k
+                  ₦{(moneyRaised / 1000).toFixed(0)}k
                 </span>
                 <span className="text-xs text-black xl:text-[32px] 2xl:text-[36px]">
                   Raised
@@ -129,20 +129,23 @@ export default function StatsCards({
             <div className="flex justify-between items-center mb-2">
               <p className="font-normal text-sm text-left ">
                 Raised: <span className="font-bold">₦</span>{" "}
-                <span className="font-bold"> {raised.toLocaleString()} </span>
+                <span className="font-bold">
+                  {" "}
+                  {moneyRaised.toLocaleString()}{" "}
+                </span>
               </p>
               <p className="font-normal text-sm text-left ">Current Total</p>
             </div>
             <div className=" bg-main-bg rounded-full h-3 overflow-hidden">
               <div
                 className="bg-[#00D648] h-3 rounded-full"
-                style={{ width: `${raisedPercentage}%` }}
+                style={{ width: `${moneyRaisedInPercent}%` }}
               />
             </div>
 
             <p className="font-normal text-sm text-left mt-2">
               Goal: <span className="font-bold">₦</span>{" "}
-              <span> {goalAmount.toLocaleString()} </span>
+              <span> {raisedTarget.toLocaleString()} </span>
             </p>
           </div>
         </div>
@@ -181,7 +184,7 @@ export default function StatsCards({
                 style={{ backgroundColor: activeColor }}
               >
                 <span className="font-bold text-[28px] xl:text-[30px]">
-                  {sold}%
+                  {soldCopiesInPercent}%
                 </span>
                 <span className="text-base t">Sold</span>
               </div>
@@ -192,14 +195,17 @@ export default function StatsCards({
             <div className="flex justify-between items-center mb-2">
               <p className="font-normal text-sm text-left ">
                 Sold:{" "}
-                <span className="font-bold"> {sold.toLocaleString()} </span>
+                <span className="font-bold">
+                  {" "}
+                  {soldCopies.toLocaleString()}{" "}
+                </span>
               </p>
               <p className="font-normal text-sm text-left ">Copies Sold</p>
             </div>
             <div className=" bg-main-bg rounded-full h-3 overflow-hidden">
               <div
                 className="bg-[#00D648] h-3 rounded-full"
-                style={{ width: `${soldvalueInPercent}%` }}
+                style={{ width: `${soldCopiesInPercent}%` }}
               />
             </div>
 

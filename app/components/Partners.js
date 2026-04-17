@@ -23,16 +23,17 @@ export default function Partners() {
 
     const scroll = () => {
       if (marquee) {
-        offset -= 1; // Adjust speed here
-        marquee.style.transform = `translateX(${offset}px)`;
+        offset -= 1;
 
-        // Instead of resetting to 0 (which causes the jump),
-        // reset only when the *first set* has completely moved out of view
         const totalWidth = marquee.scrollWidth / 2;
+
         if (Math.abs(offset) >= totalWidth) {
-          offset = 0;
+          offset += totalWidth;
         }
+
+        marquee.style.transform = `translateX(${offset}px)`;
       }
+
       requestAnimationFrame(scroll);
     };
 
