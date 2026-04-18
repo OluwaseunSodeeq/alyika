@@ -22,7 +22,7 @@ export default function SupportCard({ data, index }) {
             index == 2 ? "py-4" : "py-6"
           } `}
         >
-          <h3 className="font-bold 2xl:text-[45px] lg:text-[35px] mb-2 lg:pr-40">
+          <h3 className="font-bold 2xl:text-[45px] lg:text-[35px] mb-2 lg:pr-40 xl:text-nowrap">
             {title}
           </h3>
           <span className="block h-1 w-20 lg:w-42 bg-main-bg"></span>

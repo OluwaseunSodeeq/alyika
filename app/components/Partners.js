@@ -23,7 +23,7 @@ export default function Partners() {
 
     const scroll = () => {
       if (marquee) {
-        offset -= 1;
+        offset -= 1.5;
 
         const totalWidth = marquee.scrollWidth / 2;
 
@@ -48,7 +48,7 @@ export default function Partners() {
 
       <div
         ref={marqueeRef}
-        className="flex items-center gap-4 md:gap-8 lg:gap-16 whitespace-nowrap will-change-transform mt-6 "
+        className="flex items-center gap-2 md:gap-8 lg:gap-16 whitespace-nowrap will-change-transform mt-6 "
       >
         {doubledPartners.map((partner, index) => (
           <div

@@ -22,9 +22,9 @@ export default function Page() {
   const textColor = "#FDCD31";
   return (
     <main>
-      <div className="w-full p-0 m-0 2xl:max-w-[1400px] md:mx-auto box-border">
+      {/* <div className="w-full p-0 m-0 2xl:max-w-[1400px] md:mx-auto box-border">
         <SupportSliders />
-      </div>
+      </div> */}
       <Wrapper>
         <SupportSection />
         <RightGradientDashedFadeLine />

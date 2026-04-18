@@ -163,12 +163,26 @@ export default function Footer() {
           <div className="flex justify-between items-end">
             {/* <div className="w-[164px] h-70"> */}
             <div className="">
-              <MobileLogo />
+              <Link href="/">
+                <MobileLogo />
+              </Link>
             </div>
             <div className="flex space-x-2 mb-3">
-              <Facebook className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
-              <Twitter className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
-              <Instagram className="w-5 h-5 cursor-pointer text-white stroke-white stroke-[2]" />
+              <Link
+                href="https://www.linkedin.com/company/projectclimeset"
+                target="_blank"
+              >
+                <Linkedin className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
+              </Link>
+              <Link href="https://x.com/projectclimeset" target="_blank">
+                <Twitter className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/project_climeset?igsh=MWU2NXp2NW55Y2piag=="
+                target="_blank"
+              >
+                <Instagram className="w-5 h-5 cursor-pointer text-white stroke-white stroke-[2]" />
+              </Link>
             </div>
           </div>
 
