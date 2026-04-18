@@ -27,7 +27,7 @@ function Navbody({ bg, textColor }) {
   const navs = [
     "home",
     "about",
-    "imapact",
+    "impact",
     "gallery",
     "projects",
     "join",
