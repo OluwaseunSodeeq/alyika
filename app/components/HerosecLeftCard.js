@@ -22,20 +22,20 @@ export default function HerosecLeftCard() {
 
   return (
     <div className="relative w-full 2xl:max-w-[36rem] xl:w-[33rem] xl:h-[40rem] md:h-[40rem] md:w-[45%] bg-dark-green text-main-bg pt-[4.2rem] md:pt-[3rem] xl:pt-[7rem] px-[1rem]  xl:px-[3.5rem] pb-0 xl:pb-[2rem] md:rounded-[1.2rem]">
-      <h1 className="font-satoshi text-[48px] md:text-[40px] text-main-bg mb-4 md:font-medium leading-[1] lg:text-nowrap">
+      <h1 className="font-satoshi text-[48px] lg:text-[40px] text-main-bg mb-4 md:font-medium leading-[1] lg:text-nowrap">
         <span className=""> Building Green </span>
         <span className="text-[84px] lg:text-[40px] text-yellow md:text-main-bg md:text-[48px] xl:[40px] font-bold md:font-medium">
           Dreams
         </span>
       </h1>
       <div className=" w-full text-[32px] xl:text-4xl text-main-bg font-light mb-4 p-0 text-nowrap">
-        <div className=" flex gap-x-1 mt-[1rem] md:mt-0 ">
+        <div className=" flex gap-x-1  mt-[1rem] md:mt-0 ">
           <div className="border-b-2 flex gap-x-[10px] pb-1 ">
             <Image src="/white-arrows.svg" alt="arrow" width={32} height={32} />
             <span className="mr-1 lg:pb-2"> From</span>
           </div>
 
-          <p className="lg:pb-3">the Ground Up</p>
+          <p className=" md:pl-8 lg:pl-0 lg:pb-3">the Ground Up</p>
         </div>
       </div>
       <div className="font-satoshi mt-4.5 md:mt-0">

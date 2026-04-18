@@ -66,10 +66,10 @@ function Navbody({ bg, textColor }) {
           >
             {(isActive) => (
               <li
-                className={`flex justify-between capitalize items-center pl-3 pr-1 md:pr-9 w-full h-[48px] font-satoshi leading-[32px] rounded-lg transition-all
+                className={`flex items-center capitalize  pl-3 pr-1 md:pr-9 w-full h-[48px] font-satoshi leading-[32px] rounded-lg transition-all
         ${
           isActive
-            ? "bg-[#0994754D]/60 text-main-bg font-bold"
+            ? "bg-[#0994754D]/60 text-main-bg font-bold flex justify-between"
             : "text-navbar-bg font-light hover:text-main-bg hover:bg-[#0994754D]"
         }`}
               >
@@ -77,14 +77,16 @@ function Navbody({ bg, textColor }) {
                   {nav} {nav === "join" || nav === "support" ? "US" : ""}
                 </span>
 
-                <Image
-                  width={30}
-                  height={30}
-                  src="/minilogo.svg"
-                  alt="minilogo"
-                  className="object-contain pr-2"
-                  quality={100}
-                />
+                {isActive && (
+                  <Image
+                    width={30}
+                    height={30}
+                    src="/minilogo.svg"
+                    alt="minilogo"
+                    className="object-contain pr-2"
+                    quality={100}
+                  />
+                )}
               </li>
             )}
           </CurrentNav>
