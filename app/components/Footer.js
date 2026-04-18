@@ -129,7 +129,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom section for Tablet and Desktop */}
+        {/* Bottom section 4 Desktop */}
         <div className=" hidden mt-30 mb-5 md:flex flex-col md:flex-row justify-between items-center text-sm text-white/70 gap-6">
           <p>Privacy Policy</p>
           <div className="flex gap-12">
@@ -186,7 +186,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex justify-between border-2">
+          <div className="flex justify-between">
             <p>+234 816 927 0029</p>
             <p>+234 816 734 6082</p>
             <Link href="mailto:projectclimeset@gmail.com">
