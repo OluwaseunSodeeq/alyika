@@ -1,6 +1,8 @@
 import { OpenAI } from "openai";
-import { isEnvironmentRelated } from "../../../lib/isEnvironmentRelated";
 import { isWeatherQuery } from "../../../lib/isWeatherQuery";
+import { isEnvironmentRelatedAI } from "../../../lib/isEnvironmentRelatedAI";
+import { SYSTEM_PROMPT } from "../../../lib/aiPrompt";
+import { extractCity } from "../../../lib/weatherCache";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -25,15 +27,28 @@ export async function POST(req) {
       },
     });
 
-  // 🌦 WEATHER
+  // ✅ STEP 1: AI DOMAIN CHECK
+  const isRelated = await isEnvironmentRelatedAI(message);
+
+  if (!isRelated) {
+    return new Response(
+      streamText(
+        "🌍 I only help with weather, cliamte, environment, and sustainability topics.",
+      ),
+      { headers: { "Content-Type": "text/plain; charset=utf-8" } },
+    );
+  }
+
+  // ✅ STEP 2: WEATHER (API + AI explanation)
   if (isWeatherQuery(message)) {
     try {
+      const city = extractCity(message) || "lagos";
       const weatherRes = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/weather`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ city: "Ibadan" }),
+          body: JSON.stringify({ city }),
         },
       );
 
@@ -43,33 +58,15 @@ export async function POST(req) {
         model: "gpt-4o-mini",
         stream: true,
         messages: [
-          {
-            role: "system",
-            content:
-              "You are a fun AI for students. Explain weather simply with emojis 🌤️",
-          },
+          { role: "system", content: SYSTEM_PROMPT },
           {
             role: "user",
-            content: `Explain this weather: ${JSON.stringify(weatherData)}`,
+            content: `Here is real-time weather data: ${JSON.stringify(weatherData)}. Explain it simply.`,
           },
         ],
       });
 
-      const readableStream = new ReadableStream({
-        async start(controller) {
-          for await (const chunk of stream) {
-            const text = chunk.choices[0]?.delta?.content || "";
-            if (text) {
-              controller.enqueue(encoder.encode(text));
-            }
-          }
-          controller.close();
-        },
-      });
-
-      return new Response(readableStream, {
-        headers: { "Content-Type": "text/plain; charset=utf-8" },
-      });
+      return streamResponse(stream, encoder);
     } catch {
       return new Response(streamText("❌ Couldn't fetch weather right now."), {
         status: 500,
@@ -77,44 +74,18 @@ export async function POST(req) {
     }
   }
 
-  // 🚫 OUTSIDE SCOPE
-  if (!isEnvironmentRelated(message)) {
-    return new Response(
-      streamText("🌍 I only help with weather & environmental topics."),
-      { headers: { "Content-Type": "text/plain; charset=utf-8" } },
-    );
-  }
-
-  // 🌱 ENVIRONMENT AI
+  // ✅ STEP 3: FALLBACK AI (NO MORE DECLINE HERE 🔥)
   try {
     const stream = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       stream: true,
       messages: [
-        {
-          role: "system",
-          content:
-            "You are a friendly AI tutor 🌱. Use simple English + emojis.",
-        },
+        { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: message },
       ],
     });
 
-    const readableStream = new ReadableStream({
-      async start(controller) {
-        for await (const chunk of stream) {
-          const text = chunk.choices[0]?.delta?.content || "";
-          if (text) {
-            controller.enqueue(encoder.encode(text));
-          }
-        }
-        controller.close();
-      },
-    });
-
-    return new Response(readableStream, {
-      headers: { "Content-Type": "text/plain; charset=utf-8" },
-    });
+    return streamResponse(stream, encoder);
   } catch {
     return new Response(streamText("⚠️ Something went wrong."), {
       status: 500,
@@ -122,11 +93,29 @@ export async function POST(req) {
   }
 }
 
-//=================
-// import { OpenAI } from "openai";
+// helper
+function streamResponse(stream, encoder) {
+  return new Response(
+    new ReadableStream({
+      async start(controller) {
+        for await (const chunk of stream) {
+          const text = chunk.choices[0]?.delta?.content || "";
+          if (text) controller.enqueue(encoder.encode(text));
+        }
+        controller.close();
+      },
+    }),
+    {
+      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    },
+  );
+}
 
-// import { NextResponse } from "next/server";
-// import { isEnvironmentRelated, isWeatherQuery } from "@/lib/filters";
+//=================
+
+// import { OpenAI } from "openai";
+// import { isEnvironmentRelated } from "../../../lib/isEnvironmentRelated";
+// import { isWeatherQuery } from "../../../lib/isWeatherQuery";
 
 // const openai = new OpenAI({
 //   apiKey: process.env.OPENAI_API_KEY,
@@ -135,106 +124,115 @@ export async function POST(req) {
 // export async function POST(req) {
 //   const { message } = await req.json();
 
-//   // 🚫 Block long inputs (cost protection)
 //   if (!message || message.length > 500) {
-//     return NextResponse.json(
-//       { reply: "⚠️ Message too long. Keep it under 500 characters." },
-//       { status: 400 },
-//     );
+//     return new Response("⚠️ Message too long. Keep it under 500 characters.", {
+//       status: 400,
+//     });
 //   }
 
-//   // 🌦 Weather query → call weather API
-//   if (isWeatherQuery(message)) {
-//     const weatherRes = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_URL}/api/weather`,
-//       {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ city: "Ibadan" }), // you can make dynamic later
+//   const encoder = new TextEncoder();
+
+//   const streamText = (text) =>
+//     new ReadableStream({
+//       start(controller) {
+//         controller.enqueue(encoder.encode(text));
+//         controller.close();
 //       },
-//     );
-
-//     const weatherData = await weatherRes.json();
-
-//     // Now explain weather using AI
-//     const aiRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/ai`, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({
-//         type: "explain-weather",
-//         payload: weatherData,
-//       }),
 //     });
 
-//     const aiData = await aiRes.json();
+//   // 🌦 WEATHER
+//   if (isWeatherQuery(message)) {
+//     try {
+//       const weatherRes = await fetch(
+//         `${process.env.NEXT_PUBLIC_BASE_URL}/api/weather`,
+//         {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify({ city: "Ibadan" }),
+//         },
+//       );
 
-//     return NextResponse.json({ reply: aiData.response });
+//       const weatherData = await weatherRes.json();
+
+//       const stream = await openai.chat.completions.create({
+//         model: "gpt-4o-mini",
+//         stream: true,
+//         messages: [
+//           {
+//             role: "system",
+//             content:
+//               "You are a fun AI for students. Explain weather simply with emojis 🌤️",
+//           },
+//           {
+//             role: "user",
+//             content: `Explain this weather: ${JSON.stringify(weatherData)}`,
+//           },
+//         ],
+//       });
+
+//       const readableStream = new ReadableStream({
+//         async start(controller) {
+//           for await (const chunk of stream) {
+//             const text = chunk.choices[0]?.delta?.content || "";
+//             if (text) {
+//               controller.enqueue(encoder.encode(text));
+//             }
+//           }
+//           controller.close();
+//         },
+//       });
+
+//       return new Response(readableStream, {
+//         headers: { "Content-Type": "text/plain; charset=utf-8" },
+//       });
+//     } catch {
+//       return new Response(streamText("❌ Couldn't fetch weather right now."), {
+//         status: 500,
+//       });
+//     }
 //   }
 
-//   // Non-environment question → block AI
+//   // 🚫 OUTSIDE SCOPE
 //   if (!isEnvironmentRelated(message)) {
-//     return NextResponse.json({
-//       reply:
-//         " I can only help with weather and environmental topics. Try asking about climate or pollution!",
-//     });
+//     return new Response(
+//       streamText("🌍 I only help with weather & environmental topics."),
+//       { headers: { "Content-Type": "text/plain; charset=utf-8" } },
+//     );
 //   }
 
-//   // 🤖 Default → AI
-//   const aiRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/ai`, {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       type: "environment",
-//       payload: message,
-//     }),
-//   });
+//   // 🌱 ENVIRONMENT AI
+//   try {
+//     const stream = await openai.chat.completions.create({
+//       model: "gpt-4o-mini",
+//       stream: true,
+//       messages: [
+//         {
+//           role: "system",
+//           content:
+//             "You are a friendly AI tutor 🌱. Use simple English + emojis.",
+//         },
+//         { role: "user", content: message },
+//       ],
+//     });
 
-//   const aiData = await aiRes.json();
+//     const readableStream = new ReadableStream({
+//       async start(controller) {
+//         for await (const chunk of stream) {
+//           const text = chunk.choices[0]?.delta?.content || "";
+//           if (text) {
+//             controller.enqueue(encoder.encode(text));
+//           }
+//         }
+//         controller.close();
+//       },
+//     });
 
-//   return NextResponse.json({ reply: aiData.response });
-// }
-
-// =============
-// import { NextResponse } from "next/server";
-
-// export async function POST(req) {
-//   const { message } = await req.json();
-
-//   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/ai`, {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       type: "environment",
-//       payload: message,
-//     }),
-//   });
-
-//   const data = await res.json();
-
-//   return NextResponse.json({
-//     reply: data.response,
-//   });
-// }
-// ====================
-// import { NextResponse } from "next/server";
-
-// export async function POST(req) {
-//   const { message } = await req.json();
-
-//   const res = await fetch("/api/ai", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     // body: JSON.stringify({ message: userMessage }),
-//     body: JSON.stringify({
-//       type: "environment",
-//       payload: message,
-//     }),
-//   });
-
-//   const data = await res.json();
-
-//   setMessages((prev) => [
-//     ...prev.slice(0, -1),
-//     { role: "bot", content: data.reply },
-//   ]);
+//     return new Response(readableStream, {
+//       headers: { "Content-Type": "text/plain; charset=utf-8" },
+//     });
+//   } catch {
+//     return new Response(streamText("⚠️ Something went wrong."), {
+//       status: 500,
+//     });
+//   }
 // }

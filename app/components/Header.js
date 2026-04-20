@@ -59,11 +59,15 @@ export default function Header() {
       <div className="w-full 2xl:max-w-[1400px] md:mx-auto">
         <div className="flex justify-between items-center px-[1rem] md:px-[3rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
           <div className="block xl:hidden w-[115px] h-[49px] relative">
-            <MobileLogo />
+            <Link href="/">
+              <MobileLogo />
+            </Link>
           </div>
           <Nav nav={navs} />
           <div className="hidden xl:block xl:mr-[1.5rem]">
-            <Logo />
+            <Link href="/">
+              <Logo />
+            </Link>
           </div>
 
           <div className="hidden relative xl:flex gap-[3rem] ">

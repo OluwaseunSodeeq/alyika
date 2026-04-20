@@ -24,14 +24,6 @@ export default function BookHerosection({ bookStats }) {
   const [moneyRaisedInPercent, setMoneyRaisedInPercent] = useState(0);
   const [graphValue, setGraphValue] = useState(0);
 
-  // console.log(
-  //   "MoneyRaised:",
-  //   moneyRaised,
-  //   "Sold Copies:",
-  //   sold_copies,
-  //   "Amount per Copy:",
-  //   a_copy_amount,
-  // );
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -143,9 +135,10 @@ export default function BookHerosection({ bookStats }) {
             <SoldBooksCounts
               soldCopies={soldCopies}
               soldCopiesInPercent={soldCopiesInPercent}
+              sectionRef={sectionRef}
             />
             <div className=" hidden md:block lg:hidden">
-              <GrowthCard value={graphValue} />
+              <GrowthCard sectionRef={sectionRef} value={graphValue} />
             </div>
           </div>
         </div>

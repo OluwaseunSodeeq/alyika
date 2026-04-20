@@ -67,8 +67,7 @@ export default function Footer() {
                 />
                 <button
                   onClick={handleSubscribe}
-                  loading={loading}
-                  className="cursor-pointer bg-yellow text-black p-2 rounded-sm hover:bg-yellow"
+                  className="cursor-pointer bg-yellow text-black py-2 px-4 rounded-sm hover:bg-yellow"
                 >
                   →
                 </button>
@@ -99,9 +98,6 @@ export default function Footer() {
               <Link href="/projects">
                 <li>Projects</li>
               </Link>
-              <Link href="/impact">
-                <li>Impact</li>
-              </Link>
             </ul>
           </div>
           <div>
@@ -119,6 +115,9 @@ export default function Footer() {
           </div>
           <div>
             <ul className="flex gap-7 md:gap-y-5 md:flex-col text-sm">
+              <Link href="/impact">
+                <li>Impact</li>
+              </Link>
               <Link href="/support">
                 <li>Support Us</li>
               </Link>
@@ -138,7 +137,7 @@ export default function Footer() {
             <Link href="mailto:projectclimeset@gmail.com">
               <p className="cursor-pointer"> projectclimeset@gmail.com</p>
             </Link>
-            <div className="flex space-x-4">
+            <div className="flex space-x-6">
               <Link
                 href="https://www.linkedin.com/company/projectclimeset"
                 target="_blank"
@@ -167,7 +166,7 @@ export default function Footer() {
                 <MobileLogo />
               </Link>
             </div>
-            <div className="flex space-x-2 mb-3">
+            <div className="flex space-x-4 mb-3">
               <Link
                 href="https://www.linkedin.com/company/projectclimeset"
                 target="_blank"
@@ -186,9 +185,11 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex justify-between">
-            <p>+234 816 927 0029</p>
-            <p>+234 816 734 6082</p>
+          <div className="flex flex-col-reverse md:items-center md:flex-row md:justify-between">
+            <div className="flex gap-4 md:block">
+              <p>+234 816 927 0029</p>
+              <p>+234 816 734 6082</p>
+            </div>
             <Link href="mailto:projectclimeset@gmail.com">
               <p className="cursor-pointer"> projectclimeset@gmail.com</p>
             </Link>

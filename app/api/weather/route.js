@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { getCachedWeather, setCachedWeather } from "../../../lib/weatherCache";
 
+export function extractCity(message) {
+  const match = message.match(/in\s+([a-zA-Z\s]+)/i);
+  return match ? match[1].trim() : null;
+}
+
 export async function POST(req) {
   const { city } = await req.json();
 
@@ -17,7 +22,7 @@ export async function POST(req) {
 
   try {
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${API_KEY}`,
     );
 
     if (!res.ok) throw new Error("Weather data not found");
