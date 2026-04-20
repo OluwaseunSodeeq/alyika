@@ -19,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${satoshi.variable} ${montserrat.variable}`}>
-      <body className="h-auto bg-main-bg relative">
+      <body suppressHydrationWarning className="h-auto bg-main-bg relative">
         <OpenContextProvider>
           <SubscribeContextProvider>
             <RootComponent>{children}</RootComponent>

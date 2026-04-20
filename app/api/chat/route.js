@@ -1,8 +1,8 @@
 import { OpenAI } from "openai";
 import { isWeatherQuery } from "../../../lib/isWeatherQuery";
-import { isEnvironmentRelatedAI } from "../../../lib/isEnvironmentRelatedAI";
 import { SYSTEM_PROMPT } from "../../../lib/aiPrompt";
 import { extractCity } from "../../../lib/weatherCache";
+import { isEnvironmentRelated } from "../../../lib/isEnvironmentRelated";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -28,7 +28,7 @@ export async function POST(req) {
     });
 
   // ✅ STEP 1: AI DOMAIN CHECK
-  const isRelated = await isEnvironmentRelatedAI(message);
+  const isRelated = await isEnvironmentRelated(message);
 
   if (!isRelated) {
     return new Response(
