@@ -15,7 +15,6 @@ export default function GrowthCard({ value }) {
     const path = pathRef.current;
     const totalLength = path.getTotalLength();
 
-    // ✅ Set correct dash values
     path.style.strokeDasharray = totalLength;
     path.style.strokeDashoffset = totalLength;
 
@@ -29,7 +28,6 @@ export default function GrowthCard({ value }) {
 
         const drawLength = totalLength * progress;
 
-        // ✅ Animate line drawing
         path.style.strokeDashoffset = totalLength - drawLength;
 
         const pointAtLength = path.getPointAtLength(drawLength);
@@ -46,68 +44,24 @@ export default function GrowthCard({ value }) {
     animate();
   }, [value]);
 
-  // useEffect(() => {
-  //   const path = pathRef.current;
-  //   const totalLength = path.getTotalLength();
-
-  //   let progress = 0;
-
-  //   const animate = () => {
-  //     const target = value / 100;
-
-  //     if (progress < target) {
-  //       progress += 0.01;
-
-  //       const pointAtLength = path.getPointAtLength(progress * totalLength);
-
-  //       setPoint({
-  //         x: pointAtLength.x,
-  //         y: pointAtLength.y,
-  //       });
-
-  //       requestAnimationFrame(animate);
-  //     }
-  //   };
-
-  //   animate();
-  // }, [value]);
-
   return (
     <div
       className=" bg-white py-6 md:py-3 rounded-[30px] w-full h-[350px] md:h-[300px] xl:w-[200px] xl:h-[350px] aspect-[1/2.4] flex flex-col justify-between shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
               transition-all duration-300 hover:scale-105 "
     >
       <svg viewBox="0 0 120 360" className="w-full h-full px-0">
-        {/* 🌈 GRADIENT */}
         <defs>
           <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-            {/* ❌ No shade from 0 → value */}
             <stop offset={`${value}%`} stopColor="#6BD096" stopOpacity="0" />
 
-            {/* ✅ Shade AFTER value */}
             <stop offset={`${value}%`} stopColor="#6BD096" stopOpacity="0.25" />
 
             <stop offset="100%" stopColor="#6BD096" stopOpacity="0.4" />
           </linearGradient>
-
-          {/* <linearGradient id="areaGradient" x1="0" y1="0" x2="1" y2="1">
-            <stop offset={`${value}%`} stopColor="#6BD096" stopOpacity="0.2">
-              <animate
-                attributeName="stop-opacity"
-                values="0.4;0.7;0.4"
-                dur="3s"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop offset="100%" stopColor="#6BD096" stopOpacity="0" />
-          </linearGradient> */}
         </defs>
 
-        {/* 🌊 AREA */}
-        {/* <path d={`${pathD} L 120 360 L 120 0 Z`} fill="url(#areaGradient)" /> */}
         <path d={`${pathD} L 80 360 L 40 360 Z`} fill="url(#areaGradient)" />
 
-        {/* 📈 DRAWING PATH */}
         <path
           ref={pathRef}
           d={pathD}
@@ -119,7 +73,6 @@ export default function GrowthCard({ value }) {
           className="animate-draw"
         />
 
-        {/* 📏 DASHED GUIDE */}
         <line
           x1="30"
           y1="0"
@@ -129,7 +82,6 @@ export default function GrowthCard({ value }) {
           strokeDasharray="5 5"
         />
 
-        {/* 🎯 HORIZONTAL TRACK */}
         <line
           x1="0"
           y1={point.y}
@@ -140,7 +92,6 @@ export default function GrowthCard({ value }) {
           opacity="0.6"
         />
 
-        {/* 🔵 DOT */}
         <circle
           cx={point.x}
           cy={point.y}
@@ -150,7 +101,6 @@ export default function GrowthCard({ value }) {
         />
       </svg>
 
-      {/* TEXT */}
       <div className="text-center text-base text-dark-green">
         Increasing by{" "}
         <span className="font-semibold ">{Math.floor(value)}%</span>

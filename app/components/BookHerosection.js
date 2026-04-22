@@ -13,37 +13,88 @@ export default function BookHerosection({ bookStats }) {
   const [copied, setCopied] = useState(false);
   const [showDonation, setShowDonation] = useState(false);
 
-  // ALL STATES
+  // CONSTANTS
   const raisedTarget = 1500000;
   const goalCopies = 600;
 
   const sectionRef = useRef(null);
-  const [soldCopies, setSoldCopies] = useState(0);
-  const [soldCopiesInPercent, setSoldCopiesInPercent] = useState(0);
+  const cardRef = useRef(null);
+  const hasAnimatedRef = useRef(false);
+
+  // Card animation state
+  const [cardSoldCopies, setCardSoldCopies] = useState(0);
+  const [cardSoldPercent, setCardSoldPercent] = useState(0);
+
+  // Section animation state
+  const [sectionSoldCopies, setSectionSoldCopies] = useState(0);
+  const [sectionSoldPercent, setSectionSoldPercent] = useState(0);
+
   const [moneyRaised, setMoneyRaised] = useState(0);
   const [moneyRaisedInPercent, setMoneyRaisedInPercent] = useState(0);
   const [graphValue, setGraphValue] = useState(0);
 
+  // =========================
+  // CARD ANIMATION
+  // =========================
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!cardRef.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
 
         let progress = 0;
-        const duration = 60; // frames (~1 second)
+        const duration = 60;
 
         const animate = () => {
           progress++;
+          const percentage = progress / duration;
 
+          const currentSold = Math.floor(sold_copies * percentage);
+
+          setCardSoldCopies(currentSold);
+          setCardSoldPercent(Math.floor((currentSold / goalCopies) * 100));
+
+          if (progress < duration) {
+            requestAnimationFrame(animate);
+          }
+        };
+
+        animate();
+        observer.disconnect();
+      },
+      { threshold: 0 },
+    );
+
+    observer.observe(cardRef.current);
+
+    return () => observer.disconnect();
+  }, [sold_copies]);
+
+  // =========================
+  // STATS SECTION ANIMATION
+  // =========================
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || hasAnimatedRef.current) return;
+
+        hasAnimatedRef.current = true;
+
+        let progress = 0;
+        const duration = 60;
+
+        const animate = () => {
+          progress++;
           const percentage = progress / duration;
 
           const currentSold = Math.floor(sold_copies * percentage);
           const currentMoney = currentSold * a_copy_amount;
 
-          setSoldCopies(currentSold);
-          setSoldCopiesInPercent(Math.floor((currentSold / goalCopies) * 100));
+          setSectionSoldCopies(currentSold);
+          setSectionSoldPercent(Math.floor((currentSold / goalCopies) * 100));
 
           setMoneyRaised(currentMoney);
           setMoneyRaisedInPercent(
@@ -60,16 +111,19 @@ export default function BookHerosection({ bookStats }) {
         };
 
         animate();
-        observer.disconnect();
       },
-      { threshold: 0.5 },
+      {
+        threshold: 0,
+        rootMargin: "150px",
+      },
     );
 
     observer.observe(sectionRef.current);
 
     return () => observer.disconnect();
   }, [sold_copies, a_copy_amount]);
-  // =============
+
+  // =========================
   const handleCopy = () => {
     navigator.clipboard.writeText("8105810398");
     setCopied(true);
@@ -82,6 +136,7 @@ export default function BookHerosection({ bookStats }) {
   return (
     <div className="relative bg-dark-green min-h-screen pb-5 md:pb-[80px] lg:pb-[100px]">
       {/* Hero Image */}
+
       <div className="relative top-[-15px]">
         <Image
           src="/stolenbig.png"
@@ -99,7 +154,6 @@ export default function BookHerosection({ bookStats }) {
           {/* TEXT BLOCK */}
           <div className="relative font-satoshi">
             <h1 className="w-full pl-[200px] md:pl-[50px] lg:px-3 text-[20px] md:text-[40px] 2xl:text-[45px] text-center font-bold text-main-bg">
-              {/* “Nana’s Story isn’t Over. Let’s Build Her a Stronghold” */}
               Nana’s Story isn’t Over. Let’s Build Her a Stronghold
             </h1>
 
@@ -133,34 +187,30 @@ export default function BookHerosection({ bookStats }) {
           {/* SOLD BOOKS CARD */}
           <div className="block md:flex md:gap-3 items-center lg:block">
             <SoldBooksCounts
-              soldCopies={soldCopies}
-              soldCopiesInPercent={soldCopiesInPercent}
-              sectionRef={sectionRef}
+              soldCopies={cardSoldCopies}
+              soldCopiesInPercent={cardSoldPercent}
+              cardRef={cardRef}
             />
             <div className=" hidden md:block lg:hidden">
-              <GrowthCard sectionRef={sectionRef} value={graphValue} />
+              <GrowthCard value={graphValue} />
             </div>
           </div>
         </div>
       </div>
 
-      {/* STATS SECTION */}
-      <div className="w-full px-4 pt-10 md:pt-16">
+      {/* STATS */}
+      <div ref={sectionRef} className="w-full px-4 pt-10 md:pt-16">
         <StatsCards
-          soldCopies={soldCopies}
-          soldCopiesInPercent={soldCopiesInPercent}
+          soldCopies={sectionSoldCopies}
+          soldCopiesInPercent={sectionSoldPercent}
           moneyRaised={moneyRaised}
           moneyRaisedInPercent={moneyRaisedInPercent}
           raisedTarget={raisedTarget}
           goalCopies={goalCopies}
-          sectionRef={sectionRef}
           graphValue={graphValue}
         />
       </div>
 
-      {/* <div className="xl:h-[100px] 2xl:h-[200px] border-2" /> */}
-
-      {/* DONATION MODAL */}
       {showDonation && (
         <DonationCard
           setShowDonation={setShowDonation}
@@ -172,9 +222,13 @@ export default function BookHerosection({ bookStats }) {
   );
 }
 
-function SoldBooksCounts({ soldCopies, soldCopiesInPercent }) {
+// =========================
+function SoldBooksCounts({ soldCopies, soldCopiesInPercent, cardRef }) {
   return (
-    <div className="font-satoshi bg-white backdrop-blur-md rounded-2xl py-6 px-6 flex flex-col items-center gap-4 w-full md:w-[300px] xl:w-[400px] mx-auto shadow-lg transition-all duration-300 hover:scale-105">
+    <div
+      ref={cardRef}
+      className="font-satoshi bg-white backdrop-blur-md rounded-2xl py-6 px-6 flex flex-col items-center gap-4 w-full md:w-[300px] xl:w-[400px] mx-auto shadow-lg transition-all duration-300 hover:scale-105"
+    >
       <h1 className="text-dark-green font-bold text-[40px] xl:text-[100px] 2xl:text-[120px]">
         {soldCopies}+
       </h1>

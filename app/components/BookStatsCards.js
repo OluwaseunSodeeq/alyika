@@ -14,57 +14,8 @@ export default function StatsCards({
   goalCopies,
   moneyRaised,
   raisedTarget,
-  sectionRef,
   graphValue,
 }) {
-  // const sectionRef = useRef(null);
-  // const [raised, setRaised] = useState(0);
-  // const [sold, setSold] = useState(0);
-  // const [soldCopies, setSoldCopies] = useState(0);
-  // const goalAmount = 1500000;
-  // const goalCopies = 600;
-  // const raisedTarget = 563000;
-  // const soldPercent = 37;
-  // const soldCopiesPercent = 225;
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       const entry = entries[0];
-
-  //       if (entry.isIntersecting) {
-  //         let progress = 0;
-
-  //         const animate = () => {
-  //           if (progress <= 100) {
-  //             setRaised(Math.floor((raisedTarget * progress) / 100));
-  //             setSold(Math.floor((soldPercent * progress) / 100));
-  //             setSoldCopies(Math.floor((soldCopiesPercent * progress) / 100));
-
-  //             progress += 2;
-  //             requestAnimationFrame(animate);
-  //           }
-  //         };
-
-  //         animate();
-
-  //         observer.disconnect();
-  //       }
-  //     },
-  //     {
-  //       threshold: 0.3,
-  //     },
-  //   );
-
-  //   if (sectionRef.current) {
-  //     observer.observe(sectionRef.current);
-  //   }
-
-  //   return () => observer.disconnect();
-  // }, []);
-
-  // const raisedPercentage = (raised / 1500000) * 100;
-
   const segments = [
     { name: "A", value: 20, color: "#F78A8F" },
     { name: "B", value: 20, color: "#F69E66" },
@@ -86,10 +37,7 @@ export default function StatsCards({
   const activeColor = getActiveColor(soldCopiesInPercent);
 
   return (
-    <div
-      className="flex flex-col gap-4 px-3 xl:px-0 will-change-transform"
-      ref={sectionRef}
-    >
+    <div className="flex flex-col gap-4 px-3 xl:px-0 will-change-transform">
       <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
         {/* ================= CARD 1 =================   */}
         <div
