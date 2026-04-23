@@ -1,50 +1,55 @@
 import Image from "next/image";
 import Wrapper from "../../components/Wrapper";
 import Link from "next/link";
+import { PROJECTS } from "../../../lib/projectsData";
 
-const PROJECTS = {
-  gdft: {
-    tag: "GDFT",
-    title: "Green Dreamers for Tech",
-    currentParagraphs: [
-      "We use technology to educate and innovate, guiding young people to apply existing tools in protecting and connecting to the environment, while building solutions ourselves. We’ve worked with 5 schools since we started our tech-focused outreaches.",
-    ],
-    image: "/projects/project1.png",
-    projectlink:
-      "https://drive.google.com/drive/folders/11zjpNjerxMTRR6u9ZhjPbspn26bmzjNW?usp=drive_link",
-    linkText: "See more about GDFT",
-  },
+// const PROJECTS = {
+//   gdft: {
+//     tag: "GDFT",
+//     title: "Green Dreamers for Tech",
+//     description: [
+//       "We use technology to educate and innovate, guiding young people to apply existing tools in protecting and connecting to the environment, while building solutions ourselves. We’ve worked with 5 schools since we started our tech-focused outreaches.",
+//     ],
+//     image: "/projects/project1.png",
+//     projectlink:
+//       "https://drive.google.com/drive/folders/11zjpNjerxMTRR6u9ZhjPbspn26bmzjNW?usp=drive_link",
+//     linkText: "See more about GDFT",
+//   },
 
-  gds: {
-    tag: "GDS",
-    title: "Green Dreams Series",
-    currentParagraphs: [
-      "We tell stories of climate and environmental resilience, drawn from real cases and communities to amplify voices and create awareness about the lived experiences of people affected by climate and environmental injustice.",
-      'Our first story in the series, The Stolen Breath, was written by Abeedah Alabi. "The Stolen Breath" is a 99-page novel centered around climate education and resilience that chronicles the struggle of 11-year-old Nana to save her flood-threatened school in Itowolo.',
-    ],
-    image: "/projects/project2.png",
-    projectlink: "https://selar.com/thestolenbreath",
-    linkText: "Get the e-book ",
-  },
+//   gds: {
+//     tag: "GDS",
+//     title: "Green Dreams Series",
+//     description: [
+//       "We tell stories of climate and environmental resilience, drawn from real cases and communities to amplify voices and create awareness about the lived experiences of people affected by climate and environmental injustice.",
+//       'Our first story in the series, The Stolen Breath, was written by Abeedah Alabi. "The Stolen Breath" is a 99-page novel centered around climate education and resilience that chronicles the struggle of 11-year-old Nana to save her flood-threatened school in Itowolo.',
+//     ],
+//     image: "/projects/project2.png",
+//     projectlink: "https://selar.com/thestolenbreath",
+//     linkText: "Get the e-book ",
+//   },
 
-  gdc: {
-    tag: "GDC",
-    title: "Green Dreams Campaign",
-    currentParagraphs: [
-      "We run a sustainability pop culture community where we team up with members to get them fired up about protecting their communities.",
-    ],
-    image: "/projects/project3.png",
-    projectlink:
-      "https://docs.google.com/forms/d/e/1FAIpQLScV-2v7Cg6-IaAIgBjG8-qbw6CP3ch7q5D-bf6GJKdT8z4IkA/viewform?usp=header",
-    linkText: "Join our community",
-  },
-};
+//   gdc: {
+//     tag: "GDC",
+//     title: "Green Dreams Campaign",
+//     currentParagraphs: [
+//       "We run a sustainability pop culture community where we team up with members to get them fired up about protecting their communities.",
+//     ],
+//     image: "/projects/project3.png",
+//     projectlink:
+//       "https://docs.google.com/forms/d/e/1FAIpQLScV-2v7Cg6-IaAIgBjG8-qbw6CP3ch7q5D-bf6GJKdT8z4IkA/viewform?usp=header",
+//     linkText: "Join our community",
+//   },
+// };
 
 export default async function ProjectDetailsPage({ params }) {
-  const { id } = await params;
+  const { id } = params;
   const project = PROJECTS[id];
-  const { tag, title, currentParagraphs, image, projectlink, linkText } =
+  const { tag, title, description, image, projectlink, linkText, linkText2 } =
     project || {};
+
+  if (!project) {
+    return <p className="p-10">Project not found</p>;
+  }
 
   if (!project) {
     return <p className="p-10">Project not found</p>;
@@ -99,7 +104,7 @@ export default async function ProjectDetailsPage({ params }) {
             </h1>
 
             <div className="flex flex-col ">
-              {currentParagraphs.map((para, index) => (
+              {description.map((para, index) => (
                 <div
                   key={index}
                   className="text-black lg:text-[24px] 2xl:text-[30px] sm:text-[16px] md:text-[18px] mt-4 whitespace-pre-line leading-relaxed"

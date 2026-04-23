@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const impactStats = [
   {
-    title: "500+ Students Trained",
+    title: "100+ Students Trained",
     text: "We have directly equipped over 500 students with practical knowledge, giving them hands-on knowledge that supports their academic and career growth.",
     icon: "📘",
   },
@@ -20,7 +20,7 @@ const impactStats = [
     icon: "👥",
   },
   {
-    title: "20K+ Digital Impressions",
+    title: "12K+ Digital Impressions",
     text: "Our digital campaigns have generated over 20,000 impressions, showing strong online visibility, awareness, and community interest.",
     icon: "📱",
   },

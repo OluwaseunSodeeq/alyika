@@ -8,10 +8,11 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
-// ✨ Typing indicator
 function Cursor() {
   return (
-    <span className="text-gray-400 animate-pulse ml-1">Alyika is typing…|</span>
+    <span className="text-dark-green animate-pulse ml-1">
+      Alyika is searching…|
+    </span>
   );
 }
 
@@ -29,7 +30,7 @@ export default function ChatUI() {
 
   const messagesEndRef = useRef(null);
 
-  //user's location
+  // user location
   useEffect(() => {
     if (!navigator.geolocation) return;
 
@@ -46,14 +47,11 @@ export default function ChatUI() {
     });
   }, []);
 
-  //  Auto-scroll effect
+  // auto scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // ===============================
-  // 🔥 STREAM HANDLER
-  // ===============================
   const streamResponse = async (res) => {
     if (!res.body) return;
 
@@ -69,7 +67,6 @@ export default function ChatUI() {
       const chunk = decoder.decode(value);
       accumulated += chunk;
 
-      // smooth typing effect
       await new Promise((r) => setTimeout(r, 20));
 
       setMessages((prev) => {
@@ -85,16 +82,12 @@ export default function ChatUI() {
     }
   };
 
-  // ===============================
-  // 🚀 SEND MESSAGE (CLEAN)
-  // ===============================
   const sendMessage = async () => {
     if (!input.trim() || isTyping) return;
 
     const userMessage = input;
     setInput("");
 
-    // add user + empty bot message
     setMessages((prev) => [
       ...prev,
       { role: "user", content: userMessage },
@@ -111,12 +104,12 @@ export default function ChatUI() {
         },
         body: JSON.stringify({
           message: userMessage,
-          userCity, // 👈 key addition
+          userCity,
         }),
       });
 
       await streamResponse(res);
-    } catch (error) {
+    } catch {
       setMessages((prev) => {
         const updated = [...prev];
         updated[updated.length - 1].content = "⚠️ Something went wrong.";
@@ -128,16 +121,15 @@ export default function ChatUI() {
   };
 
   return (
-    <div className="flex flex-col h-full w-full">
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+    <>
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50">
         {messages.map((msg, i) => (
           <div
             key={i}
-            className={`max-w-[80%] p-3 rounded-lg ${
+            className={`max-w-[80%] px-4 py-2 rounded-xl text-sm leading-relaxed ${
               msg.role === "user"
-                ? "bg-blue-500 text-white self-end ml-auto"
-                : "bg-gray-100 text-black self-start"
+                ? "ml-auto bg-[#012f25] text-white rounded-br-none"
+                : "bg-white text-gray-800 rounded-bl-none shadow"
             }`}
           >
             {msg.content}
@@ -146,26 +138,41 @@ export default function ChatUI() {
             )}
           </div>
         ))}
+
         <div ref={messagesEndRef} />
       </div>
-
-      {/* Input */}
-      <div className="p-3 border-t flex gap-2">
+      {/* INPUT FIELD */}
+      <div className="p-3 border-t-dark-green flex gap-2 bg-main-bg">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask about weather, environment..."
-          className="flex-1 border rounded-lg px-3 py-2 outline-none"
+          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+          placeholder="Ask about weather, climate and ..."
+          className="
+            flex-1
+            px-4 py-2
+            rounded-md
+            border
+            outline-none
+            focus:ring-2
+            focus:ring-[#012f25]
+          "
         />
         <button
           onClick={sendMessage}
-          className="bg-green-600 text-white px-4 py-2 rounded-lg"
+          className="
+            px-5
+            rounded-full
+            bg-[#012f25]
+            text-white
+            hover:opacity-90
+          "
         >
           Send
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -1091,65 +1098,65 @@ export default function ChatUI() {
 // //     ]);
 // //   };
 
-// //   return (
-// //     <>
-// //       {/* Messages */}
-// //       <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50">
-// //         {messages.map((msg, i) => (
-// //           <div
-// //             key={i}
-// //             className={`max-w-[80%] px-4 py-2 rounded-xl text-sm leading-relaxed ${
-// //               msg.role === "user"
-// //                 ? "ml-auto bg-[#012f25] text-white rounded-br-none"
-// //                 : "bg-white text-gray-800 rounded-bl-none shadow"
-// //             }`}
-// //           >
-// //             {msg.content}
-// //           </div>
-// //         ))}
+//   return (
+//     <>
+//       {/* Messages */}
+//       <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50">
+//         {messages.map((msg, i) => (
+//           <div
+//             key={i}
+//             className={`max-w-[80%] px-4 py-2 rounded-xl text-sm leading-relaxed ${
+//               msg.role === "user"
+//                 ? "ml-auto bg-[#012f25] text-white rounded-br-none"
+//                 : "bg-white text-gray-800 rounded-bl-none shadow"
+//             }`}
+//           >
+//             {msg.content}
+//           </div>
+//         ))}
 
-// //         {isTyping && (
-// //           <div className="text-sm text-gray-400 animate-pulse">
-// //             Alyika is typing…
-// //           </div>
-// //         )}
+//         {isTyping && (
+//           <div className="text-sm text-gray-400 animate-pulse">
+//             Alyika is typing…
+//           </div>
+//         )}
 
-// //         <div ref={messagesEndRef} />
-// //       </div>
+//         <div ref={messagesEndRef} />
+//       </div>
 
-// //       {/* Input */}
-// //       <div className="p-3 border-t flex gap-2 bg-white">
-// //         <input
-// //           value={input}
-// //           onChange={(e) => setInput(e.target.value)}
-// //           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-// //           placeholder="Type your message..."
-// //           className="
-// //             flex-1
-// //             px-4 py-2
-// //             rounded-full
-// //             border
-// //             outline-none
-// //             focus:ring-2
-// //             focus:ring-[#012f25]
-// //           "
-// //         />
-// //         <button
-// //           onClick={sendMessage}
-// //           className="
-// //             px-5
-// //             rounded-full
-// //             bg-[#012f25]
-// //             text-white
-// //             hover:opacity-90
-// //           "
-// //         >
-// //           Send
-// //         </button>
-// //       </div>
-// //     </>
-// //   );
-// // }
+//       {/* Input */}
+//       <div className="p-3 border-t flex gap-2 bg-white">
+//         <input
+//           value={input}
+//           onChange={(e) => setInput(e.target.value)}
+//           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+//           placeholder="Type your message..."
+//           className="
+//             flex-1
+//             px-4 py-2
+//             rounded-full
+//             border
+//             outline-none
+//             focus:ring-2
+//             focus:ring-[#012f25]
+//           "
+//         />
+//         <button
+//           onClick={sendMessage}
+//           className="
+//             px-5
+//             rounded-full
+//             bg-[#012f25]
+//             text-white
+//             hover:opacity-90
+//           "
+//         >
+//           Send
+//         </button>
+//       </div>
+//     </>
+//   );
+// }
 
 // // ===============STEP ONE================
 // // "use client";

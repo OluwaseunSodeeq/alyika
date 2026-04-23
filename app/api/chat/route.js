@@ -27,7 +27,6 @@ export async function POST(req) {
       },
     });
 
-  // ✅ STEP 1: AI DOMAIN CHECK
   const isRelated = await isEnvironmentRelated(message);
 
   if (!isRelated) {
@@ -42,15 +41,13 @@ export async function POST(req) {
   // ✅ STEP 2: WEATHER (API + AI explanation)
   if (isWeatherQuery(message)) {
     try {
-      const city = extractCity(message) || "lagos";
-      const weatherRes = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/weather`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ city }),
-        },
-      );
+      const city = extractCity(message) || "Lagos";
+
+      const weatherRes = await fetch(`${req.nextUrl.origin}/api/weather`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ city }),
+      });
 
       const weatherData = await weatherRes.json();
 
@@ -68,6 +65,7 @@ export async function POST(req) {
 
       return streamResponse(stream, encoder);
     } catch {
+      console.error("Weather API error:", error);
       return new Response(streamText("❌ Couldn't fetch weather right now."), {
         status: 500,
       });

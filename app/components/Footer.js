@@ -102,11 +102,11 @@ export default function Footer() {
           </div>
           <div>
             <ul className="flex gap-7 md:gap-y-5 md:flex-col text-sm">
-              <Link href="/stolen-breath">
-                <li>Our Story</li>
-              </Link>
               <Link href="/join">
                 <li>Join Us</li>
+              </Link>
+              <Link href="/contact">
+                <li>Contact Us</li>
               </Link>
               <Link href="/gallery">
                 <li>Project Gallery</li>
