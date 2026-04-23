@@ -20,13 +20,6 @@ export default function HowWeWorkCard({ item, index }) {
           >
             Explore
           </Link>
-          {/* <Link href={item.link} passHref>
-            <button
-              className={` bg-main-bg text-dark-green cursor-pointer text-medium px-28 md:px-6 py-2 rounded-full shadow-sm transition `}
-            >
-              Explore
-            </button>
-          </Link> */}
         </div>
       </div>
     </div>

@@ -18,7 +18,6 @@ export default function ProjectCard({ eachProject }) {
     linkText2,
   } = eachProject;
   const [openDetails, setOpenDetails] = useState(false);
-
   const gdsCard = id === "gds";
   const textColor = "#ffffff";
   const btnBg = "#012f25";

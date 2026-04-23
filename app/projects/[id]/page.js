@@ -42,7 +42,7 @@ import { PROJECTS } from "../../../lib/projectsData";
 // };
 
 export default async function ProjectDetailsPage({ params }) {
-  const { id } = params;
+  const { id } = await params;
   const project = PROJECTS[id];
   const { tag, title, description, image, projectlink, linkText, linkText2 } =
     project || {};
