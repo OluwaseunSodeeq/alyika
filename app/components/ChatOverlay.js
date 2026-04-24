@@ -1,6 +1,6 @@
 "use client";
 import ChatUI from "./ChatUI";
-import { Logo, MobileLogo } from "./Logo";
+import { MobileLogo } from "./Logo";
 
 export default function ChatOverlay({ onClose }) {
   return (

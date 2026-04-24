@@ -134,9 +134,8 @@ export default function BookHerosection({ bookStats }) {
   const textColor = "#012f25";
 
   return (
-    <div className="relative bg-dark-green min-h-screen pb-5 md:pb-[80px] lg:pb-[100px]">
+    <div className="relative bg-dark-green min-h-screen pb-5 md:pb-[80px] lg:pb-[50px]">
       {/* Hero Image */}
-
       <div className="relative top-[-15px]">
         <Image
           src="/stolenbig.png"
@@ -209,6 +208,20 @@ export default function BookHerosection({ bookStats }) {
           goalCopies={goalCopies}
           graphValue={graphValue}
         />
+      </div>
+      <div className=" w-full 2xl:max-w-[1400px] lg:px-[2.7rem] bg-yellow  mt-15 py-3">
+        <div className="font-montserrat flex font-medium gap-3 flex-col-reverse md:flex-row justify-center items-center">
+          <Link
+            href="https://www.youtube.com/watch?feature=shared&v=Xb348ZCMDSc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-all duration-200 hover:scale-105 active:scale-95"
+          >
+            <button className="underline text-dark-green text-[16px] cursor-pointer px-4 ">
+              Learn More About Community Primary School Itowolo Here
+            </button>
+          </Link>
+        </div>
       </div>
 
       {showDonation && (

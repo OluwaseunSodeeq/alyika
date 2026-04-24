@@ -20,7 +20,6 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Floating Icon */}
       <div
         ref={widgetRef}
         onMouseDown={(e) => {

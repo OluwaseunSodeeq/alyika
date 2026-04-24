@@ -46,7 +46,7 @@ export default function GrowthCard({ value }) {
 
   return (
     <div
-      className=" bg-white py-6 md:py-3 rounded-[30px] w-full h-[350px] md:h-[300px] xl:w-[200px] xl:h-[350px] aspect-[1/2.4] flex flex-col justify-between shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
+      className=" bg-white py-6 md:py-3 rounded-[30px] w-[300px] md:w-full  h-[350px] md:h-[300px] xl:w-[200px] xl:h-[350px] aspect-[1/2.4] flex flex-col justify-between shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
               transition-all duration-300 hover:scale-105 "
     >
       <svg viewBox="0 0 120 360" className="w-full h-full px-0">

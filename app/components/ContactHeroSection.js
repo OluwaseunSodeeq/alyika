@@ -13,33 +13,15 @@ const whatSappHandler = () => {
   toast("Opening WhatsApp...");
   window.open(whatsappLink, "_blank");
 };
-//   ====================
 
+//   ====================
 export default function ContactHeroSection() {
-  // const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm();
-
-  // const onSubmit = async (data) => {
-  //   try {
-  //     await emailjs.send(
-  //       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-  //       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-  //       data,
-  //       process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-  //     );
-
-  //     toast.success("Message sent successfully!");
-  //     reset();
-  //   } catch (error) {
-  //     toast.error("Something went wrong. Please try again.");
-  //     console.error(error);
-  //   }
-  // };
 
   const onSubmit = async (data) => {
     const toastId = toast.loading("Sending message...");
@@ -66,9 +48,6 @@ export default function ContactHeroSection() {
 
     toast.error(firstError?.message || "Please fill all required fields");
   };
-  // const onError = (error) => {
-  //   toast.error(error.message || "Kindly fill the form correctly");
-  // };
 
   return (
     <section className="font-satoshi relative py-15 md:py-20 px-3 md:px-6 bg-white overflow-hidden">

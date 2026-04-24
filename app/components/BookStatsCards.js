@@ -1,5 +1,3 @@
-// "use client";
-// import { useEffect, useState, useRef } from "react";
 import { FaUser } from "react-icons/fa";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";

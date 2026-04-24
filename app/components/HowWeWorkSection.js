@@ -35,7 +35,6 @@ export default function HowWeWorkSection() {
   ];
 
   return (
-    // ✅ removed overflow-hidden from here — it was trapping the fixed backdrop
     <div className="px-[1rem] xl:px-[3.5rem] bg-dark-green relative">
       <div className="flex flex-col md:flex-row md:justify-between xl:px-4 pb-3 pt-[3rem] md:pt-[5rem]">
         <div className="font-satoshi text-main-bg text-[25px] xl:text-4xl">
@@ -44,7 +43,6 @@ export default function HowWeWorkSection() {
           <span className="font-light">into the following:</span>
         </div>
 
-        {/* ✅ Buttons only — no backdrop here */}
         <div className="flex gap-x-6 items-center mt-[3.4rem] md:mt-[5.4rem] relative z-20">
           <Link href="/projects" className="inline-block">
             <Button btnBg="#ffffff" textColor="#012f25">
@@ -53,7 +51,7 @@ export default function HowWeWorkSection() {
           </Link>
           <button
             onClick={() => setShowDonation(true)}
-            className="italic underline cursor-pointer font-montserrat text-[11px] font-medium text-main-bg mt-3.5"
+            className="italic underline cursor-pointer font-montserrat text-[11px] font-medium text-main-bg mt-3.5 transition-all duration-200 hover:scale-105 active:scale-95"
           >
             Support Us
           </button>
@@ -70,7 +68,6 @@ export default function HowWeWorkSection() {
         <Image src="/logo-bg.png" alt="logo" fill className="object-contain" />
       </div>
 
-      {/* ✅ Backdrop lives here — direct child of outermost div, renders last */}
       {showDonation && (
         <DonationCard
           setShowDonation={setShowDonation}

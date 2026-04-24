@@ -18,7 +18,7 @@ export default function Chatbot() {
     setMessages((prev) => [
       ...prev,
       { role: "user", content: userMessage },
-      { role: "bot", content: "" }, // 👈 placeholder
+      { role: "bot", content: "" },
     ]);
 
     const res = await fetch("/api/chat", {
@@ -47,31 +47,11 @@ export default function Chatbot() {
     }
   };
 
-  // const sendMessage = async () => {
-  //   if (!input.trim()) return;
-  //   console.log("User input:", input);
-
-  // const userMessage = { text: input, sender: "user" };
-  // setMessages((prev) => [...prev, userMessage]);
-  // setInput("");
-
-  // // Placeholder for API integration
-  // const botReply = await fetchBotReply(input);
-
-  // setMessages((prev) => [...prev, { text: botReply, sender: "bot" }]);
-  // };
-
-  // const fetchBotReply = async (userText) => {
-  //   // Replace this with real API call
-  //   return "I'm just a demo bot, but I'm listening!";
-  // };
-
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   return (
-    //    <div className=" w-full flex justify-center items-center border">
     <div className="fixed bottom-4   bg-white w-[90%] md:w-[40%] mx-auto h-[87%] shadow-xl rounded-lg flex flex-col border-2">
       <div className="bg-blue-600 text-white p-3 font-semibold text-center rounded-t-lg">
         Chatbot
@@ -107,6 +87,5 @@ export default function Chatbot() {
         </button>
       </div>
     </div>
-    // </div>
   );
 }

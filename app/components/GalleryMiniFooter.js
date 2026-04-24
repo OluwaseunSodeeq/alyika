@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import DonationCard from "./DonationCard";
+import Link from "next/link";
 
 export default function GalleryMiniFooter() {
   const [showDonation, setShowDonation] = useState(false);
@@ -21,9 +22,7 @@ export default function GalleryMiniFooter() {
           We update this regularly because our Dreamers never stop dreaming.
         </p>
         <div className="font-montserrat flex font-medium gap-3 flex-col-reverse md:flex-row justify-center items-center">
-          {/* ✅ External link (WhatsApp) */}
-          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-          <a
+          <Link
             href="https://whatsapp.com/channel/0029Vb7i8Px3rZZUJUPnh146"
             target="_blank"
             rel="noopener noreferrer"
@@ -31,17 +30,16 @@ export default function GalleryMiniFooter() {
             <Button btnBg={btnBg} textColor={textColor}>
               Join our community
             </Button>
-          </a>
+          </Link>
 
           <button
             onClick={() => setShowDonation(true)}
-            className="underline text-dark-green text-[14px] cursor-pointer "
+            className="underline text-dark-green text-[14px] cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95 "
           >
             Support a Project
           </button>
         </div>
 
-        {/* ✅ Backdrop lives here — direct child of outermost div, renders last */}
         {showDonation && (
           <DonationCard
             setShowDonation={setShowDonation}

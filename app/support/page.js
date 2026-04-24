@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { X, Copy, Check, Heart } from "lucide-react";
+// import { X, Copy, Check, Heart } from "lucide-react";
+// import SupportSliders from "../components/SupportSliders";
 import Link from "next/link";
 import Button from "../components/Button";
 import SupportSection from "../components/SupportSection";
-import SupportSliders from "../components/SupportSliders";
 import Wrapper from "../components/Wrapper";
 import { RightGradientDashedFadeLine } from "../components/GradientLines";
 import DonationCard from "../components/DonationCard";
@@ -43,7 +43,10 @@ export default function Page() {
               Donate Now!
             </Button>
 
-            <Link href="/contact">
+            <Link
+              href="/contact"
+              className="transition-all duration-200 hover:scale-105 active:scale-95"
+            >
               <button className="underline text-dark-green text-[14px] cursor-pointer ">
                 Contact Us
               </button>

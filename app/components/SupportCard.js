@@ -29,7 +29,6 @@ export default function SupportCard({ data, index }) {
           <p className="text-sm 2xl:text-[35px] lg:text-[26px] font-medium mt-8 mb-4">
             {text}
           </p>
-          {/* <Button variant={highlight ? "dark" : "primary"}>{btn}</Button> */}
         </div>
 
         {/* IMAGE */}

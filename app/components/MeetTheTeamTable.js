@@ -103,7 +103,6 @@ function ProfileOverlay({ person, close }) {
         </h2>
         {/* Official Role */}
         <div className="mt-3">
-          {/* <span className="text-sm text-gray-500">Role</span> */}
           <p className="font-semibold text-gray-800">{person["Role"]}</p>
         </div>
 
@@ -116,7 +115,6 @@ function ProfileOverlay({ person, close }) {
 
         {/* Vibe Role */}
         <div className="mt-3">
-          {/* <span className="text-sm text-gray-500">Vibe Role</span> */}
           <p className="font-semibold text-green-700">{person["Vibe Role"]}</p>
         </div>
       </div>

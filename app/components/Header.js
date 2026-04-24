@@ -10,7 +10,6 @@ import Navbody from "./NavBody";
 import Link from "next/link";
 
 export default function Header() {
-  // const [isOpen, setIsOpen] = useState(false);
   const { open } = useOpenContext();
   const { mobile } = useOpenContext();
 
@@ -25,14 +24,7 @@ export default function Header() {
     { name: "GDS", href: "/projects/gds" },
     { name: "GDC", href: "/projects/gdc" },
   ];
-  const dropDown2 = [
-    "More",
-    "Gallery",
-    "Support",
-    "Join",
-    "The-Stolen-Breath",
-    "Newsletter",
-  ];
+  const dropDown2 = ["More", "Gallery", "Support", "Join", "The-Stolen-Breath"];
 
   const bg = "#ffffff";
   const btnBg = "#012f25";

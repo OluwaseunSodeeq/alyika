@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+
 const slides = [
   {
     image: "/support1.png",
@@ -59,7 +60,6 @@ export default function SupportSliders() {
                 </span>
                 <span className="text-yellow  mb-[20px]">”</span>
               </h1>
-              {/* <p className="text-sm md:text-base">{slide.subtitle}</p> */}
             </div>
           </div>
         </div>

@@ -90,39 +90,57 @@ export default function Footer() {
           <div className="mt-10 md:mt-0">
             <ul className="text-sm flex gap-7 md:gap-y-5 md:flex-col">
               <Link href="/">
-                <li>Home</li>
+                <li className="transition-transform duration-200 ease-out hover:scale-105">
+                  Home
+                </li>
               </Link>
               <Link href="/about">
-                <li>About</li>
+                <li className="transition-transform duration-200 ease-out hover:scale-105">
+                  About
+                </li>
               </Link>
               <Link href="/projects">
-                <li>Projects</li>
+                <li className="transition-transform duration-200 ease-out hover:scale-105">
+                  Projects
+                </li>
               </Link>
             </ul>
           </div>
           <div>
             <ul className="flex gap-7 md:gap-y-5 md:flex-col text-sm">
               <Link href="/join">
-                <li>Join Us</li>
+                <li className="transition-transform duration-200 ease-out hover:scale-105">
+                  Join Us
+                </li>
               </Link>
               <Link href="/contact">
-                <li>Contact Us</li>
+                <li className="transition-transform duration-200 ease-out hover:scale-105">
+                  Contact Us
+                </li>
               </Link>
               <Link href="/gallery">
-                <li>Project Gallery</li>
+                <li className="transition-transform duration-200 ease-out hover:scale-105">
+                  Project Gallery
+                </li>
               </Link>
             </ul>
           </div>
           <div>
             <ul className="flex gap-7 md:gap-y-5 md:flex-col text-sm">
               <Link href="/impact">
-                <li>Impact</li>
+                <li className="transition-transform duration-200 ease-out hover:scale-105">
+                  Impact
+                </li>
               </Link>
               <Link href="/support">
-                <li>Support Us</li>
+                <li className="transition-transform duration-200 ease-out hover:scale-105">
+                  Support Us
+                </li>
               </Link>
               <Link href="/the-stolen-breath">
-                <li>The Stolen Breath</li>
+                <li className="transition-transform duration-200 ease-out hover:scale-105">
+                  The Stolen Breath
+                </li>
               </Link>
             </ul>
           </div>
@@ -141,15 +159,21 @@ export default function Footer() {
               <Link
                 href="https://www.linkedin.com/company/projectclimeset"
                 target="_blank"
+                className="transition-transform duration-200 hover:scale-110"
               >
                 <Linkedin className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
               </Link>
-              <Link href="https://x.com/projectclimeset" target="_blank">
+              <Link
+                href="https://x.com/projectclimeset"
+                target="_blank"
+                className="transition-transform duration-200 hover:scale-110"
+              >
                 <Twitter className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
               </Link>
               <Link
                 href="https://www.instagram.com/project_climeset?igsh=MWU2NXp2NW55Y2piag=="
                 target="_blank"
+                className="transition-transform duration-200 hover:scale-110"
               >
                 <InstagramIcon className="w-5 h-5 cursor-pointer text-white stroke-white stroke-[2]" />
               </Link>
@@ -170,15 +194,21 @@ export default function Footer() {
               <Link
                 href="https://www.linkedin.com/company/projectclimeset"
                 target="_blank"
+                className="transition-transform duration-200 hover:scale-110"
               >
                 <Linkedin className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
               </Link>
-              <Link href="https://x.com/projectclimeset" target="_blank">
+              <Link
+                href="https://x.com/projectclimeset"
+                target="_blank"
+                className="transition-transform duration-200 hover:scale-110"
+              >
                 <Twitter className="w-5 h-5 cursor-pointer text-white fill-white stroke-white stroke-[2]" />
               </Link>
               <Link
                 href="https://www.instagram.com/project_climeset?igsh=MWU2NXp2NW55Y2piag=="
                 target="_blank"
+                className="transition-transform duration-200 hover:scale-110"
               >
                 <Instagram className="w-5 h-5 cursor-pointer text-white stroke-white stroke-[2]" />
               </Link>

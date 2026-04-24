@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { SquareButton, SquareButtonBigSize } from "./SquareButton";
+import Link from "next/link";
 
 const items = [
   {
@@ -9,7 +10,6 @@ const items = [
     description:
       "Join our youth community, connect with like-minded peers, and access opportunities to learn, grow and lead.",
     image: "/green_dreamer.jpeg",
-    // image: "/join-5.jpg",
     bg: "#012F25",
     reverse: false,
   },
@@ -19,7 +19,6 @@ const items = [
     description:
       "Share your skills whether in leading climate and environmental education programs, design, coding, writing, fundraising, or even partnerships, and help place young people where they make the most impact with environmental sustainability.",
     image: "/volunteer_sir.jpeg",
-    // image: "/join-2.jpg",
     bg: "#fdcd31",
     reverse: true,
   },
@@ -38,7 +37,6 @@ const items = [
     description:
       "Launch a club in your school or community and empower youths to take action on climate issues.",
     image: "/local.jpg",
-    // image: "/join-4.jpg",
     bg: "#fdcd31",
     reverse: true,
   },
@@ -49,8 +47,7 @@ export default function Join() {
     <section className="w-full md:px-4 pt-10 pb-15 md:pt-16 md:pb-18 font-satoshi">
       {/* Header */}
       <div className="text-center mb-14">
-        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        <a
+        <Link
           href="https://whatsapp.com/channel/0029Vb7i8Px3rZZUJUPnh146"
           target="_blank"
           rel="noopener noreferrer"
@@ -58,7 +55,7 @@ export default function Join() {
           <SquareButton btnBg="#fdcd31" textColor="#012f25">
             Join the Movement
           </SquareButton>
-        </a>
+        </Link>
 
         <h2 className="text-[24px] md:text-[24px] lg:text-[30px] 2xl:text-[38px] font-semibold text-dark-green mt-4">
           Here at Climeset,
@@ -111,8 +108,7 @@ export default function Join() {
                   {item.description}
                 </p>
                 <div className="mt-10">
-                  {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-                  <a
+                  <Link
                     href="https://docs.google.com/forms/d/e/1FAIpQLSeSDq9c0lHfmWGWAnK5oHID6UgZAZQzosnWMfHCJc-ItjV5AA/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -123,7 +119,7 @@ export default function Join() {
                     >
                       Join us
                     </SquareButtonBigSize>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -25,12 +25,12 @@ export default function HerosecRightCard() {
     },
   ];
 
-  const leftClick = () => {
-    setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
-  const rightClick = () => {
-    setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
+  // const leftClick = () => {
+  //   setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  // };
+  // const rightClick = () => {
+  //   setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  // };
   const current = testimonials[index];
 
   return (
@@ -71,7 +71,7 @@ export default function HerosecRightCard() {
           )}
         </div>
 
-        <div className="absolute top-12 md:top-[12rem] xl:top-[7rem] left-1/2 -translate-x-1/2 xl:translate-x-0 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[90%] md:w-[95%] xl:max-w-[16rem] shadow-md">
+        <div className="absolute top-12 md:top-[12rem] xl:top-[7rem] left-1/2 -translate-x-1/2 xl:translate-x-0 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[90%] md:w-[95%] xl:max-w-[16rem] shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div className=" flex items-center gap-2">
             <div className="relative w-[90%] h-[140px] md:w-[50%] xl:w-[130px] xl:h-[126px]">
               <Image
@@ -180,7 +180,6 @@ function Subscribe({ btnBg, textColor }) {
       setIsSuccess(true);
       setEmail("");
 
-      // ⏳ Hide message after 3s
       setTimeout(() => {
         setMessage("");
       }, 3000);

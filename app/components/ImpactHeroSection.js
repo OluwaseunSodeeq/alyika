@@ -6,7 +6,7 @@ import Link from "next/link";
 const impactStats = [
   {
     title: "100+ Students Trained",
-    text: "We have directly equipped over 500 students with practical knowledge, giving them hands-on knowledge that supports their academic and career growth.",
+    text: "We have directly equipped over 100 students with practical knowledge, giving them hands-on knowledge that supports their academic and career growth.",
     icon: "📘",
   },
   {
@@ -21,7 +21,7 @@ const impactStats = [
   },
   {
     title: "12K+ Digital Impressions",
-    text: "Our digital campaigns have generated over 20,000 impressions, showing strong online visibility, awareness, and community interest.",
+    text: "Our digital campaigns have generated over 12,000 impressions, showing strong online visibility, awareness, and community interest.",
     icon: "📱",
   },
 ];
@@ -75,8 +75,9 @@ export default function ImpactHeroSection() {
                   href="https://www.instagram.com/project_climeset/reels/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95"
                 >
-                  <span className="italic text-dark-green cursor-pointer underline font-montserrat  font-bold text-base md:text-[22px] 2xl:text-[28px]">
+                  <span className="italic text-dark-green underline font-montserrat  font-bold text-base md:text-[22px] 2xl:text-[28px] ">
                     Watch Stories Link
                   </span>
                 </Link>

@@ -19,7 +19,7 @@ export async function GET() {
       role: row["Role"],
     }));
 
-  // ✅ UPSERT (prevents duplicates)
+  //  UPSERT ( to prevents duplicates)
   const { error } = await supabase.from("team").upsert(members, {
     onConflict: "first_name,last_name,role",
   });

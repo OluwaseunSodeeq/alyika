@@ -11,20 +11,7 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
-// const images = [
-//   "/workshop1.png",
-//   "/workshop2.png",
-//   "/workshop3.png",
-//   "/workshop4.png",
-//   "/workshop5.png",
-//   "/workshop6.png",
-//   "/workshop7.png",
-//   "/workshop8.png",
-//   "/workshop9.png",
-//   "/workshop10.png",
-// ];
-
-const imagess = [
+const images = [
   "/gallery/gallery1.png",
   "/gallery/gallery2.png",
   "/gallery/gallery3a.png",
@@ -75,7 +62,7 @@ export default function GalleryHeroSection() {
         className="flex gap-6"
         columnClassName="masonry-column"
       >
-        {imagess.map((src, index) => (
+        {images.map((src, index) => (
           <WorkshopCard key={index} image={src} />
         ))}
       </Masonry>

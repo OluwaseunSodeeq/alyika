@@ -43,7 +43,7 @@ export default function ProjectCard({ eachProject }) {
       <div className=" md:mt-4 flex flex-col md:flex-row gap-4 md:items-center md:gap-x-12">
         <Link
           href={projectlink}
-          className="text-dark-green hover:underline mt-4"
+          className="text-dark-green hover:underline mt-4 cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -51,7 +51,10 @@ export default function ProjectCard({ eachProject }) {
         </Link>
 
         {gdsCard && (
-          <Link href="/the-stolen-breath" className="">
+          <Link
+            href="/the-stolen-breath"
+            className="cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95 md:mt-3"
+          >
             <BoldButton btnBg={btnBg} textColor={textColor}>
               {linkText2}
             </BoldButton>

@@ -46,12 +46,12 @@ export default function WhatWeDoSection() {
       <div className="mt-[1.5rem] md:mt-[4rem] ">
         <div className="flex items-center flex-col-reverse md:gap-x-8 xl:gap-[2.8rem]  md:justify-center md:flex-row ">
           <div
-            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[39.6rem] xl:h-[17rem] relative mt-5 md:mt-0 rounded-lg "
+            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[39.6rem] xl:h-[17rem] relative mt-5 md:mt-0 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             style={{
               backgroundImage: "url('/whatwedo01.jpg')",
             }}
           >
-            <div className="absolute xl:left-[2rem] bottom-0   xl:bottom-[7%] bg-main-bg/80 xl:w-[25rem] rounded-md">
+            <div className="absolute xl:left-[2rem] bottom-0   xl:bottom-[7%] transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-main-bg/80 xl:w-[25rem] rounded-md">
               <p className="font-satoshi font-normal text-sm p-4 ">
                 <span className="font-bold">
                   We use technology to educate and innovate,{" "}
@@ -75,12 +75,12 @@ export default function WhatWeDoSection() {
       <div className="flex items-center justify-center flex-col md:flex-row gap-y-5 md:gap-x-7 xl:gap-x-6 mt-5 xl:mt-0 mb-5 xl:mb-0 ">
         <div className="flex items-center xl:gap-[2.8rem]">
           <div
-            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[33.3rem] xl:h-[17rem] relative rounded-lg"
+            className="bg-cover bg-center bg-no-repeat gradient-border w-[360px] h-[300px] xl:w-[33.3rem] xl:h-[17rem] relative rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             style={{
               backgroundImage: "url('/whatwedo.png')",
             }}
           >
-            <div className="absolute xl:left-[2rem] bottom-0  xl:bottom-[7%] bg-main-bg/80 xl:w-[70%] rounded-md">
+            <div className="absolute xl:left-[2rem] bottom-0  xl:bottom-[7%] transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-main-bg/80 xl:w-[70%] rounded-md">
               <p className=" font-normal text-sm p-4 ">
                 <span className="font-bold">We run digital campaigns </span>
                 where we team up with creators to get young people fired up
@@ -90,7 +90,7 @@ export default function WhatWeDoSection() {
           </div>
         </div>
 
-        <div className=" w-[360px]  h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg overflow-hidden">
+        <div className=" w-[360px]  h-[300px] xl:w-[21rem] xl:h-[17rem] relative rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <Image
             src="/hero22.png"
             alt="cover"
@@ -100,7 +100,7 @@ export default function WhatWeDoSection() {
             priority
           />
 
-          <div className="absolute xl:left-[1rem] bottom-0 xl:bottom-[7%] bg-main-bg/80 xl:w-[90%] rounded-md">
+          <div className="absolute xl:left-[1rem] bottom-0 xl:bottom-[7%] transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-main-bg/80 xl:w-[90%] rounded-md">
             <p className="font-normal text-sm p-4">
               <span className="font-bold">We tell stories of climate </span>
               and environmental resilience, drawn from true-life cases and
@@ -110,19 +110,19 @@ export default function WhatWeDoSection() {
           </div>
         </div>
 
-        <div className="block md:hidden xl:block  xl:w-[17.8rem] xl:h-[12.8rem] shadow-sm mt-4 px-2 pt-2 rounded-sm relative ">
+        <div className="block md:hidden xl:block  xl:w-[17.8rem] xl:h-[12.8rem] shadow-sm mt-4 px-2 pt-2 rounded-sm relative transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <p className="font-satoshi font-medium text-center text-[19px] xl:text-4xl text-dark-green">
             Want to know where it all started?
           </p>
 
-          <div className="w-[15rem] absolute top-14 left-1/2 -translate-x-1/2  md:bottom-2 xl:top-30 flex items-center justify-center gap-x-4 md:gap-x-2">
+          <div className="w-[15rem] absolute top-14 left-1/2 -translate-x-1/2  md:bottom-2 xl:top-30 flex items-center justify-center gap-x-4 md:gap-x-2 ">
             <Link href="/about" className="inline-block">
               <Button btnBg="#012f25" textColor="#ffffff">
                 About Us
               </Button>
             </Link>
             <Link href="/projects" className="inline-block">
-              <button className="italic cursor-pointer underline font-montserrat text-[11px] font-medium">
+              <button className="italic cursor-pointer underline font-montserrat text-[11px] font-medium transition-all duration-200 hover:scale-105 active:scale-95">
                 See our Projects
               </button>
             </Link>

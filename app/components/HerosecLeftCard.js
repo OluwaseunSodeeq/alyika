@@ -64,7 +64,7 @@ export default function HerosecLeftCard() {
 
         <button
           onClick={() => setShowDonation(true)}
-          className="underline text-light-green text-[14px] cursor-pointer "
+          className="underline text-light-green text-[14px] cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95"
         >
           Support a Project
         </button>

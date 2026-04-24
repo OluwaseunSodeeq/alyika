@@ -1,10 +1,3 @@
-// Questions
-// What’s the weather in Lagos?
-// tell me about ozone Layer
-// What is pollution?
-// What is exclipse of the sun?
-// what are the names of artemis 2.0 crew members?
-
 "use client";
 import { useState, useEffect, useRef } from "react";
 
