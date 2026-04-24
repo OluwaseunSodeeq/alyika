@@ -6,6 +6,7 @@ import DonationCard from "./DonationCard";
 import StatsCards from "./BookStatsCards";
 import GrowthCard from "./GrowthCard";
 import { BoldButton } from "./Button";
+import ImageOptimizer from "./ImageOptimizer";
 
 export default function BookHerosection({ bookStats }) {
   const { sold_copies, a_copy_amount } = bookStats;
@@ -135,7 +136,6 @@ export default function BookHerosection({ bookStats }) {
 
   return (
     <div className="relative bg-dark-green min-h-screen pb-5 md:pb-[80px] lg:pb-[50px]">
-      {/* Hero Image */}
       <div className="relative top-[-15px]">
         <Image
           src="/stolenbig.png"
