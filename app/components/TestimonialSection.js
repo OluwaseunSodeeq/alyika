@@ -8,7 +8,7 @@ export default function TestimonialSection() {
   const testimonialArray = [
     {
       rating: "5",
-      text: "“The Stolen Breath had:Good character development, good scripting, and good narration; educational and informative.”",
+      text: "“The micro lessons, policy recommendations, and the discussion guide in The Stolen Breath made the book cover a larger demograph of people. So now teachers can use it, and policy makers can reference it.”",
       name: "Magnus Imam",
       image: "/imam.png",
       title: "Founder ZeroUp Initiative",

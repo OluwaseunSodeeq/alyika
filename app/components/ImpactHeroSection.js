@@ -78,7 +78,7 @@ export default function ImpactHeroSection() {
                   className="cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95"
                 >
                   <span className="italic text-dark-green underline font-montserrat  font-bold text-base md:text-[22px] 2xl:text-[28px] ">
-                    Watch Stories Link
+                    Watch Stories
                   </span>
                 </Link>
               </div>
