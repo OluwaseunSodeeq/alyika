@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Alyika Chatbot",
-  description: "Environmental Awareness Chatbot",
+  title: "Project Climeset",
+  description: "Environmental Awareness Platform",
 };
 
 export default function RootLayout({ children }) {
