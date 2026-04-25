@@ -19,7 +19,7 @@ export default function HerosecRightCard() {
   const testimonials = [
     {
       rating: "5",
-      text: "“The Stolen Breath had: Good character development, good scripting, and good narration; educational and informative.”",
+      text: "“The micro lessons, policy recommendations, and the discussion guide in The Stolen Breath made the book cover a larger demograph of people.”",
       name: "Magnus Imam",
       image: "/imam.png",
       bgImage: "/bgImage0.png",
@@ -83,7 +83,7 @@ export default function HerosecRightCard() {
         </div>
 
         {/* CARD */}
-        <div className="absolute z-20 top-12 md:top-[12rem] xl:top-[7rem] left-1/2 -translate-x-1/2 xl:translate-x-0 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[90%] md:w-[95%] xl:max-w-[16rem] shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div className="absolute z-20 top-12 md:top-[12rem] xl:top-[7rem] left-1/2 -translate-x-1/2 xl:translate-x-0 xl:left-6 bg-yellow px-3 py-3.5 rounded-xl w-[90%] md:w-[95%] xl:max-w-[19rem] shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div className="flex items-center gap-2">
             <div className="relative w-[90%] h-[140px] md:w-[50%] xl:w-[130px] xl:h-[126px]">
               <Image
@@ -96,7 +96,7 @@ export default function HerosecRightCard() {
               />
             </div>
 
-            <div className="w-full flex flex-col md:w-[121px]">
+            <div className="w-full flex flex-col md:w-[121px] lg:w-[150px]">
               <div className="flex gap-x-2 text-dark-green">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
@@ -110,7 +110,7 @@ export default function HerosecRightCard() {
                 ))}
               </div>
 
-              <p className="text-[14.5px] xl:text-xs text-dark-green mt-1">
+              <p className="text-[14.5px] xl:text-xs text-dark-green mt-1 ">
                 {current.text}
               </p>
             </div>

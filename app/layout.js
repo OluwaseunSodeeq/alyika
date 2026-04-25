@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 
 export const metadata = {
   title: "Project Climeset",
-  description: "Environmental Awareness Platform",
+  description: "Building Green Dreams",
 };
 
 export default function RootLayout({ children }) {
