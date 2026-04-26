@@ -19,6 +19,18 @@ export async function POST(req) {
 
   const encoder = new TextEncoder();
 
+  function isAlyikaQuestion(message) {
+    const msg = message.toLowerCase();
+
+    return (
+      msg.includes("who are you") ||
+      msg.includes("tell me about yourself") ||
+      msg.includes("what are you") ||
+      msg.includes("what is alyika") ||
+      msg.includes("tell me about alyika")
+    );
+  }
+
   const streamText = (text) =>
     new ReadableStream({
       start(controller) {
@@ -28,17 +40,29 @@ export async function POST(req) {
     });
 
   const isRelated = await isEnvironmentRelated(message);
+  const isAlyika = isAlyikaQuestion(message);
 
-  if (!isRelated) {
+  if (isAlyikaQuestion(message)) {
     return new Response(
       streamText(
-        "Sorry, I can only help with weather, cliamte, environment, and sustainability topics.",
+        "I’m Alyika, your learning companion that explains weather, climate and environmental sustainability topics in a simple and conversational way. I love sharing information that can inspire you to care for our planet and make eco-friendly choices. If you have any questions about the environment or how to live sustainably, feel free to ask! Let’s learn together!",
+      ),
+      {
+        headers: { "Content-Type": "text/plain; charset=utf-8" },
+      },
+    );
+  }
+
+  if (!isRelated && !isAlyika) {
+    return new Response(
+      streamText(
+        "Sorry, I can only help with weather, climate, environment, and sustainability topics.",
       ),
       { headers: { "Content-Type": "text/plain; charset=utf-8" } },
     );
   }
 
-  // WEATHER (API + AI explanation)
+  // WEATHER (API and AI explanation)
   if (isWeatherQuery(message)) {
     try {
       const city = extractCity(message) || "Lagos";
