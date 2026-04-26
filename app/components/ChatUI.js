@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 function Cursor({ started }) {
   return (
     <span className="ml-1 animate-pulse text-dark-green">
-      {started ? "|" : " Alyika is typing…"}
+      {started ? "|" : " Alyika is searching…"}
     </span>
   );
 }
